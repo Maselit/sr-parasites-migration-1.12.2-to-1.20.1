@@ -1,0 +1,58 @@
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  net.minecraft.client.model.ModelBase
+ *  net.minecraft.client.renderer.GlStateManager
+ *  net.minecraft.client.renderer.entity.RenderLiving
+ *  net.minecraft.client.renderer.entity.RenderManager
+ *  net.minecraft.entity.EntityLivingBase
+ *  net.minecraft.util.ResourceLocation
+ *  net.minecraft.util.math.MathHelper
+ */
+package com.dhanantry.scapeandrunparasites.client.renderer.entity.infected;
+
+import com.dhanantry.scapeandrunparasites.client.model.entity.infected.ModelDorpa;
+import com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityDorpa;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+
+public class RenderDorpa
+extends RenderLiving<EntityDorpa> {
+    public static final ResourceLocation TEXTURE = new ResourceLocation("srparasites:textures/entity/monster/dorpa.png");
+    public static final ResourceLocation TEXTURE2 = new ResourceLocation("srparasites:textures/entity/monster/dorpa2.png");
+
+    public RenderDorpa(RenderManager manager) {
+        super(manager, (ModelBase)new ModelDorpa(), 1.2f);
+    }
+
+    protected void preRenderCallback(EntityDorpa entitylivingbaseIn, float partialTickTime) {
+        float f = entitylivingbaseIn.getSelfeFlashIntensity(partialTickTime);
+        float f1 = 1.0f + MathHelper.sin((float)(f * 100.0f)) * f * 0.01f;
+        f = MathHelper.clamp((float)f, (float)0.0f, (float)1.0f);
+        f *= f;
+        f *= f;
+        float f2 = (1.0f + f * 0.4f) * f1;
+        float f3 = (1.0f + f * 0.1f) / f1;
+        GlStateManager.scale((float)(0.78f * f2), (float)(0.78f * f3), (float)(0.78f * f2));
+    }
+
+    protected ResourceLocation getEntityTexture(EntityDorpa entity) {
+        switch (entity.getSkin()) {
+            case 1: {
+                return TEXTURE2;
+            }
+        }
+        return TEXTURE;
+    }
+
+    protected void applyRotations(EntityDorpa entityLiving, float ageInTicks, float rotationYaw, float partialTicks) {
+        super.applyRotations((EntityLivingBase)entityLiving, ageInTicks, rotationYaw, partialTicks);
+    }
+}
+

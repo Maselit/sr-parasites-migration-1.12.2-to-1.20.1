@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "srparasites:blocks/infestedore_gol",
+    "down": "srparasites:blocks/infestedore_gol",
+    "up": "srparasites:blocks/infestedore_gol",
+    "east": "srparasites:blocks/infestedore_gol",
+    "west": "srparasites:blocks/infestedore_gol",
+    "north": "srparasites:blocks/infestedore_gol",
+    "south": "srparasites:blocks/infestedore_gol"
+  }
+}

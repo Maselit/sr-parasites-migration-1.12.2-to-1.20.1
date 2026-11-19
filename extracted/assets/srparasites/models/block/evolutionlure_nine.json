@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "particle": "srparasites:blocks/evolutionlure_nine_down",
+    "down": "srparasites:blocks/evolutionlure_nine_down",
+    "up": "srparasites:blocks/evolutionlure_nine_up",
+    "east": "srparasites:blocks/evolutionlure_nine_side",
+    "west": "srparasites:blocks/evolutionlure_nine_side",
+    "north": "srparasites:blocks/evolutionlure_nine_side",
+    "south": "srparasites:blocks/evolutionlure_nine_side"
+  }
+}

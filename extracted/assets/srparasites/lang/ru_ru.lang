@@ -1,0 +1,672 @@
+//Entities
+
+entity.srparasites.pri_longarms.name=Примитивный Длиннорукий
+entity.srparasites.pri_manducater.name=Примитивный Исчезатель
+entity.srparasites.pri_summoner.name=Примитивный Призыватель
+entity.srparasites.pri_reeker.name=Примитивный Вонючка
+entity.srparasites.pri_yelloweye.name=Примитивный Желтоглаз
+entity.srparasites.pri_bolster.name=Примитивный Подстрекатель
+entity.srparasites.pri_arachnida.name=Примитивная Арахнида
+entity.srparasites.pri_devourer.name=Примитивный Пожиратель
+entity.srparasites.pri_vermin.name=Примитивный Вредитель
+entity.srparasites.pri_tozoon.name=Примитивный Тозун
+
+entity.srparasites.host.name=Носитель
+entity.srparasites.hostii.name=Прорва
+entity.srparasites.crux.name=Извечный
+entity.srparasites.heed.name=Бдитель
+entity.srparasites.thrall.name=Невольник
+
+entity.srparasites.sim_bear.name=Ассимилированный Медведь
+entity.srparasites.sim_squid.name=Ассимилированный Спрут
+entity.srparasites.sim_enderman.name=Ассимилированный Эндермен
+entity.srparasites.sim_endermanhead.name=Ходячая голова
+entity.srparasites.sim_adventurer.name=Ассимилированный Путешественник
+entity.srparasites.sim_adventurerhead.name=Ходячая голова
+entity.srparasites.sim_bigspider.name=Ассимилированный большой паук
+entity.srparasites.sim_human.name=Ассимилированный Человек
+entity.srparasites.sim_humanhead.name=Ходячая голова
+entity.srparasites.sim_villager.name=Ассимилированный Крестьянин
+entity.srparasites.sim_villagerhead.name=Ходячая голова
+entity.srparasites.sim_cow.name=Ассимилированная Корова
+entity.srparasites.sim_cowhead.name=Ходячая голова
+entity.srparasites.sim_horse.name=Ассимилированная Лошадь
+entity.srparasites.sim_horsehead.name=Ходячая голова
+entity.srparasites.sim_pig.name=Ассимилированная Свинья
+entity.srparasites.sim_pighead.name=Ходячая голова
+entity.srparasites.sim_sheep.name=Ассимилированная Овца
+entity.srparasites.sim_sheephead.name=Ходячая голова
+entity.srparasites.sim_wolf.name=Ассимилированный Волк
+entity.srparasites.sim_wolfhead.name=Ходячая голова
+entity.srparasites.incompleteform_medium.name=Незавершённая форма
+entity.srparasites.incompleteform_small.name=Незавершённая форма
+entity.srparasites.sim_dragone.name=Ассимилированный Дракон Края
+entity.srparasites.sim_dragonehead.name=Ходячая голова
+
+entity.srparasites.fer_cow.name=Бешеная Корова
+entity.srparasites.fer_bear.name=Бешеный Медведь
+entity.srparasites.fer_enderman.name=Бешеный Эндермен
+entity.srparasites.fer_human.name=Бешеный Человек
+entity.srparasites.fer_horse.name=Бешеная Лошадь
+entity.srparasites.fer_sheep.name=Бешеная Овца
+entity.srparasites.fer_pig.name=Бешеная Свинья
+entity.srparasites.fer_villager.name=Бешеный Крестьянин
+entity.srparasites.fer_wolf.name=Бешеный Волк
+
+entity.srparasites.hi_blaze.name=Захваченный Ифрит
+entity.srparasites.hi_golem.name=Захваченный Голем
+entity.srparasites.hi_skeleton.name=Захваченный Скелет
+
+entity.srparasites.overseer.name=Надзиратель
+entity.srparasites.bomber_light.name=Лёгкий Бомбардир
+entity.srparasites.carrier_heavy.name=Тяжёлый Переносчик
+entity.srparasites.carrier_light.name=Лёгкий Переносчик
+entity.srparasites.buglin.name=Баглин
+entity.srparasites.mangler.name=Кромсатель
+entity.srparasites.gnat.name=Букашка
+entity.srparasites.worker.name=Рабочий
+entity.srparasites.carrier_flying.name=Летающий Переносчик
+entity.srparasites.rupter.name=Руптер
+entity.srparasites.beckon_si.name=Маяк стадии I
+entity.srparasites.beckon_sii.name=Маяк стадии II
+entity.srparasites.beckon_siii.name=Маяк стадии III
+entity.srparasites.beckon_siv.name=Маяк стадии IV
+entity.srparasites.beckon_sv.name=Маяк стадии V
+entity.srparasites.warden.name=Хранитель
+entity.srparasites.marauder.name=Мародёр
+entity.srparasites.monarch.name=Монарх
+entity.srparasites.grunt.name=Пехотинец
+entity.srparasites.sentry.name=Часовой
+entity.srparasites.kyphosis.name=Кифоз
+entity.srparasites.dispatcherten.name=Щупальце Исполнителя
+entity.srparasites.dispatcher_si.name=Исполнитель стадии I
+entity.srparasites.dispatcher_sii.name=Исполнитель стадии II
+entity.srparasites.dispatcher_siii.name=Исполнитель стадииIII
+entity.srparasites.dispatcher_siv.name=Исполнитель стадии IV
+entity.srparasites.seizer.name=Хвататель
+
+entity.srparasites.bomber_heavy.name=Тяжёлый Бомбардик
+entity.srparasites.carrier_colony.name=Колониальный Переносчик
+entity.srparasites.wraith.name=Призрак
+entity.srparasites.bogle.name=Фантом
+entity.srparasites.haunter.name=Преследователь
+entity.srparasites.succor.name=Помощник
+entity.srparasites.seeker.name=Искатель
+entity.srparasites.architect.name=Архитектор
+
+entity.srparasites.draconite.name=§9Драконит
+
+entity.srparasites.anc_dreadnaut.name=Дредноут
+entity.srparasites.anc_overlord.name=Владыка
+entity.srparasites.vigilante.name=Линчеватель
+entity.srparasites.movingflesh.name=Движущаяся Плоть
+entity.srparasites.tendril.name=Усик
+entity.srparasites.anc_pod.name=Кокон
+entity.srparasites.biomass.name=Биомасса
+entity.srparasites.gore.name=Кровь
+
+entity.srparasites.ada_longarms.name=Адаптировавшийся Длиннорукий
+entity.srparasites.ada_summoner.name=Адаптировавшийся Призыватель
+entity.srparasites.ada_manducater.name=Адаптировавшийся Исчезатель
+entity.srparasites.ada_reeker.name=Адаптировавшийся Вонючка
+entity.srparasites.ada_yelloweye.name=Адаптировавшийся Желтоглаз
+entity.srparasites.ada_bolster.name=Адаптировавшийся Подстрекатель
+entity.srparasites.ada_arachnida.name=Адаптировавшаяся Арахнида
+
+entity.srparasites.wave.name=Волна
+entity.srparasites.waveshock.name=Шоковая Волна
+entity.srparasites.remain.name=Останки
+//Creative Tab
+
+itemGroup.Scape & Run: Parasites=Scape and Run: Parasites
+
+//Items
+item.srparasites.itemmobspawner_pod.name=Призвать Кокон
+
+item.srparasites.itemmobspawner_host.name=Призвать Носителя
+item.srparasites.itemmobspawner_hostii.name=Призвать Прорву
+item.srparasites.itemmobspawner_heed.name=Призвать Бдителя
+item.srparasites.itemmobspawner_cruxa.name=Призвать Извечного
+item.srparasites.itemmobspawner_mes.name=Призвать Невольника
+
+item.srparasites.itemmobspawner_infbear.name=Призвать Ассимилированного Медведя
+item.srparasites.itemmobspawner_infsquid.name=Призвать Ассимилированного Спрута
+item.srparasites.itemmobspawner_infenderman.name=Призвать Ассимилированного Эндермена
+item.srparasites.itemmobspawner_infendermanhead.name=Призвать ходячую голову Эндермена
+item.srparasites.itemmobspawner_infplayer.name=Призвать Ассимилированного Путешественника
+item.srparasites.itemmobspawner_infplayerhead.name=Призвать ходячую голову Путешественника
+item.srparasites.itemmobspawner_dorpa.name=Призвать Ассимилированного большого Паука
+item.srparasites.itemmobspawner_infhuman.name=Призвать Ассимилированного Человека
+item.srparasites.itemmobspawner_infhumanhead.name=Призвать ходячую голову Человека
+item.srparasites.itemmobspawner_infvillager.name=Призвать Ассимилированного Крестьянина
+item.srparasites.itemmobspawner_infvillagerhead.name=Призвать ходячую голову Крестьянина
+item.srparasites.itemmobspawner_infcow.name=Призвать Ассимилированную Корову
+item.srparasites.itemmobspawner_infcowhead.name=Призвать ходячую голову Коровы
+item.srparasites.itemmobspawner_infpig.name=Призвать Ассимилированную Свинью
+item.srparasites.itemmobspawner_infpighead.name=Призвать ходячую голову Свиньи
+item.srparasites.itemmobspawner_infsheep.name=Призвать Ассимилированную Овцу
+item.srparasites.itemmobspawner_infsheephead.name=Призвать ходячую голову Овцы
+item.srparasites.itemmobspawner_infwolf.name=Призвать Ассимилированного Волка
+item.srparasites.itemmobspawner_infwolfhead.name=Призвать ходячую голову Волка
+item.srparasites.itemmobspawner_infhorse.name=Призвать Ассимилированную Лошадь
+item.srparasites.itemmobspawner_infhorsehead.name=Призвать ходячую голову Лошади
+item.srparasites.itemmobspawner_inhoos.name=Призвать малую незааершённую форму
+item.srparasites.itemmobspawner_inhoom.name=Призвать среднюю незааершённую форму
+item.srparasites.itemmobspawner_infdragone.name=Призвать Ассимилированного Дракона Края
+item.srparasites.itemmobspawner_infdragonehead.name=Призвать ходячую голову Дракона Края
+
+item.srparasites.itemmobspawner_fercow.name=Призвать бешеную Корову
+item.srparasites.itemmobspawner_ferbear.name=Призвать бешеного Медведя
+item.srparasites.itemmobspawner_ferenderman.name=Призвать бешеного Эндермена
+item.srparasites.itemmobspawner_ferhuman.name=Призвать бешеного человека
+item.srparasites.itemmobspawner_ferhorse.name=Призвать бешеную Лошадь
+item.srparasites.itemmobspawner_ferpig.name=Призвать бешеную Свинью
+item.srparasites.itemmobspawner_fersheep.name=Призвать бешеную Овцу
+item.srparasites.itemmobspawner_fervillager.name=Призвать бешеного Крестьянина
+item.srparasites.itemmobspawner_ferwolf.name=Призвать бешеного Волка
+
+item.srparasites.itemmobspawner_hiblaze.name=Призвать Захваченного Ифрита
+item.srparasites.itemmobspawner_higolem.name=Призвать Захваченного Голема
+item.srparasites.itemmobspawner_hiskeleton.name=Призвать Захваченного Скелета
+
+item.srparasites.itemmobspawner_alafha.name=Призвать Надзирателя
+item.srparasites.itemmobspawner_omboo.name=Призвать лёгкого Бомбардира
+item.srparasites.itemmobspawner_rathol.name=Призвать тяжёлого Переносчика
+item.srparasites.itemmobspawner_gothol.name=Призвать лёгкого Переносчика 
+item.srparasites.itemmobspawner_buthol.name=Призвать летающего Переносчика
+item.srparasites.itemmobspawner_lodo.name=Призвать Баглина
+item.srparasites.itemmobspawner_nuuh.name=Призвать Кромсателя
+item.srparasites.itemmobspawner_ata.name=Призвать Букашку
+item.srparasites.itemmobspawner_worker.name=Призвать Рабочего
+item.srparasites.itemmobspawner_mudo.name=Призвать Руптера
+item.srparasites.itemmobspawner_venkrol.name=Призвать Маяк стадии I
+item.srparasites.itemmobspawner_venkrolsii.name=Призвать Маяк стадии II
+item.srparasites.itemmobspawner_venkrolsiii.name=Призвать Маяк стадии III
+item.srparasites.itemmobspawner_venkrolsiv.name=Призвать Маяк стадии IV
+item.srparasites.itemmobspawner_venkrolsv.name=Призвать Маяк стадии V
+item.srparasites.itemmobspawner_ganro.name=Призвать Хранителя
+item.srparasites.itemmobspawner_esor.name=Призвать Мародёра
+item.srparasites.itemmobspawner_orch.name=Призвать Монарха
+item.srparasites.itemmobspawner_flog.name=Призвать Пехотинца
+item.srparasites.itemmobspawner_unvo.name=Призвать Часового
+item.srparasites.itemmobspawner_tonro.name=Призвать Кифоз
+item.srparasites.itemmobspawner_dod.name=Призвать Исполнителя стадии I
+item.srparasites.itemmobspawner_dodsii.name=Призвать Исполнителя стадии II
+item.srparasites.itemmobspawner_dodsiii.name=Призвать Исполнителя стадии III
+item.srparasites.itemmobspawner_dodsiv.name=Призвать Исполнителя стадии IV
+item.srparasites.itemmobspawner_nak.name=Призвать Хватателя
+
+item.srparasites.itemmobspawner_jinjo.name=Призвать тяжёлого Бомбардира
+item.srparasites.itemmobspawner_vesta.name=Призвать Колониального Переносчика
+item.srparasites.itemmobspawner_elvia.name=Призвать Призрака
+item.srparasites.itemmobspawner_lencia.name=Призвать Фантома
+item.srparasites.itemmobspawner_pheon.name=Призвать Преследователя
+item.srparasites.itemmobspawner_flam.name=Призвать Помощника
+item.srparasites.itemmobspawner_soo.name=Призвать Искателя
+item.srparasites.itemmobspawner_tenn.name=Призвать Архитектора
+
+item.srparasites.itemmobspawner_heblu.name=Призвать Драконита
+
+item.srparasites.itemmobspawner_oronco.name=Призвать Дредноута
+item.srparasites.itemmobspawner_terla.name=Призвать Владыку
+item.srparasites.itemmobspawner_anged.name=Призвать Линчевателя
+item.srparasites.itemmobspawner_lesh.name=Призвать движущуюся плоть
+
+item.srparasites.itemmobspawner_shyco.name=Призвать Примитивного Длиннорукого
+item.srparasites.itemmobspawner_hull.name=Призвать Примитивного Исчезателя
+item.srparasites.itemmobspawner_canra.name=Призвать Примитивного Призывателя
+item.srparasites.itemmobspawner_emana.name=Призвать Примитивного Желтоглаза
+item.srparasites.itemmobspawner_nogla.name=Призвать Примитивного Вонючку
+item.srparasites.itemmobspawner_bano.name=Призвать Примитивного Подстрекателя
+item.srparasites.itemmobspawner_ranrac.name=Призвать Примитивную Арахниду
+item.srparasites.itemmobspawner_lum.name=Призвать Примитивного Пожирателя
+item.srparasites.itemmobspawner_iki.name=Призвать Примитивного Вредителя
+item.srparasites.itemmobspawner_wymo.name=Призвать Примитивного Тозуна
+
+item.srparasites.itemmobspawner_shycoadapted.name=Призвать Адаптировавшегося Длиннорукого
+item.srparasites.itemmobspawner_canraadapted.name=Призвать Адаптировавшегося Призывателя
+item.srparasites.itemmobspawner_noglaadapted.name=Призвать Адаптировавшегося Вонючку
+item.srparasites.itemmobspawner_hulladapted.name=Призвать Адаптировавшегося Исчезателя
+item.srparasites.itemmobspawner_emanaadapted.name=Призвать адаптировавшегося Желтоглаза
+item.srparasites.itemmobspawner_banoadapted.name=Призвать адаптировавшегося Подстрекателя
+item.srparasites.itemmobspawner_ranracadapted.name=Призвать адаптировавшуюсю Арахниду
+
+item.srparasites.itemthrow.name=§6Quench
+item.srparasites.itemtab.name=§dNULL
+item.srparasites.itemevolve.name=Жезл Эволюции
+item.srparasites.itemassimilate.name=Жезл Ассимиляции
+item.srparasites.itemdevolve.nameЖезл вырождения
+item.srparasites.itemvariant.name=Жезл Варианта
+item.srparasites.evclock.name=§cОкровавленные часы
+item.srparasites.weapon_scythe.name=§eЖивая коса
+item.srparasites.weapon_scythe_sentient.name=§6Разумная большая коса
+item.srparasites.weapon_bow.name=§eЖивой лук
+item.srparasites.weapon_bow_sentient.name=§6Разумный большой лук
+item.srparasites.weapon_axe.name=§eЖивой топор
+item.srparasites.weapon_axe_sentient.name=§6Разумный большой топор
+item.srparasites.weapon_sword.name=§eЖивой меч
+item.srparasites.weapon_sword_sentient.name=§6Живой большой меч
+item.srparasites.weapon_cleaver.name=§eЖивой тесак
+item.srparasites.weapon_cleaver_sentient.name=§6Разумный большой тесак
+
+item.srparasites.armor_helm.name=§eЖивой шлем
+item.srparasites.armor_chest.name=§eЖивой нагрудние
+item.srparasites.armor_pants.name=§eЖивые поножи
+item.srparasites.armor_boots.name=§eЖивые ботинки
+item.srparasites.armor_helm_sentient.name=§6Разумный шлем
+item.srparasites.armor_chest_sentient.name=§6Разумный нагрудник
+item.srparasites.armor_pants_sentient.name=§6Разумные поножи
+item.srparasites.armor_boots_sentient.name=§6Разумные ботинки
+
+//////
+item.srparasites.bow_upperlimb.name=§6Верхнее плечо Живого лука
+item.srparasites.bow_lowerlimb.name=§6Нижнее плечо Живого лука
+item.srparasites.bow_string.name=§6Тетева Живого лука
+item.srparasites.bow_grip.name=§6Рукоять Живого лука
+item.srparasites.bow_core.name=§6Ядро Живого Лука
+
+item.srparasites.scythe_back.name=§6Задняя часть Живой косы
+item.srparasites.scythe_blade.name=§6Лезвие Живой косы
+item.srparasites.scythe_core.name=§6Ядро Живой косы
+item.srparasites.scythe_handle.name=§6Рукоять Живой косы
+item.srparasites.scythe_head.name=§6Головка Живой косы
+///////
+
+item.srparasites.dried_tendons.name=§eВысушенные сухожилия
+item.srparasites.hardened_bone_handle.name=§eУкреплённая костная рукоять
+item.srparasites.infectious_blade_fragment.name=§eЗаразный фрагмент лезвия
+item.srparasites.living_core.name=§eЖивое ядро
+item.srparasites.vile_shell.name=§eМерзкий панцирь
+item.srparasites.bone.name=§eСтранная кость
+
+
+item.srparasites.ada_longarms_drop.name=§bФрагмент брони Длиннорукого
+item.srparasites.ada_summoner_drop.name=§bЯдро Призывателя
+item.srparasites.ada_yelloweye_drop.name=§bКость Желтоглаза
+item.srparasites.ada_reeker_drop.name=§bКлык Вонючки
+item.srparasites.ada_manducater_drop.name=§bСфера Исчезателя
+item.srparasites.ada_bolster_drop.name=§bОболочка Подстрекателя
+item.srparasites.ada_arachnida_drop.name=§bКоготь Арахниды
+item.srparasites.ada_devourer_drop.name=§bЩупальце Пожирателя
+
+item.srparasites.assimilated_flesh.name=Заражённая плоть
+item.srparasites.beckon_drop.name=§aМембрана Маяка
+item.srparasites.dispatcher_drop.name=§cМембрана Исполнителя
+
+item.srparasites.lurecomponent1.name=§bВнутренность Руптера
+item.srparasites.lurecomponent2.name=§bБольное сердце
+item.srparasites.lurecomponent3.name=§bИзменённые усики
+item.srparasites.lurecomponent4.name=§bТоксичные лёгкие
+item.srparasites.lurecomponent5.name=§bТлетворный мозг
+item.srparasites.lurecomponent6.name=§bСущественный сегмент
+item.srparasites.nodecompass.name=§cУзловой компас
+
+//Blocks
+
+tile.srparasites.parasitesapling_tree.name=Саженец венозного дерева
+tile.srparasites.parasitesapling_treethin.name=Саженец гнусного дерева
+tile.srparasites.parasitesapling_flowertall.name=Саженец темноцвета
+
+tile.srparasites.parasitebush_tendril.name=Сеть капиляров
+tile.srparasites.parasitebush_pop.name=Паразитический волдырь
+tile.srparasites.parasitebush_bine.name=Нервное окончание
+tile.srparasites.parasitebush_eye.name=Глазовидный нарост
+tile.srparasites.parasitebush_tooh.name=Малый резец
+
+tile.srparasites.infestedore_co.name=Инфицированная угольная руда
+tile.srparasites.infestedore_dia.name=Инфицированная алмазная руда
+tile.srparasites.infestedore_eme.name=Инфицированная изумрудная руда
+tile.srparasites.infestedore_gol.name=Инфицированная золотая руда
+tile.srparasites.infestedore_iro.name=Инфицированная железная руда
+tile.srparasites.infestedore_lap.name=Инфицированная лазуритовая руда
+tile.srparasites.infestedore_red.name=Инфицированная краснокаменная руда
+tile.srparasites.infestedore_un.name=Инфицированная руда
+
+tile.srparasites.srpweb_one.name=§8Тонкая паутина
+tile.srparasites.srpweb_two.name=§aТоксичная паутина
+tile.srparasites.srpweb_three.name=§8Потускневшая паутина
+tile.srparasites.tunnel.name=Нора
+tile.srparasites.dispatchern.name=§cРассадник Исполнителя
+tile.srparasites.biomeheart.name=Ядро улья
+tile.srparasites.colonyheart.name=Ядро колонии
+tile.srparasites.colonyoutpost.name=Аванпост Паразитической колонии
+tile.srparasites.biomepurifier.name=§bОчиститель биомов
+tile.srparasites.parasitestructure.name=Незавершённая структура паразитической колонии 
+tile.srparasites.parasitethin.name=Тонкое паразитическое бревно
+tile.srparasites.parasitemouth.name=Пасть
+tile.srparasites.parasitetendril.name=Паразитический усик
+tile.srparasites.parasitefog.name=Туман
+
+tile.srparasites.gore_sim_small.name=Ассимилированные останки (Малые)
+tile.srparasites.gore_sim_big.name=Ассимилированные останки (Большие) 
+tile.srparasites.gore_sim_flat.name=Ассимилированные останки (Средние) 
+tile.srparasites.gore_pri_small.name=Примитивные останки (Малые)
+tile.srparasites.gore_pri_big.name=Примитивные останки (Большие) 
+tile.srparasites.gore_pri_flat.name=Примитивные останки (Средние)
+tile.srparasites.gore_ada_small.name=Адаптированные останки (Малые)
+tile.srparasites.gore_ada_big.name=Адаптированные останки (Большие)
+tile.srparasites.gore_ada_flat.name=Адаптированные останки (Средние) 
+tile.srparasites.gore_pure_small.name=Чистые останки (Малые)
+tile.srparasites.gore_pure_big.name=Чистые останки (Большие) 
+tile.srparasites.gore_pure_flat.name=Чистые останки (Средние)
+
+tile.srparasites.infestedstain.name=Заражённая почва
+tile.srparasites.infestedtrunk.name=Заражённое дерево
+tile.srparasites.infestedrubble.name=Заражённый камень
+tile.srparasites.infestremain.name=Заражённый остаток
+
+tile.srparasites.infestedbush_infected.name=Заражённые шипы
+tile.srparasites.infestedbush_grass1.name=Заражённые ветки
+tile.srparasites.infestedbush_flower1.name=Заражённый росток
+tile.srparasites.infestedbush_spine.name=Заражённый куст
+tile.srparasites.infestedbush_vine.name=Заражённый виток
+tile.srparasites.infestedbush_arc.name=Заражённые корни
+
+tile.srparasites.parasitecanister_sac.name=§aПузырчатый мешок
+tile.srparasites.parasitecanister_cyst.name=Пустая киста
+tile.srparasites.canisteractive.name=Голодная киста
+tile.srparasites.parasitecanister_lump.name=Гротескный комок
+tile.srparasites.parasitecanister_bag.name=Мешочек плоти
+
+tile.srparasites.parasitetrunk_ball.name=Бревно Синякового дерева 
+tile.srparasites.parasitetrunk_tree.name=Бревно Синякового дерева
+tile.srparasites.parasitetrunk_plant.name=Бревно Синякового дерева
+
+tile.srparasites.parasitestain_dirt.name=Почва улья
+tile.srparasites.parasitestain_mud.name=Грязь улья
+tile.srparasites.parasitestain_flesh.name=Кусок плоти
+tile.srparasites.parasitestain_fleshstairs.name=Ступени из плоти
+tile.srparasites.parasitestain_feeler.name=Сжатые артерии
+
+tile.srparasites.parasiterubble_slabhalf.name=Укреплённая костная плита
+tile.srparasites.parasiterubble_slabdouble.name=Укреплённая кость
+tile.srparasites.parasiterubble_flesh.name=Кусок концентрированной плоти
+tile.srparasites.parasiterubble_bone.name=Укреплённая кость
+tile.srparasites.parasiterubble_bonestairs.name=Ступени из укреплённой кости
+tile.srparasites.parasiterubble_stone.name=Камень улья
+tile.srparasites.parasiterubble_stonedebris.name=Обломки камня улья
+tile.srparasites.parasiterubble_wood.name=Поглощенная древесина
+tile.srparasites.parasiterubble_bricks.name=Кирпичи из камня улья
+tile.srparasites.parasiterubble_metal.name=Сталь улья
+tile.srparasites.parasiterubble_obsidian.name=Кровоточащий обсидиан
+tile.srparasites.parasiterubble_fungus.name=Ассимилированный гриб
+
+tile.srparasites.parasiterubbledense_wall.name=Сжатый камень улья
+tile.srparasites.parasiterubbledense_biome.name=Укреплённый камень улья
+tile.srparasites.parasiterubbledense_colony.name=Сжатый Паразитический камень колонии
+
+tile.srparasites.evolutionlure_one.name=Приманка (§4Ослабленная§f)
+tile.srparasites.evolutionlure_two.name=Приманка (§cСлабая§f)
+tile.srparasites.evolutionlure_three.name=Приманка (§6Тонкая§f)
+tile.srparasites.evolutionlure_four.name=Приманка (§eСтабильная§f)
+tile.srparasites.evolutionlure_five.name=Приманка (§2Существенная§f)
+tile.srparasites.evolutionlure_six.name=Приманка (§aПлотная§f)
+tile.srparasites.evolutionlure_seven.name=Приманка (§bСупер-Плотная§f)
+tile.srparasites.evolutionlure_eight.name=Приманка (§dСверх-Плотная§f)
+
+tile.srparasites.bloodyice.name=Кровавый лёд
+
+//Fluids
+
+fluid.deadblood=Мёртвая кровь
+
+//Effects
+
+mob_effect.srparasites:coth=§4Зов улья
+splash_potion.effect.srparasites:coth=Взрывное зелье §4Зова улья
+potion.effect.srparasites:coth=Зелье§4Зова улья
+lingering_potion.effect.srparasites:coth=Туманное зелье §4Зова улья
+tipped_arrow.effect.srparasites:coth=Стрела §4Зова улья
+
+mob_effect.srparasites:fear=§8Страх
+splash_potion.effect.srparasites:fear=Взрывное зелье §8Страха
+potion.effect.srparasites:fear=Зелье §Страха
+lingering_potion.effect.srparasites:fear=Туманное зелье §8Страха
+tipped_arrow.effect.srparasites:fear=Стрела §8Страха
+
+mob_effect.srparasites:antimall=§7Неумелость
+splash_potion.effect.srparasites:antimall=Взрывное зелье §7Неумелости
+potion.effect.srparasites:antimall=Зелье §7Неумелости
+lingering_potion.effect.srparasites:antimall=Туманное зелье §7Неумелости
+tipped_arrow.effect.srparasites:antimall=Стрела §7Неумелости
+
+mob_effect.srparasites:bleed=§4Кровотечение
+splash_potion.effect.srparasites:bleed=Взрывное зелье §4Кровотечения
+potion.effect.srparasites:bleed=Зелье §4Кровотечения
+lingering_potion.effect.srparasites:bleed=Туманное зелье §4Кровотечения
+tipped_arrow.effect.srparasites:bleed=Стрела §4Кровотечения
+
+mob_effect.srparasites:corrosive=§6Коррозия
+splash_potion.effect.srparasites:corrosive=Взрывное зелье §6Коррозии
+potion.effect.srparasites:corrosive=Зелье §6Коррозии
+lingering_potion.effect.srparasites:corrosive=Туманное зелье §6Коррозии
+tipped_arrow.effect.srparasites:corrosive=Стрела §6Коррозии
+
+mob_effect.srparasites:viral=§aВирусность
+splash_potion.effect.srparasites:viral=Взрывное зелье §aВирусности
+potion.effect.srparasites:viral=Зелье §aВирусности
+lingering_potion.effect.srparasites:viral=Туманное зелье §aВирусности
+tipped_arrow.effect.srparasites:viral=Стрела §aВирусности
+
+mob_effect.srparasites:rage=§cГнев
+splash_potion.effect.srparasites:rage=Взрывное зелье §cГнева
+potion.effect.srparasites:rage=Зелье §cГнева
+lingering_potion.effect.srparasites:rage=Туманное зелье §cГнева
+tipped_arrow.effect.srparasites:rage=Стрела §cГнева
+
+mob_effect.srparasites:repel=§2Камуфляж
+splash_potion.effect.srparasites:repel=Взрывное зелье §2Камуфляжа
+potion.effect.srparasites:repel=Зелье §2Камуфляжа
+lingering_potion.effect.srparasites:repel=Туманное зелье §2Камуфляжа
+tipped_arrow.effect.srparasites:repel=Стрела §2Камуфляжа
+
+mob_effect.srparasites:senses=§3Обостренные чувства
+splash_potion.effect.srparasites:senses=Взрывное зелье §3Обостренных чувств
+potion.effect.srparasites:senses=Зелье §3Обостренных чувств
+lingering_potion.effect.srparasites:senses=Туманное зелье §3Обостренных чувств
+tipped_arrow.effect.srparasites:senses=Стрела §3Обостренных чувств
+
+mob_effect.srparasites:debar=§7Запрещение
+splash_potion.effect.srparasites:debar=Взрывное зелье §7Запрета
+potion.effect.srparasites:debar=Зелье §7Запрета
+lingering_potion.effect.srparasites:debar=Туманное зелье §7Запрета
+tipped_arrow.effect.srparasites:debar=Стрела §7Запрета
+
+mob_effect.srparasites:needler=§6Проколотый
+splash_potion.effect.srparasites:needler=Взрывное зелье §6Проколенности
+potion.effect.srparasites:needler=Зелье §6Проколенности
+lingering_potion.effect.srparasites:needler=Туманное зелье §6Проколенности
+tipped_arrow.effect.srparasites:needler=Стрела §6Проколенности
+
+mob_effect.srparasites:link=§aСвязь
+splash_potion.effect.srparasites:link=Взрывное зелье §aСвязи
+potion.effect.srparasites:link=Зелье §aСвязи
+lingering_potion.effect.srparasites:link=Туманное зелье §aСвязи
+tipped_arrow.effect.srparasites:link=Стрела §aСвязи
+
+mob_effect.srparasites:foster=§eБлагоприятность
+splash_potion.effect.srparasites:foster=Взрывное зелье §eБлагоприятности
+potion.effect.srparasites:foster=Зелье §eБлагоприятности
+lingering_potion.effect.srparasites:foster=Туманное зелье §eБлагоприятности
+tipped_arrow.effect.srparasites:foster=Стрела §eБлагоприятности
+
+mob_effect.srparasites:prey=§eДобыча
+splash_potion.effect.srparasites:prey=Взрывное зелье §eДобычи
+potion.effect.srparasites:prey=Зелье §eДобычи
+lingering_potion.effect.srparasites:prey=Туманное зелье §eДобычи
+tipped_arrow.effect.srparasites:prey=Стрела §eДобычи
+
+//extra
+
+message.srparasites.lureb=Получение очков паразитов остановлено на время. 
+message.srparasites.lurec=Очки паразитов уменьшены!
+message.srparasites.fearitem=Вы паникуете! 
+message.srparasites.fearblock=Вы паникуете! 
+message.srparasites.feargui=Вы паникуете! 
+message.srparasites.evolutionsleep=Вы более не можете спать. 
+message.srparasites.armortooltips1=Текущая адаптация
+
+tootip.srparasites.quench=§fТеплая и мягкая субстанция из магмового крема. Высокая концентрация огненного порошка делает его невероятно §aтоксичным §fдля паразитической материи.
+
+tootip.srparasites.lurecomp.1=§fКусочки внутренностей §7Руптера§f. Компонент §cприманки.§f
+tootip.srparasites.lurecomp.2=§fСильно опухшее сердце, собранное из тела §4ассимилированного §fсущества. Компонент §cприманки.§f
+tootip.srparasites.lurecomp.3=§fКусочки мускул, добытые из тела §cпримитивного §fПаразита. Источают омерзительный запах. Компонент §cприманки.§f
+tootip.srparasites.lurecomp.4=§fХорошо сформированное лёгкое, вырванное из тела §адаптировавшегося §fПаразита. Компонент §cприманки.§f
+tootip.srparasites.lurecomp.5=§fПолу-развитый мозг, вырванный из тела §eчистого §fПаразита. Компонент §cприманки.§f
+tootip.srparasites.lurecomp.6=§fПохожий на позвоночкник объект, собранный из мешочков свисающих в биоме. Компонент §cприманки.§f
+
+tootip.srparasites.item.1=Небольшая сфера, извлеченная из §fтела §6Призывателя, источает энергию, колебая вашу волю. Ингредиент для изготовления §fкомпонентов §6оружия. 
+tootip.srparasites.item.2=Крепкая кость, вырванная из §fтела §6Желтоглаза, довольно упругая. Ингредиент для изготовления §fкомпонентов §6оружия. 
+tootip.srparasites.item.3=Небольшая сфера, извлеченная из §fтела §6Исчезателя, источает странную энергию, исчезая и появляясь. Ингредиент для изготовления §fкомпонентов §6оружия. 
+tootip.srparasites.item.4=Ужасно острый клык, вырванный из пасти §6Вонючки. Ингредиент для изготовления §fкомпонентов §6оружия. 
+tootip.srparasites.item.5=Лёгкий, но прочный фрагмент брони, собранный с §fтела §6Длиннорукого. Ингредиент для изготовления §fкомпонентов §6оружия. 
+tootip.srparasites.item.6=Кусочек плоти, оторванный от §fтела §cассимилированного §fсущества. Базовый материал.
+tootip.srparasites.item.7=
+tootip.srparasites.item.8=Эластичный материал, созданный из частей различных паразитов. Компонент §6оружия§f.
+tootip.srparasites.item.9=Фрагмент лезвия, созданный из различных частей тел паразитов. Компонент §6оружия§f. 
+tootip.srparasites.item.10=Пламя жизни ещё не воспылало в нём. Ядро питания §6оружия§f.
+tootip.srparasites.item.11=Крайне прочная оболочка, созданная из различных частей паразитов. Компонент §6оружия§f. 
+tootip.srparasites.item.12=Довольно толстая рукоять, сделанная из прочных костей добытых из тел паразитов. Компонент §6оружия§f. 
+tootip.srparasites.item.13=Необычная кость, не каждый день такую увидишь. 
+
+tootip.srparasites.item.20=Сухой кусочек кожи, собранный с §fтрупа §7Подстрекателя.
+tootip.srparasites.item.21=Ужасно острые когти, вырванные с §fтрупа §7Арахниды. 
+tootip.srparasites.item.22=Костлявое щупальце, оторванное от §bПожирателя§f.
+tootip.srparasites.item.23=Покрытие §aМаяков§f, содранное с их тел.
+tootip.srparasites.item.24=Покрытие §cИсполнителей§f, содранное с их тел.
+
+tootip.srparasites.item.25=Используйте на паразите для §cэволюции
+tootip.srparasites.item.28=Используйте на существе §cассимиляции
+tootip.srparasites.item.26=Используйте на паразите для §cвырождения
+tootip.srparasites.item.27=Используйте на паразите для смены §cвариантов
+
+tootip.srparasites.item.18=Пока течёт кровь, часы тикают в сторону ужасной полуночи. 
+
+tootip.srparasites.weaponm.1=§fРезультат изменения форм частей паразитов в §6оружие§f. Пламя жизни ярко горит внутри.  
+tootip.srparasites.weaponm.2=§fВысшая степень эволюции Живой косы. Оно обрело §bразум§f.
+tootip.srparasites.weaponm.3=§fРезультат изменения форм частей паразитов в оружие. Пламя жизни ярко горит внутри.  
+tootip.srparasites.weaponm.4=§fВысшая степень эволюции Живого топора. Оно обрело §bразум§f.
+tootip.srparasites.weaponm.5=§fРезультат изменения форм частей паразитов в оружие. Пламя жизни ярко горит внутри.  
+tootip.srparasites.weaponm.6=§fВысшая степень эволюции Живого меча. Оно обрело §bразум§f.
+tootip.srparasites.weaponm.7=§fРезультат изменения форм частей паразитов в оружие. Пламя жизни ярко горит внутри.  
+tootip.srparasites.weaponm.8=§fВысшая степень эволюции Живого тесака. Оно обрело §bразум§f.
+
+tootip.srparasites.weaponm.10=§cПоражает§f большую область.
+tootip.srparasites.weaponm.20=§cУничтожает§f большую область.
+tootip.srparasites.weaponm.30=§fДелает броню §cбесполезной с течением времени.
+tootip.srparasites.weaponm.40=§fДелает броню §cбесполезной с течением времени.
+tootip.srparasites.weaponm.50=§fНаносит§cопасные для жизни §fтравмы.
+tootip.srparasites.weaponm.60=§fНаносит§cопасные для жизни §fтравмы.
+tootip.srparasites.weaponm.70=§fНаносит§aопасные §fудары.
+tootip.srparasites.weaponm.80=§fНаносит§aопасные §fудары.
+
+tootip.srparasites.weaponm.100=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.200=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.300=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.400=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.500=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.600=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.700=Вы больше не можете прятаться... 
+tootip.srparasites.weaponm.800=Вы больше не можете прятаться... 
+
+tootip.srparasites.weaponr.1=§fРезультат изменения форм частей паразитов в §6оружие§f. Пламя жизни ярко горит внутри.
+tootip.srparasites.weaponr.2=§fВысшая степень эволюции Живого лука. Оно обрело §bразум§f.
+
+tootip.srparasites.weaponr.10=Натягивайте стрелы большее время
+tootip.srparasites.weaponr.20=Натягивайте стрелы большее время
+
+tootip.srparasites.weaponr.100=Вы больше не можете прятаться... 
+tootip.srparasites.weaponr.200=Вы больше не можете прятаться... 
+
+//subtitles
+
+subtitles.devourerliving=Примитивный Пожиратель рычит
+subtitles.devourerhurt=Примитивный Пожиратель получает урон
+subtitles.devourerdeath=Примитивный Пожиратель умирает
+subtitles.assimhumanliving=Ассимилированный Человек кричит
+subtitles.assimhumanhurt=Ассимилированный Человек вопит
+subtitles.assimhumandeath=Ассимилированный Человек умирает
+subtitles.assimpigliving=Искаженное хрюканье
+subtitles.assimpighurt=Ассимилированная Свинья визжит
+subtitles.assimpigdeath=Ассимилированная Свинья умирает
+subtitles.assimhorseliving=Искаженное ржание
+subtitles.assimhorsecharge=Ассимилированная Лошадь разгоняется
+subtitles.assimhorsehurt=Ассимилированная Лошадь кричит
+subtitles.assimhorsedeath=Ассимилированная Лошадь умирает
+subtitles.assimspiderliving=Искаженное шипение
+subtitles.assimspidersteps=Шаги насекомого
+subtitles.assimspiderdeath=Большой паук умирает
+subtitles.headliving=Голова кричит
+subtitles.headhurt=Голова визжит
+subtitles.headdeath=Голова умирает
+subtitles.buglinliving=Баглин шипит
+subtitles.buglinhurt=Баглин раздавлен
+subtitles.buglindeath=Баглин раздавлен
+subtitles.rupterliving=Руптер щёлкает
+subtitles.rupterhurt=Руптер визжит
+subtitles.rupterdeath=Руптер умирает
+subtitles.rupterinfects=Руптер заражает
+subtitles.wardenliving=Хранитель рычит
+subtitles.wardenhurt=Хранитель рычит
+subtitles.wardendeath=Хранитель умирает
+subtitles.adaarachliving=Адаптированная Арахнида рычит
+subtitles.adaarachhurt=Адаптированная Арахнида рычит
+subtitles.adaarachdeath=Адаптированная Арахнида шипит
+subtitles.assimcowliving=Искаженное мычание
+subtitles.assimcowhurt=Ассимилированная Корова хрипит
+subtitles.assimcowdeath=Ассимилированная Корова умирает
+subtitles.assimsheepliving=Ассимилированная Овца блеет
+subtitles.assimsheephurt=Ассимилированная Овца блеет
+subtitles.assimsheepdeath=Ассимилированная Овца умирает
+subtitles.assimwolfliving=Необычное лаяние
+subtitles.assimwolfhurt=искаженное тявканье
+subtitles.assimwolfdeath=Ассимилированный Волк умирает
+subtitles.assimbearliving=Искаженное ворчание
+subtitles.assimbearhurt=Искаженное рычание
+subtitles.assimbeardeath=Ассимилированный Медведь умирает
+subtitles.simmermanliving=Инородные звуки
+subtitles.simmermanhurt=Искаженные звуки боли
+subtitles.simmermanteleports=Искаженная телепортация
+subtitles.simmermandeath=Ассимилированный Эндермен умирает
+subtitles.infectedfleshmelt=Хлюпающая плоть соединяется
+subtitles.adasummonerliving=Адаптировавшийся Призыватель кричит
+subtitles.adasummonerhurt=Адаптировавшийся Призыватель визжит
+subtitles.adasummonerdeath=Адаптировавшийся Призыватель вопит
+subtitles.adasummonersummon=Громкий крик
+subtitles.adayelloweyeliving=Адаптировавшийся Желтоглаз рычит
+subtitles.adayelloweyehurt=Адаптировавшийся Желтоглаз ворчит
+subtitles.adayelloweyedeath=Адаптировавшийся Желтоглаз умирает
+subtitles.adayelloweyeshoot=Адаптировавшийся Желтоглаз плюёт
+subtitles.adareekerliving=Адаптировавшийся Вонючка рычит
+subtitles.adareekerhurt=Адаптировавшийся Вонючка ворчит
+subtitles.adareekerdeath=Адаптировавшийся Вонючка умирает
+subtitles.adamanduliving=Адаптировавшийся Исчезатель ворчит
+subtitles.adamanduhurt=Адаптировавшийся Исчезатель кричит
+subtitles.adamandudeath=Адаптировавшийся Исчезатель умирает
+subtitles.vigiliving=Линчеватель гремит
+subtitles.vigihurt=Линчеватель потрескивает
+subtitles.vigideath=Линчеватель булькает
+subtitles.bogleliving=Полощение
+subtitles.boglehurt=Рычание
+subtitles.bogledeath=Что-то погибает
+subtitles.hostliving=Носитель показывается
+subtitles.hosthurt=Носитель кричит
+subtitles.hostdeath=Носитель умирает
+subtitles.hostmerge=Коллективное рычание
+subtitles.adamaducamo=Жуткие насмешки
+subtitles.adavomit=Паразита тошнит
+subtitles.flesh=Плоть хлюпает
+subtitles.sentryliving=Часовой рычит
+subtitles.sentryhurt=Часовой шипит
+subtitles.sentrydeath=Часовой умирает
+subtitles.beckonliving=Маяк шепчет
+subtitles.beckonhurt=Маяк шипит
+subtitles.beckondeath=Маяк вопит
+subtitles.beckonbell=Звон колокола
+subtitles.mobexplodes=Моб взрывается
+subtitles.mobswipe=Мобы меняются
+subtitles.moblands=Моб приземляется
+subtitles.cysteats=Предмет сломан
+subtitles.adaptationpart=Паразит адаптируется
+subtitles.adaptationfull=Паразит адаптировался
+subtitles.biomeheart=§cБиение сердца

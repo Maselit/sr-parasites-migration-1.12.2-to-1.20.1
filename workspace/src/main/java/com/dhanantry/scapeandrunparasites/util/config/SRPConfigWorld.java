@@ -1,0 +1,94 @@
+package com.dhanantry.scapeandrunparasites.util.config;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+
+/** Stub migrado de SRPConfigWorld (campos estaticos conservados; SPEC pendiente). */
+public class SRPConfigWorld {
+    public static int biomeweight = 0;
+    public static boolean biomeRegster = true;
+    public static boolean nodesActivated = true;
+    public static int maximumNumberNodes = 20;
+    public static int minimumDistanceBetweenNodes = 10000;
+    public static int minimumDistanceFromSpawnPoint = 1;
+    public static int[] blackListedDimensionsNodes = new int[]{0, 1, -1};
+    public static String[] blockBBiomeList = new String[0];
+    public static boolean blockBBiomeListWhite = false;
+    public static float biomeBlockIMaxH = 60.0f;
+    public static String nodeWarning = "Node";
+    public static boolean venkrolNode = true;
+    public static int biomeSkyColor = 0x2F0000;
+    public static int biomeGrassColor = 0xA60000;
+    public static int biomeFoliageColor = 0xA60000;
+    public static int biomeWaterColor = 0xA60000;
+    public static float biomeFogDensity = 0.06f;
+    public static float biomeFogRed = 38.0f;
+    public static float biomeFogBlue = 36.0f;
+    public static float biomeFogGreen = 36.0f;
+    public static float biomeHealPenalty = 0.5f;
+    public static String[] biomeHealPenaltyBlackList = new String[]{"minecraft:villager_golem"};
+    public static boolean biomeHealPenaltyBlackListWhite = false;
+    public static double biomeTree = 0.0015;
+    public static double biomeFlower = 0.001;
+    public static double biomeSpine = 5.0E-4;
+    public static double biomeTenflower = 1.0E-4;
+    public static double biomeBall = 7.0E-5;
+    public static double biomeBigBall = 2.0E-5;
+    public static double biomeMouth = 3.0E-4;
+    public static int biomeHeartFreq = 30;
+    public static float biomeHeartVol = 0.4f;
+    public static String[] biomeSpawnEntry = new String[]{"srparasites:ada_summoner;1;1;10;0", "srparasites:ada_longarms;1;1;10;0", "srparasites:ada_reeker;1;1;10;0", "srparasites:ada_manducater;1;1;10;0", "srparasites:ada_bolster;1;1;10;0", "srparasites:ada_yelloweye;1;1;10;0", "srparasites:ada_arachnida;1;1;10;0", "srparasites:overseer;2;4;5;0", "srparasites:vigilante;1;3;5;0", "srparasites:warden;1;1;5;0", "srparasites:marauder;2;3;5;0", "srparasites:bomber_light;2;5;5;0", "srparasites:monarch;2;5;5;0", "srparasites:grunt;1;1;20;0", "srparasites:bomber_heavy;1;1;5;0", "srparasites:wraith;2;2;5;0", "srparasites:bogle;1;1;5;0", "srparasites:haunter;1;1;5;0", "srparasites:carrier_colony;1;1;5;0", "srparasites:worker;1;1;10;0"};
+    public static String[] biomeBlackList = new String[0];
+    public static boolean biomeBlackListInverted = false;
+    public static String[] potionEffectForNodes = new String[]{"3;minecraft:speed;2", "4;minecraft:fire_resistance;1", "7;minecraft:invisibility;1"};
+    public static int nodeRangeSpreadOne = 200;
+    public static int nodeRangeSpreadTwo = 800;
+    public static int nodeRangeSpreadThree = 4000;
+    public static int nodeRangeEffectsOne = 400;
+    public static int nodeRangeEffectsTwo = 1600;
+    public static int nodeRangeEffectsThree = 8000;
+    public static float nodeCropStopNodeOne = 0.3f;
+    public static float nodeCropStopNodeTwo = 0.6f;
+    public static float nodeCropStopNodeThree = 1.0f;
+    public static int timeNeedeToNodeOne = 8;
+    public static int timeNeedeToNodeTwo = 10;
+    public static int timeNeedeToNodeThree = 40;
+    public static boolean coloniesActivated = false;
+    public static int maximumNumberColonies = 20;
+    public static int minimumDistanceBetweenColonies = 2000;
+    public static int[] blackListedDimensionsColonies = new int[]{0, 1, -1};
+    public static int colonySpreadPoint = 2;
+    public static int colonySpreadValue = 20;
+    public static int colonyBaseRadiusValue = 60;
+    public static int colonySpreadEffectPoint = 1;
+    public static int colonySpreadEffectValue = 40;
+    public static int colonyBaseEffectRadiusValue = 120;
+    public static int colonyPointCap = 100;
+    public static int colonyTotalPointCap = 100;
+    public static String colonyWarning = "Colony";
+    public static int colonyOutpostDistance = 2000;
+    public static float colonyExtraHealthPoint = 20.0f;
+    public static float colonyExtraHealthValue = 0.1f;
+    public static float colonyExtraArmorPoint = 20.0f;
+    public static float colonyExtraArmorValue = 0.1f;
+    public static float colonyExtraKDResPoint = 20.0f;
+    public static float colonyExtraKDResValue = 0.1f;
+    public static float colonyExtraDamagePoint = 20.0f;
+    public static float colonyExtraDamageValue = 0.1f;
+    public static float colonyDamageCapPoint = 15.0f;
+    public static float colonyDamageCapValue = 0.5f;
+    public static float colonyPointReductionPoint = 10.0f;
+    public static float colonyPointReductionValue = 0.05f;
+    public static float colonyPointBoostPoint = 10.0f;
+    public static float colonyPointBoostValue = 0.05f;
+    public static float colonyExtraRSChancePoint = 20.0f;
+    public static float colonyExtraRSChanceValue = 1.0f;
+    public static boolean dodColony = true;
+    public static String[] preeValues = new String[]{"65;1", "85;1", "86;1", "87;1", "88;1", "89;1"};
+    public static boolean preeValuesBiome = false;
+
+    public static final ForgeConfigSpec SPEC;
+    static {
+        ForgeConfigSpec.Builder b = new ForgeConfigSpec.Builder();
+        SPEC = b.build();
+    }
+}
