@@ -395,7 +395,7 @@ public class SRPConfig
         GLOBAL_HEALTH_MULTIPLIER = b.comment("Global health multiplier for all the mobs.").defineInRange("Global Health Multiplier", 1.0, 0.01, 100.0);
         GLOBAL_ARMOR_MULTIPLIER = b.comment("Global armor multiplier for all the mobs.").defineInRange("Global Armor Multiplier", 1.0, 0.01, 100.0);
         GLOBAL_DAMAGE_MULTIPLIER = b.comment("Global damage multiplier for all the mobs.").defineInRange("Global Damage Multiplier", 1.0, 0.01, 100.0);
-        GLOBAL_KD_RESISTANCE_MULTIPLIER = b.comment("Global damage multiplier for all the mobs.").defineInRange("Global Damage Multiplier", 1.0, 0.01, 100.0);
+        GLOBAL_KD_RESISTANCE_MULTIPLIER = b.comment("Global damage multiplier for all the mobs.").defineInRange("Global KD Resistance Multiplier", 1.0, 0.01, 100.0);
         BLACK_LISTED_DIMENSIONS = b.comment("Parasites can't spawn in these dimensions.").defineList("Mobs Blacklisted Dimensions", Arrays.asList(-1, 1), o -> o instanceof Integer);
         BLACK_LISTED_DIMENSIONS_WHITE = b.comment("Set to true if you want to use the list as a WhiteList.").define("Mobs Blacklisted Dimensions Inverted", false);
         ENTITIES_WILL_ATTACK = b.comment("Mobs that will target the parasites.").defineList("Mobs with new target task", Arrays.asList("minecraft:villager_golem"), o -> o instanceof String);
@@ -423,7 +423,7 @@ public class SRPConfig
         EXPLOTION_DAM_PARA = b.comment("Set to true if you want explotions from Carriers to not damage parasites.").define("Carrier Explotion", true);
         MOBATTACKING_BLACK_LIST = b.comment("List of mobs that the parasites will no longer attack.").defineList("Mob Attacking blacklist", Arrays.asList("srmonstress", "minecraft:creeper"), o -> o instanceof String);
         BLOCK_INFESTED_LIMIT = b.comment("Every x number of transformed blocks there will be a cooldown.").defineInRange("Block Limit For Beckon Infestation", 1000, 0, 1024);
-        BLOCK_PARASITE_LIMIT = b.comment("Every x number of transformed blocks there will be a cooldown.").defineInRange("Block Limit For Biome Infestation", 2000, 0, 1024);
+        BLOCK_PARASITE_LIMIT = b.comment("Every x number of transformed blocks there will be a cooldown.").defineInRange("Block Limit For Biome Infestation", 2000, 0, 4096);
         BLOCK_INFESTED_LIMIT_CD = b.comment("Cooldown value in ticks.").defineInRange("Block Limit For Beckon Infestation Cooldown", 300, 0, 1024);
         BLOCK_PARASITE_LIMIT_CD = b.comment("Cooldown value in ticks.").defineInRange("Block Limit For Biome Infestation Cooldown", 300, 0, 1024);
         MOBATTACKING_BLACK_LIST_WHITE = b.comment("Set to true if you want to use the list as a WhiteList.").define("Mob Attacking blacklist Inverted", false);
@@ -441,7 +441,7 @@ public class SRPConfig
         PARASITE_GRIEFING_WHITE = b.define("Mobs with Griefing Task Blacklist Inverted", false);
         PARASITE_GEN_RESIDUE = b.comment("Set to true if you want mobs to place down residue blocks.").define("Mobs Residue", true);
         CYST_ACTIVE = b.comment("Set to true if you want parasites to store blocks in their inventory and then place them in a cyst.").define("Cyst Enabled", true);
-        TENDRIL_HEALTH = b.comment("Tendril health from its parent (1=100%).").defineInRange("Tendril Health", 0.4, 0.5, 100.0);
+        TENDRIL_HEALTH = b.comment("Tendril health from its parent (1=100%).").defineInRange("Tendril Health", 0.4, 0.0, 100.0);
         FIRE_TICK_WINDOW = b.comment("Duration in ticks of the window when adaptation fail due to fire.").defineInRange("Fire Adaptation Window", 10, 0, 1024);
         ADAPTATION_NEW_DAMAGE_COOLDON = b.comment("Cooldown added when learning/improving adaptation (ticks).").defineInRange("Adaptation New Damage Cooldown", 20, 0, 1024);
         REGEN_TIMER = b.comment("Amount of ticks that the parasites need to be out of combat to start regenerating.").defineInRange("Regen Timer", 80, 0, 1024);
