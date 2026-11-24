@@ -30,6 +30,17 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFSQUID.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityInfSquid.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFVILLAGER.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityInfVillager.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFWOLF.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityInfWolf.createAttributes().build());
+        // infected heads
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFCOWHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfCowHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFDRAGONEHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfDragonEHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFENDERMANHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfEndermanHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFHORSEHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfHorseHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFHUMANHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfHumanHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFPIGHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfPigHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFPLAYERHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfPlayerHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFSHEEPHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfSheepHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFVILLAGERHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfVillagerHead.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFWOLFHEAD.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.head.EntityInfWolfHead.createAttributes().build());
         // ancient
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYORONCO.get(), com.dhanantry.scapeandrunparasites.entity.monster.ancient.EntityOronco.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYORONCOTEN.get(), com.dhanantry.scapeandrunparasites.entity.monster.ancient.EntityOroncoTen.createAttributes().build());
