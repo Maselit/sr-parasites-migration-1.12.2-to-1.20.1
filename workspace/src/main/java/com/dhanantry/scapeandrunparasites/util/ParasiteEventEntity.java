@@ -19,7 +19,7 @@ public class ParasiteEventEntity {
     public static boolean convertEntityFeral(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, Object parasite) { return false; }
     public static boolean hijackEntity(LivingEntity entity, String parasite) { return false; }
     public static net.minecraft.core.BlockPos getFloor(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos, int max) { return pos; }
-    public static int getScentBonus(byte phase) { return 0; }
+    public static int entityChunkCount(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos, Class<?> cls) { return 0; }
     public static int getScentReactionBonus(byte phase) { return 0; }
     public static void alertAllPlayerDim(Level world, String msg, int phase) { }
     public static void alertAllPlayerSer(String msg, Level world) { }
