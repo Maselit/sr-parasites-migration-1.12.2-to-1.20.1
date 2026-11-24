@@ -308,7 +308,7 @@ public abstract class EntityParasiteBase extends Monster {
             this.setWait(j1);
         }
     }
-    protected void skillBreakBlocks() { /* TODO */ }
+    public void skillBreakBlocks() { /* TODO */ }
 
     @Override
     public boolean isAffectedByPotions() { return true; }

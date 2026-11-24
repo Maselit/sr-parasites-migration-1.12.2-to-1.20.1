@@ -57,6 +57,8 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYROF.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityRof.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYTONRO.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityTonro.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYUNVO.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityUnvo.createAttributes().build());
+        // nexus (Dod)
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDOD.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus.EntityDod.createAttributes().build());
         // nexus
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDOD.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus.EntityDod.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDODSII.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus.EntityDodSII.createAttributes().build());
