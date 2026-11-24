@@ -1,6 +1,7 @@
 package com.dhanantry.scapeandrunparasites.entity.ai.misc;
 
 import com.dhanantry.scapeandrunparasites.SRPMain;
+import com.dhanantry.scapeandrunparasites.util.ParasiteEventEntity;
 import com.dhanantry.scapeandrunparasites.util.SRPAttributes;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfig;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfigSystems;
@@ -248,5 +249,241 @@ public abstract class EntityParasiteBase extends Monster {
     protected void fearPlayer(net.minecraft.world.entity.LivingEntity player) { /* TODO */ }
     protected void placeNidus() { /* TODO */ }
     protected void updateAITasks() { /* TODO */ }
+    protected void skillBreakBlocks() { /* TODO */ }
+
+    @Override
+    public boolean hurt(net.minecraft.world.damagesource.DamageSource source, float amount) {
+        if (this.level().isClientSide) {
+            return false;
+        }
+        this.canBeStored = 55;
+        if (this.madeRng == -1) {
+            this.madeRng = (byte) this.getRandom().nextInt(2);
+            if (this.madeRng == 0) {
+                this.level().broadcastEntityEvent(this, (byte) 40);
+            }
+        }
+        if (source == this.damageSources().fellOutOfWorld()) {
+            return super.hurt(source, amount);
+        }
+        if (source == this.damageSources().inWall()) {
+            this.skillBreakBlocks();
+        }
+        net.minecraft.world.entity.LivingEntity attacker = source.getEntity() instanceof net.minecraft.world.entity.LivingEntity ? (net.minecraft.world.entity.LivingEntity) source.getEntity() : null;
+        if (attacker != null && attacker.getMainHandItem().getItem() instanceof com.dhanantry.scapeandrunparasites.item.tool.WeaponToolMeleeBase) {
+            super.hurt(source, amount);
+        }
+        if (source == this.damageSources().inFire() || source == this.damageSources().onFire()) {
+            if (!this.isInvulnerableTo(source)) {
+                if (this.getRandom().nextInt(5) == 0 && !this.hasEffect(net.minecraft.world.effect.MobEffects.DAMAGE_RESISTANCE)) {
+                    this.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.RAGE_E.get(), 200, 1));
+                }
+                super.hurt(source, this.getSkin() == 120 ? amount * (SRPConfig.firemultyplier - SRPConfig.firemultyplier / 2.0f) : amount * SRPConfig.firemultyplier);
+            } else {
+                return false;
+            }
+        }
+        if (this.notOwner != null) {
+            if (this.notOwner.isAlive()) {
+                if (this.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.PIVOT_E.get())) {
+                    net.minecraft.world.effect.MobEffectInstance pe = this.getEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.PIVOT_E.get());
+                    this.notOwner.hurt(source, amount * (float) (pe.getAmplifier() + 1) * SRPConfigSystems.pivotDamageRHost);
+                    return super.hurt(source, amount * SRPConfigSystems.pivotDamageRNotHost);
+                }
+                this.removeEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.PIVOT_E.get());
+                this.notOwner = null;
+            } else {
+                this.notOwner = null;
+            }
+        }
+        boolean flagWeak = SRPConfig.parasiteWeakToMobs.length > 0 || SRPConfig.parasiteWeakToItems.length > 0 || SRPConfig.parasiteWeakToElse.length > 0;
+        boolean flagCap = this.damageCap > 1;
+        String damageName = "";
+        int naniDesu = 0;
+        if (flagWeak || flagCap) {
+            if (source.getEntity() instanceof net.minecraft.world.entity.player.Player) {
+                damageName = attacker != null ? attacker.getMainHandItem().getItem().toString() : "";
+                naniDesu = 1;
+            } else if (source.getEntity() instanceof net.minecraft.world.entity.LivingEntity) {
+                damageName = source.getEntity() != null ? source.getEntity().getType().toString() : "";
+                naniDesu = 2;
+            } else {
+                damageName = source.getMsgId();
+                naniDesu = 3;
+            }
+        }
+        if (flagWeak) {
+            switch (naniDesu) {
+                case 1:
+                    for (int i = 0; i < SRPConfig.parasiteWeakToItems.length; ++i) {
+                        String[] here;
+                        if (SRPConfig.parasiteWeakToItems[i] == null || !(here = SRPConfig.parasiteWeakToItems[i].split(";"))[0].equals(damageName)) continue;
+                        amount *= Float.parseFloat(here[1]);
+                    }
+                    break;
+                case 2:
+                    for (int i = 0; i < SRPConfig.parasiteWeakToMobs.length; ++i) {
+                        String[] here;
+                        if (SRPConfig.parasiteWeakToMobs[i] == null || !(here = SRPConfig.parasiteWeakToMobs[i].split(";"))[0].equals(damageName)) continue;
+                        amount *= Float.parseFloat(here[1]);
+                    }
+                    break;
+                case 3:
+                    for (int i = 0; i < SRPConfig.parasiteWeakToElse.length; ++i) {
+                        String[] here;
+                        if (SRPConfig.parasiteWeakToElse[i] == null || !(here = SRPConfig.parasiteWeakToElse[i].split(";"))[0].equals(damageName)) continue;
+                        amount *= Float.parseFloat(here[1]);
+                    }
+                    break;
+            }
+        }
+        if (flagCap) {
+            switch (naniDesu) {
+                case 1:
+                    if (ParasiteEventEntity.checkName(damageName, SRPConfig.damageCapBlackListItem, SRPConfig.damageCapBlackListWhite)) {
+                        return super.hurt(source, amount);
+                    }
+                    break;
+                case 2:
+                    if (ParasiteEventEntity.checkName(damageName, SRPConfig.damageCapBlackListMob, SRPConfig.damageCapBlackListWhite)) {
+                        return super.hurt(source, amount);
+                    }
+                    break;
+                case 3:
+                    if (ParasiteEventEntity.checkName(damageName, SRPConfig.damageCapBlackListElse, SRPConfig.damageCapBlackListWhite)) {
+                        return super.hurt(source, amount);
+                    }
+                    break;
+            }
+            float damage = this.getMaxHealth() / (float) this.damageCap + this.getMaxHealth() % (float) this.damageCap * 0.5f;
+            if (amount >= damage) {
+                if (!this.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.RAGE_E.get())) {
+                    this.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.RAGE_E.get(), 200, 1));
+                }
+            }
+            return super.hurt(source, Math.min(amount, damage));
+        }
+        if (SRPConfigSystems.useOneMind && attacker != null && this.getTarget() == attacker) {
+            ParasiteEventEntity.alertOthers(this, attacker, this.level(), 3);
+        }
+        return super.hurt(source, amount);
+    }
+
+    @Override
+    public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
+        if (this.level().isClientSide) {
+            return false;
+        }
+        this.canBeStored = 55;
+        boolean green = target instanceof net.minecraft.world.entity.LivingEntity;
+        if (green) {
+            this.attackEntityAsMobMinimum((net.minecraft.world.entity.LivingEntity) target);
+        }
+        boolean flag = super.doHurtTarget(target);
+        if (flag) {
+            if (this.getSkin() == 120) {
+                net.minecraft.world.entity.LivingEntity le = (net.minecraft.world.entity.LivingEntity) target;
+                le.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.MOVEMENT_SLOWDOWN, 100, 1));
+            }
+            if (green) {
+                this.setAttackCooldownAni(100);
+                if (SRPConfigSystems.useOneMind) {
+                    ParasiteEventEntity.alertOthers(this, (net.minecraft.world.entity.LivingEntity) target, this.level(), 3);
+                }
+            }
+        }
+        return flag;
+    }
+
+    public boolean attackEntityAsMobMinimum(net.minecraft.world.entity.LivingEntity target) {
+        if (this.MiniDamage == 0.0f) {
+            return false;
+        }
+        float f1 = target.getHealth();
+        if (f1 <= 0.0f) {
+            return false;
+        }
+        if (target instanceof net.minecraft.world.entity.player.Player) {
+            net.minecraft.world.entity.player.Player player = (net.minecraft.world.entity.player.Player) target;
+            if (player.isCreative()) {
+                return false;
+            }
+            player.causeFoodExhaustion(this.foodSteal);
+        }
+        net.minecraft.world.damagesource.DamageSource s = this.damageSources().mobAttack(this);
+        float damage = this.MiniDamage;
+        if (target.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.VIRA_E.get())) {
+            net.minecraft.world.effect.MobEffectInstance vira = target.getEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.VIRA_E.get());
+            damage = this.MiniDamage * (float) (vira.getAmplifier() + 1);
+        }
+        damage += this.MiniDamage;
+        try {
+            // combat tracker API differs in 1.20.1; skip
+        } catch (Exception ignored) { }
+        if (target.getAbsorptionAmount() > 0.0f) {
+            target.setHealth(f1 - damage / 2.0f);
+            target.setAbsorptionAmount(target.getAbsorptionAmount() - damage / 2.0f);
+        } else {
+            target.setHealth(f1 - damage);
+        }
+        this.level().broadcastEntityEvent(target, (byte) 2);
+        if (target.getHealth() <= 0.0f) {
+            target.die(s);
+            this.killcount += 1.0;
+        }
+        return true;
+    }
+
+    @Override
+    public void die(net.minecraft.world.damagesource.DamageSource cause) {
+        super.die(cause);
+        if (!this.level().isClientSide) {
+            this.spawnCyst();
+            ParasiteEventEntity.spawnBeckon(this.level(), cause, this);
+            ParasiteEventEntity.leaveScent(this.level(), cause, this);
+            if (SRPConfigSystems.useEvolution && !this.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.DEBAR_E.get())) {
+                com.dhanantry.scapeandrunparasites.world.SRPSaveData.get(this.level()).setTotalKills(this.level().dimension().location().hashCode(), -this.valueEvDeath, true, this.level(), false);
+            }
+            if (cause.getEntity() instanceof net.minecraft.world.entity.player.Player) {
+                this.checkWeapon((net.minecraft.world.entity.player.Player) cause.getEntity());
+            }
+        }
+    }
+
+    private void checkWeapon(net.minecraft.world.entity.player.Player playerIn) {
+        if (!SRPConfigSystems.useScent) {
+            return;
+        }
+        net.minecraft.world.item.ItemStack ga = playerIn.getMainHandItem();
+        if ((ga.getItem() instanceof com.dhanantry.scapeandrunparasites.item.tool.WeaponToolMeleeBase || ga.getItem() instanceof com.dhanantry.scapeandrunparasites.item.tool.WeaponToolRangeBase) && this.getRandom().nextInt(10) == 0) {
+            playerIn.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.PREY_E.get(), 600, 0));
+        }
+    }
+
+    public void onKillEntity(net.minecraft.world.entity.LivingEntity entityLivingIn) {
+        if (this.level().isClientSide) {
+            return;
+        }
+        if (this.killcount >= 0.0) {
+            if (this.getSkin() != 120) {
+                this.killcount += 1.0;
+            } else if (this.getRandom().nextInt(3) == 0) {
+                this.killcount += 1.0;
+            }
+        }
+        if (SRPConfigSystems.useEvolution) {
+            if (this.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.PIVOT_E.get())) {
+                net.minecraft.world.effect.MobEffectInstance amp = this.getEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.PIVOT_E.get());
+                com.dhanantry.scapeandrunparasites.world.SRPSaveData.get(this.level()).setTotalKills(this.level().dimension().location().hashCode(), SRPConfigSystems.valueKill * (SRPConfigSystems.pivotPointMultiplier * (amp.getAmplifier() + 1)), true, this.level(), true);
+            } else {
+                com.dhanantry.scapeandrunparasites.world.SRPSaveData.get(this.level()).setTotalKills(this.level().dimension().location().hashCode(), SRPConfigSystems.valueKill, true, this.level(), true);
+            }
+        }
+        if (entityLivingIn.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get()) && this.getRandom().nextDouble() < (double) SRPConfigSystems.cothConvert) {
+            ParasiteEventEntity.convertEntity(entityLivingIn, entityLivingIn.getPersistentData(), true, SRPConfigSystems.COTHVictimParasite);
+        }
+        this.addEffect(new net.minecraft.world.effect.MobEffectInstance(net.minecraft.world.effect.MobEffects.REGENERATION, 80, 0));
+        this.setWait(10);
+    }
     protected void spawnCyst() { /* TODO */ }
 }

@@ -15,8 +15,8 @@ public class ParasiteEventEntity {
     public static boolean checkEntity(LivingEntity entity, String[] list, boolean white) { return false; }
     public static boolean checkName(String name, String[] list, boolean white) { return false; }
     public static void spawnInsider(Entity entity, Level world, net.minecraft.nbt.CompoundTag tags) { }
-    public static boolean convertEntity(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, String parasite) { return false; }
-    public static boolean convertEntityFeral(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, String parasite) { return false; }
+    public static boolean convertEntity(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, Object parasite) { return false; }
+    public static boolean convertEntityFeral(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, Object parasite) { return false; }
     public static boolean hijackEntity(LivingEntity entity, String parasite) { return false; }
     public static net.minecraft.core.BlockPos getFloor(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos, int max) { return pos; }
     public static int getScentBonus(byte phase) { return 0; }
