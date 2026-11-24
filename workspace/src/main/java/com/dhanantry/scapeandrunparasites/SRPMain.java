@@ -10,6 +10,7 @@ import com.dhanantry.scapeandrunparasites.init.SRPSounds;
 import com.dhanantry.scapeandrunparasites.network.SRPNetwork;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfig;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfigSystems;
+import com.dhanantry.scapeandrunparasites.util.config.SRPConfigWorld;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
@@ -85,12 +86,14 @@ public class SRPMain
         // Configuracion
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfig.SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigSystems.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigWorld.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
         SRPConfig.load();
         SRPConfigSystems.load();
+        SRPConfigWorld.load();
         SRPNetwork.register();
         LOGGER.info("HELLO FROM COMMON SETUP (Scape and Run: Parasites)");
     }
