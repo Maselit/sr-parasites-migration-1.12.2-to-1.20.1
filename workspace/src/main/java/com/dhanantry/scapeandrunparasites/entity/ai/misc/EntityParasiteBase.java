@@ -252,6 +252,107 @@ public abstract class EntityParasiteBase extends Monster {
     protected void skillBreakBlocks() { /* TODO */ }
 
     @Override
+    public boolean isAffectedByPotions() { return true; }
+
+    public boolean isPotionApplicable(net.minecraft.world.effect.MobEffectInstance potioneffectIn) {
+        net.minecraft.world.effect.MobEffect potion = potioneffectIn.getEffect();
+        if (potion == net.minecraft.world.effect.MobEffects.POISON || potion == com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get() || potion == com.dhanantry.scapeandrunparasites.init.SRPPotions.VIRA_E.get() || potion == com.dhanantry.scapeandrunparasites.init.SRPPotions.CORRO_E.get() || potion == com.dhanantry.scapeandrunparasites.init.SRPPotions.DLER_E.get()) {
+            return false;
+        }
+        return super.isAffectedByPotions();
+    }
+
+    public void applyBonuses(int colony, int node, byte phase) {
+        if (this.spawnedByColo) {
+            return;
+        }
+        this.phaseCreated = phase;
+        this.setColonyBonus(colony);
+        this.setNodeBonus(node);
+        this.spawnedByColo = true;
+    }
+
+    protected void setColonyBonus(int totalColonyPoints) {
+        if (totalColonyPoints == 0) {
+            return;
+        }
+        double bonus = (double) totalColonyPoints / SRPConfigWorld.colonyExtraHealthPoint * SRPConfigWorld.colonyExtraHealthValue;
+        double currentV = this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).getBaseValue();
+        this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).setBaseValue(currentV + currentV * bonus);
+        this.setHealth((float) this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.MAX_HEALTH).getBaseValue());
+        bonus = (double) totalColonyPoints / SRPConfigWorld.colonyExtraArmorPoint * SRPConfigWorld.colonyExtraArmorValue;
+        currentV = this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR).getBaseValue();
+        this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR).setBaseValue(currentV + currentV * bonus);
+        bonus = (double) totalColonyPoints / SRPConfigWorld.colonyExtraDamagePoint * SRPConfigWorld.colonyExtraDamageValue;
+        currentV = this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE).getBaseValue();
+        this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE).setBaseValue(currentV + currentV * bonus);
+        bonus = (double) totalColonyPoints / SRPConfigWorld.colonyExtraKDResPoint * SRPConfigWorld.colonyExtraKDResValue;
+        currentV = this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE).getBaseValue();
+        this.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE).setBaseValue(currentV + currentV * bonus);
+        bonus = (double) totalColonyPoints / SRPConfigWorld.colonyDamageCapPoint * SRPConfigWorld.colonyDamageCapValue;
+        this.damageCap = (int) ((double) this.damageCap + (double) this.damageCap * bonus);
+    }
+
+    protected void setNodeBonus(int totalPoints) {
+        if (totalPoints == 0) {
+            return;
+        }
+        for (String i : SRPConfigWorld.potionEffectForNodes) {
+            String[] here = i.split(";");
+            int level = Integer.parseInt(here[0]);
+            if (totalPoints < level) continue;
+            int amp = Integer.parseInt(here[2]);
+            net.minecraft.world.effect.MobEffect potion = net.minecraft.world.effect.MobEffect.byId(Integer.parseInt(here[1]));
+            if (potion == null) continue;
+            this.addEffect(new net.minecraft.world.effect.MobEffectInstance(potion, 7777, amp));
+        }
+    }
+
+    public boolean getCanSpawnHere() {
+        if (SRPConfigSystems.useEvolution) {
+            net.minecraft.world.level.block.state.BlockState iblockstate = this.level().getBlockState(this.blockPosition().below());
+            return iblockstate.canOcclude() && this.level().getDifficulty() != net.minecraft.world.Difficulty.PEACEFUL && SRPConfig.spawnDays <= (int) this.level().getGameTime();
+        }
+        net.minecraft.world.level.block.state.BlockState iblockstate = this.level().getBlockState(this.blockPosition().below());
+        return iblockstate.canOcclude() && this.level().getDifficulty() != net.minecraft.world.Difficulty.PEACEFUL && SRPConfig.spawnDays <= (int) this.level().getGameTime();
+    }
+
+    protected boolean isValidLightLevelOne() {
+        net.minecraft.core.BlockPos blockpos = net.minecraft.core.BlockPos.containing(this.getX(), this.getBoundingBox().minY, this.getZ());
+        int i = this.level().getBrightness(net.minecraft.world.level.LightLayer.BLOCK, blockpos);
+        return i <= this.getRandom().nextInt(8);
+    }
+
+    protected boolean isValidLightLevelTwo() {
+        net.minecraft.core.BlockPos blockpos = net.minecraft.core.BlockPos.containing(this.getX(), this.getBoundingBox().minY, this.getZ());
+        int light = this.level().getBrightness(net.minecraft.world.level.LightLayer.BLOCK, blockpos);
+        if (light > this.getRandom().nextInt(1000) || light > 7) {
+            return false;
+        }
+        return this.getRandom().nextInt(8) == 0;
+    }
+
+    @Override
+    public void addAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+        tag.putInt("srpTicks", this.srpTicks);
+        tag.putInt("phaseCreated", this.phaseCreated);
+        tag.putDouble("killcount", this.killcount);
+        tag.putByte("type", this.type);
+        tag.putInt("damageCap", this.damageCap);
+    }
+
+    @Override
+    public void readAdditionalSaveData(net.minecraft.nbt.CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+        if (tag.contains("srpTicks")) this.srpTicks = tag.getInt("srpTicks");
+        if (tag.contains("phaseCreated")) this.phaseCreated = (byte) tag.getInt("phaseCreated");
+        if (tag.contains("killcount")) this.killcount = tag.getDouble("killcount");
+        if (tag.contains("type")) this.type = tag.getByte("type");
+        if (tag.contains("damageCap")) this.damageCap = tag.getInt("damageCap");
+    }
+
+    @Override
     public boolean hurt(net.minecraft.world.damagesource.DamageSource source, float amount) {
         if (this.level().isClientSide) {
             return false;
