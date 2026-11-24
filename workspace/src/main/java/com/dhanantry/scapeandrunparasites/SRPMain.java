@@ -9,6 +9,7 @@ import com.dhanantry.scapeandrunparasites.init.SRPPotions;
 import com.dhanantry.scapeandrunparasites.init.SRPSounds;
 import com.dhanantry.scapeandrunparasites.network.SRPNetwork;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfig;
+import com.dhanantry.scapeandrunparasites.util.config.SRPConfigMobs;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfigSystems;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfigWorld;
 import com.mojang.logging.LogUtils;
@@ -87,6 +88,7 @@ public class SRPMain
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfig.SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigSystems.SPEC);
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigWorld.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigMobs.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)
@@ -94,6 +96,7 @@ public class SRPMain
         SRPConfig.load();
         SRPConfigSystems.load();
         SRPConfigWorld.load();
+        SRPConfigMobs.load();
         SRPNetwork.register();
         LOGGER.info("HELLO FROM COMMON SETUP (Scape and Run: Parasites)");
     }
