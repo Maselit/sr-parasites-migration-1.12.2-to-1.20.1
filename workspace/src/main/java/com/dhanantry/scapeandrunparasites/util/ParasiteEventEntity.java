@@ -21,8 +21,9 @@ public class ParasiteEventEntity {
     public static net.minecraft.core.BlockPos getFloor(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos, int max) { return pos; }
     public static int entityChunkCount(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos, Class<?> cls) { return 0; }
     public static int getScentReactionBonus(byte phase) { return 0; }
-    public static void alertAllPlayerDim(Level world, String msg, int phase) { }
+    public static boolean SummonM(EntityParasiteBase self, String[] mobs, int count, double x, double y, double z, net.minecraft.world.entity.LivingEntity target, boolean flag) { return false; }
     public static void alertAllPlayerSer(String msg, Level world) { }
+    public static void alertAllPlayerDim(Level world, String msg, int phase) { }
     public static void spawnNext(net.minecraft.world.entity.Entity self, net.minecraft.world.entity.Entity next, boolean a, boolean b) { }
     public static boolean canSpawnNext = true;
 }
