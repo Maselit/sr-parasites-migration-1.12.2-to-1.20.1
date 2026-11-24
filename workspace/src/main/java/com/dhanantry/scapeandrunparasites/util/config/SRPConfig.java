@@ -534,5 +534,18 @@ public class SRPConfig
         orbFoodMult = ORB_FOOD_MULT.get();
         variantChance = VARIANT_CHANCE.get();
         canTargetBlock = CAN_TARGET_BLOCK.get();
-    }
+        blackListedDimensions = BLACK_LISTED_DIMENSIONS.get().stream().mapToInt(Integer::intValue).toArray();
+        entitiesWillAttack = ENTITIES_WILL_ATTACK.get().toArray(new String[0]);
+        entitiesWillAvoid = ENTITIES_WILL_AVOID.get().toArray(new String[0]);
+        mobattackingBlackList = MOBATTACKING_BLACK_LIST.get().toArray(new String[0]);
+        parasiteGriefing = PARASITE_GRIEFING.get().toArray(new String[0]);
+        parasiteWeakToMobs = PARASITE_WEAK_TO_MOBS.get().toArray(new String[0]);
+        parasiteWeakToItems = PARASITE_WEAK_TO_ITEMS.get().toArray(new String[0]);
+        parasiteWeakToElse = PARASITE_WEAK_TO_ELSE.get().toArray(new String[0]);
+        adaptationDimStrong = ADAPTATION_DIM_STRONG.get().toArray(new String[0]);
+        parasiteGriefingBlackList = PARASITE_GRIEFING_BLACK_LIST.get().toArray(new String[0]);
+        stackablePotionsLimit = STACKABLE_POTIONS_LIMIT.get().toArray(new String[0]);
+        cystItemBlackList = CYST_ITEM_BLACK_LIST.get().toArray(new String[0]);
+}
+
 }
