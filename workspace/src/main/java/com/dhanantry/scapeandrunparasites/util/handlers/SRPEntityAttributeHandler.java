@@ -14,6 +14,7 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYKOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityKol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYNUUH.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityNuuh.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRATHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityRathol.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYGOTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityGothol.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBUTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityButhol.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYMUDO.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityMudo.createAttributes().build());
     }
 }
