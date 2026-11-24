@@ -2,6 +2,7 @@ package com.dhanantry.scapeandrunparasites;
 
 import com.dhanantry.scapeandrunparasites.init.SRPBiomes;
 import com.dhanantry.scapeandrunparasites.init.SRPBlocks;
+import com.dhanantry.scapeandrunparasites.init.SRPEntities;
 import com.dhanantry.scapeandrunparasites.init.SRPFluids;
 import com.dhanantry.scapeandrunparasites.init.SRPSounds;
 import com.dhanantry.scapeandrunparasites.network.SRPNetwork;
@@ -71,6 +72,7 @@ public class SRPMain
         SRPBiomes.clearMobSpawnList();
         SRPFluids.init();
         SRPSounds.init();
+        SRPEntities.init();
 
         // Eventos de juego (Forge bus)
         MinecraftForge.EVENT_BUS.register(this);
