@@ -59,7 +59,14 @@
 - Revisar `SRPConfigMobs`, `SRPConfigWorld` (aún no migrados) cuando se toquen.
 - Añadir tests mínimos (smoke test de carga del mod) si el MDK lo permite.
 
-## 7. Cambios aplicados en este ciclo QA
+## 8. Cambios aplicados en este ciclo (continuación migración)
+
+- Migrado `SRPSounds` (207 → 204 registrados; 3 `FLOG_*` no existían en el original ni en sounds.json, se omiten) a `DeferredRegister<SoundEvent>` con `RegistryObject`, manteniendo nombres de registro para no romper `sounds.json`.
+- `SRPMain`: añadido `SRPSounds.init()` para forzar carga de la clase y registro.
+- Build: `clean compileJava` → BUILD SUCCESSFUL (100 warnings de deprecación de `SoundEvent.createVariableRangeEvent`/`ResourceLocation`; no bloquean).
+
+### Regla adicional (anti-regresión)
+11. **Registrar DeferredRegister entries en una clase estática con campos `static final RegistryObject`** y forzar su carga (`init()` no-op) desde `SRPMain` antes del `RegisterEvent`. De lo contrario los entries no se registran.
 
 - Corregidos items 1, 2, 3 en `SRPConfig.java`.
 - Añadido `.gitattributes` (raíz del repo y en `workspace/`) para normalizar line endings (LF) y evitar las advertencias CRLF.
