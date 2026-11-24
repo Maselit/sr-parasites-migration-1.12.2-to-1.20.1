@@ -128,10 +128,14 @@ public abstract class EntityParasiteBase extends Monster {
     public int canBeStored() { return this.canBeStored; }
     public boolean shouldWorkTask() { return this.canWorkTask; }
     public void setWorkTask(boolean in) { this.canWorkTask = in; }
+    public int getIdleTime() { return this.noActionTime; }
     public int getAttackCooldownAni() { return this.attackCooldown; }
     public void setAttackCooldownAni(int i) { this.attackCooldown = i; }
     public float getMiniDamage() { return this.MiniDamage; }
     public int getLLeap() { return this.liquidLeap; }
+    public void doSpecialSkill(byte id) { /* TODO */ }
+    public boolean getFinished(byte id) { return false; }
+    public void setFinished(byte id, boolean val) { /* TODO */ }
     public EntityParasiteBase getParasiteFollowing() {
         if (this.owner != null) {
             if (this.owner.isAlive()) {
