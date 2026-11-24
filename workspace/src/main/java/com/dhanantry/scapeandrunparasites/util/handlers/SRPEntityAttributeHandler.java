@@ -23,6 +23,15 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYFLOG.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.EntityFlog.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYGANRO.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.EntityGanro.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYOMBOO.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.EntityOmboo.createAttributes().build());
+        // preeminent
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYELVIA.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityElvia.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYFLAM.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityFlam.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYJINJO.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityJinjo.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYLENCIA.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityLencia.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYPHEON.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityPheon.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYSOO.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntitySoo.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYTENN.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityTenn.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYVESTA.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityVesta.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYORCH.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.EntityOrch.createAttributes().build());
         // adapted
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBANOADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityBanoAdapted.createAttributes().build());
