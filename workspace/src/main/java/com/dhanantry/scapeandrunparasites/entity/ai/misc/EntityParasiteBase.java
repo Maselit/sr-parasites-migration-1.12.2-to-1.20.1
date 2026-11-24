@@ -638,4 +638,55 @@ public abstract class EntityParasiteBase extends Monster {
         this.setWait(10);
     }
     protected void spawnCyst() { /* TODO */ }
+    protected void spawnGore() { /* TODO */ }
+    protected void selfExplode() {
+        if (this.level().isClientSide) {
+            // spawnEffectsGore (TODO)
+        }
+        if (!this.level().isClientSide) {
+            // spawnGore (TODO)
+            this.playSound(com.dhanantry.scapeandrunparasites.init.SRPSounds.MOBEXPLOTION.get(), 1.0f, 1.0f);
+            // EntityToxicCloud spawn (TODO: migrar EntityToxicCloud)
+            this.discard();
+        }
+    }
+    protected void dyingBurst(boolean fromDeath, int value) {
+        this.timeSinceIgnited += value;
+        if (this.timeSinceIgnited >= this.fuseTime) {
+            this.timeSinceIgnited = this.fuseTime;
+            this.selfExplode();
+        }
+    }
+    public void OnDeathHelper() { /* TODO: XP drop */ }
+    protected void onDeathUpdate() { /* TODO */ }
+    public boolean canAttackClass(Class<? extends net.minecraft.world.entity.LivingEntity> cls) {
+        if (cls == net.minecraft.world.entity.player.Player.class) {
+            return true;
+        }
+        return !SRPConfig.mobAttackingFull;
+    }
+    protected boolean processInteract(net.minecraft.world.entity.player.Player player, net.minecraft.world.InteractionHand hand) {
+        if (!this.level().isClientSide) {
+            net.minecraft.world.item.ItemStack wea = player.getMainHandItem();
+            if (wea.getItem() == com.dhanantry.scapeandrunparasites.init.SRPItems.itemEvolve.get()) {
+                this.killcount += 1.0E9;
+            } else if (wea.getItem() == com.dhanantry.scapeandrunparasites.init.SRPItems.itemDevolve.get()) {
+                this.canChangeVariant = true;
+                this.die(this.damageSources().generic());
+                this.discard();
+            } else if (wea.getItem() == com.dhanantry.scapeandrunparasites.init.SRPItems.itemVariant.get()) {
+                this.canChangeVariant = true;
+                this.canChangeVariant = false;
+            }
+        }
+        return false;
+    }
+    protected boolean applyColdBiome() { return false; }
+    public boolean isCreatureType(net.minecraft.world.entity.MobCategory type, boolean forSpawnCount) {
+        if (forSpawnCount) {
+            return false;
+        }
+        return type == net.minecraft.world.entity.MobCategory.MONSTER;
+    }
+    // fall, getMountedYOffset, getEyeHeight already defined above (Lote 5)
 }
