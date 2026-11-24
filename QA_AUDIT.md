@@ -59,7 +59,18 @@
 - Revisar `SRPConfigMobs`, `SRPConfigWorld` (aún no migrados) cuando se toquen.
 - Añadir tests mínimos (smoke test de carga del mod) si el MDK lo permite.
 
-## 8. Cambios aplicados en este ciclo (continuación migración)
+## 9. Cambios aplicados en este ciclo (migración de entidades)
+
+- Migrado `SRPEntities` (125 entidades: 100 mobs + 25 proyectiles) a `DeferredRegister<EntityType<?>>` con `RegistryObject<EntityType<...>>`, manteniendo los ids de registro originales (`sim_bigspider`, etc.).
+- Generadas 167 clases esqueleto (stubs) en `entity/` (mobs, proyectiles, tile entities, incluyendo subpaquetes) extendiendo `Monster`/`ThrowableProjectile`/`BlockEntity`, con constructor y `createAttributes()` mínimos, para que el mod compile.
+- `SRPMain`: añadido `SRPEntities.init()` y el import.
+- Build: `clean compileJava` → BUILD SUCCESSFUL.
+
+### Nota importante (alcance)
+Las clases de entidad son **esqueletos**: NO contienen la lógica real (IA/goals, atributos reales, NBT, sync, renderers, modelos, spawn eggs). La migración completa de cada entidad es el grueso de la Fase C y debe hacerse entidad por entidad tomando el decompilado (`decompiled/mcp/.../entity/`) como fuente. Este ciclo establece el **framework de registro** para que el mod compile y las entidades estén registradas.
+
+### Regla adicional (anti-regresión)
+12. **No dejar stubs sin ticket**: cada clase esqueleto debe referenciarse en `MIGRATION_INVENTORY.md` como PENDIENTE y migrarse en lotes pequeños (1-3 entidades) para poder validar compilación y comportamiento.
 
 - Migrado `SRPSounds` (207 → 204 registrados; 3 `FLOG_*` no existían en el original ni en sounds.json, se omiten) a `DeferredRegister<SoundEvent>` con `RegistryObject`, manteniendo nombres de registro para no romper `sounds.json`.
 - `SRPMain`: añadido `SRPSounds.init()` para forzar carga de la clase y registro.
