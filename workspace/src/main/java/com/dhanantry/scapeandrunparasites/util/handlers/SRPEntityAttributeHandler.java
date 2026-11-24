@@ -16,6 +16,15 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRATHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityRathol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBUTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityButhol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYMUDO.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityMudo.createAttributes().build());
+        // crude
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYCRUX.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityCrux.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHEED.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityHeed.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHOST.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityHost.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHOSTII.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityHostII.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINHOOS.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityInhooS.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINHOOM.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityInhooM.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYLESH.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityLesh.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYMES.get(), com.dhanantry.scapeandrunparasites.entity.monster.crude.EntityMes.createAttributes().build());
         // hijacked
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHIBLAZE.get(), com.dhanantry.scapeandrunparasites.entity.monster.hijacked.EntityHiBlaze.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHIGOLEM.get(), com.dhanantry.scapeandrunparasites.entity.monster.hijacked.EntityHiGolem.createAttributes().build());
