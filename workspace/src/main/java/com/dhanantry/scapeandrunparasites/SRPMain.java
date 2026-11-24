@@ -4,6 +4,7 @@ import com.dhanantry.scapeandrunparasites.init.SRPBiomes;
 import com.dhanantry.scapeandrunparasites.init.SRPBlocks;
 import com.dhanantry.scapeandrunparasites.init.SRPEntities;
 import com.dhanantry.scapeandrunparasites.init.SRPFluids;
+import com.dhanantry.scapeandrunparasites.init.SRPItems;
 import com.dhanantry.scapeandrunparasites.init.SRPSounds;
 import com.dhanantry.scapeandrunparasites.network.SRPNetwork;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfig;
@@ -73,6 +74,7 @@ public class SRPMain
         SRPFluids.init();
         SRPSounds.init();
         SRPEntities.init();
+        SRPItems.init();
 
         // Eventos de juego (Forge bus)
         MinecraftForge.EVENT_BUS.register(this);
