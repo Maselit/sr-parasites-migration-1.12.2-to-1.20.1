@@ -16,6 +16,10 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRATHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityRathol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBUTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityButhol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYMUDO.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityMudo.createAttributes().build());
+        // hijacked
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHIBLAZE.get(), com.dhanantry.scapeandrunparasites.entity.monster.hijacked.EntityHiBlaze.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHIGOLEM.get(), com.dhanantry.scapeandrunparasites.entity.monster.hijacked.EntityHiGolem.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHISKELETON.get(), com.dhanantry.scapeandrunparasites.entity.monster.hijacked.EntityHiSkeleton.createAttributes().build());
         // feral
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYFERBEAR.get(), com.dhanantry.scapeandrunparasites.entity.monster.feral.EntityFerBear.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYFERCOW.get(), com.dhanantry.scapeandrunparasites.entity.monster.feral.EntityFerCow.createAttributes().build());
