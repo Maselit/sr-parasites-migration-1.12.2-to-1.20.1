@@ -352,6 +352,11 @@ public abstract class EntityParasiteBase extends Monster {
         if (tag.contains("damageCap")) this.damageCap = tag.getInt("damageCap");
     }
 
+    protected void storeBefDes() { /* TODO */ }
+    public double getMountedYOffset() { return this.getBbHeight() * 0.5; }
+    public float getEyeHeight(net.minecraft.world.entity.Pose pose) { return 0.8f; }
+    public boolean isPushedByFluid() { return true; }
+
     @Override
     public boolean hurt(net.minecraft.world.damagesource.DamageSource source, float amount) {
         if (this.level().isClientSide) {
