@@ -17,4 +17,7 @@ public class EntityParasiticScent extends net.minecraft.world.entity.Entity {
 
     @Override
     protected void readAdditionalSaveData(CompoundTag tag) { }
+
+    public net.minecraft.world.entity.LivingEntity getTargetToKill() { return null; }
+    public boolean getCanFollow() { return false; }
 }
