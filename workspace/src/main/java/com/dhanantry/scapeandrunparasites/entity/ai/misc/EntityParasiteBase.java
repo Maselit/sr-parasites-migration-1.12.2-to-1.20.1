@@ -132,7 +132,16 @@ public abstract class EntityParasiteBase extends Monster {
     public void setAttackCooldownAni(int i) { this.attackCooldown = i; }
     public float getMiniDamage() { return this.MiniDamage; }
     public int getLLeap() { return this.liquidLeap; }
-    public void setDodFatherID(int in) { this.dodFatherID = in; }
+    public EntityParasiteBase getParasiteFollowing() {
+        if (this.owner != null) {
+            if (this.owner.isAlive()) {
+                return this.owner;
+            }
+            this.owner = null;
+        }
+        return null;
+    }
+    public void setParasiteToFollow(EntityParasiteBase in) { this.owner = in; }
     public boolean canDespawn() { return this.canD; }
     public void cannotDespawn(boolean in) { this.canD = in; }
     public boolean getApplyColonyB() { return this.spawnedByColo; }
