@@ -16,6 +16,10 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRATHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityRathol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBUTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityButhol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYMUDO.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityMudo.createAttributes().build());
+        // ancient
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYORONCO.get(), com.dhanantry.scapeandrunparasites.entity.monster.ancient.EntityOronco.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYORONCOTEN.get(), com.dhanantry.scapeandrunparasites.entity.monster.ancient.EntityOroncoTen.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYTERLA.get(), com.dhanantry.scapeandrunparasites.entity.monster.ancient.EntityTerla.createAttributes().build());
         // deterrent
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDODT.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityDodT.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYNAK.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityNak.createAttributes().build());
