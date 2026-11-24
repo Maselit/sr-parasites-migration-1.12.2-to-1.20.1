@@ -23,4 +23,6 @@ public class ParasiteEventEntity {
     public static int getScentReactionBonus(byte phase) { return 0; }
     public static void alertAllPlayerDim(Level world, String msg, int phase) { }
     public static void alertAllPlayerSer(String msg, Level world) { }
+    public static void spawnNext(net.minecraft.world.entity.Entity self, net.minecraft.world.entity.Entity next, boolean a, boolean b) { }
+    public static boolean canSpawnNext = true;
 }

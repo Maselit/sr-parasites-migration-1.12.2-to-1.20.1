@@ -9,7 +9,11 @@ import net.minecraftforge.fml.common.Mod;
 public class SRPEntityAttributeHandler {
     @SubscribeEvent
     public static void register(EntityAttributeCreationEvent event) {
-        // Solo EntityAta migrado con atributos reales por ahora; el resto usa defaults.
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYATA.get(), EntityAta.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYLODO.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityLodo.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYKOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityKol.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYNUUH.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityNuuh.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRATHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityRathol.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYGOTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityGothol.createAttributes().build());
     }
 }
