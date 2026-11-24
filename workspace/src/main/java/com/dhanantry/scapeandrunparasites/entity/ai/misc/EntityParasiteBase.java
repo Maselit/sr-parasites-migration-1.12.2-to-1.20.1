@@ -14,6 +14,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
+import java.util.ArrayList;
+
 /**
  * Migracion de EntityParasiteBase a 1.20.1 (Lote 1: estructura + atributos + data params).
  * La logica compleja (onLivingUpdate, combate, NBT, spawn) se migra en lotes posteriores.
@@ -47,6 +49,9 @@ public abstract class EntityParasiteBase extends Monster {
     protected int oneMindDeathValue = 1;
     protected float foodSteal = 0.001f;
     private byte madeRng2 = (byte) -1;
+    private ArrayList<String> inbBlockName = new ArrayList();
+    private int inbBlockNumber_dummy;
+    private float aniticks;
     private boolean still;
     private int stillTicks;
     private int canBeStored;
@@ -135,15 +140,113 @@ public abstract class EntityParasiteBase extends Monster {
     // Stubs para logica compleja (se migran en lotes posteriores)
     @Override
     public void tick() { super.tick(); }
-    public void onLivingUpdate() { /* TODO lote 2 */ }
-    @Override
-    public boolean hurt(net.minecraft.world.damagesource.DamageSource source, float amount) { return super.hurt(source, amount); }
-    @Override
-    public boolean doHurtTarget(net.minecraft.world.entity.Entity target) { return super.doHurtTarget(target); }
-    public void onKillEntity(net.minecraft.world.entity.LivingEntity entityLivingIn) { /* TODO */ }
-    @Override
-    public void die(net.minecraft.world.damagesource.DamageSource cause) { super.die(cause); }
-    protected void spawnCyst() { /* TODO */ }
-    protected void placeNidus() { /* TODO */ }
+    public void onLivingUpdate() {
+        ++this.srpTicks;
+        if (this.isNoAi()) {
+            return;
+        }
+        if (this.getWait() > 0) {
+            int j1 = this.getWait() - 1;
+            if (j1 == 0) {
+                this.setParasiteStatus(0);
+            }
+            this.setWait(j1);
+        } else {
+            super.aiStep();
+        }
+        if (!this.level().isClientSide) {
+            byte k = this.getParasiteStatus();
+            if (this.getAttackCooldownAni() != 0 || k == 1 || k == 2) {
+                if (this.getAttackCooldownAni() != 0) {
+                    int i = this.getAttackCooldownAni() - 1;
+                    this.setAttackCooldownAni(i);
+                }
+                if (k == 1 || k == 2) {
+                    net.minecraft.world.entity.LivingEntity target = this.getTarget();
+                    if (target != null) {
+                        if (!target.isAlive()) {
+                            this.setTarget(null);
+                            this.setParasiteStatus(0);
+                        }
+                    } else {
+                        this.setParasiteStatus(0);
+                        this.setTarget(null);
+                    }
+                }
+            }
+            if (this.srpTicks % 15 == 0 && this.level().getBlockState(this.blockPosition()).getBlock() instanceof net.minecraft.world.level.block.LiquidBlock && this.getTarget() != null) {
+                ++this.liquidLeap;
+                if (this.liquidLeap > 4) {
+                    this.liquidLeap = 4;
+                }
+            }
+            if (this.srpTicks > 20) {
+                this.srpTicks = 0;
+                if (!this.inbBlockName.isEmpty() && this.getRandom().nextInt(50) == 0) {
+                    this.spawnCyst();
+                }
+                net.minecraft.world.entity.LivingEntity atkTarget = this.getTarget();
+                if (atkTarget instanceof net.minecraft.world.entity.player.Player) {
+                    this.fearPlayer(atkTarget);
+                }
+                if (SRPConfigSystems.useEvolution && this.killcount >= 0.0) {
+                    switch (this.phaseCreated) {
+                        case 1: this.killcount += SRPConfigSystems.phaseKillCountPlusOne; break;
+                        case 2: this.killcount += SRPConfigSystems.phaseKillCountPlusTwo; break;
+                        case 3: this.killcount += SRPConfigSystems.phaseKillCountPlusThree; break;
+                        case 4: this.killcount += SRPConfigSystems.phaseKillCountPlusFour; break;
+                        case 5: this.killcount += SRPConfigSystems.phaseKillCountPlusFive; break;
+                        case 6: this.killcount += SRPConfigSystems.phaseKillCountPlusSix; break;
+                        case 7: this.killcount += SRPConfigSystems.phaseKillCountPlusSeven; break;
+                        case 8: this.killcount += SRPConfigSystems.phaseKillCountPlusEight; break;
+                        default: break;
+                    }
+                } else if (this.level().getDifficulty() == net.minecraft.world.Difficulty.HARD && this.killcount >= 0.0) {
+                    this.killcount += SRPConfig.killcountplus;
+                }
+                this.placeNidus();
+            }
+            if (this.liquidLeap >= 1) {
+                double h = 0.1;
+                double str = 0.5;
+                this.getNavigation().stop();
+                net.minecraft.world.entity.LivingEntity entitylivingbase = this.getTarget();
+                if (entitylivingbase != null) {
+                    net.minecraft.world.level.block.state.BlockState bl = this.level().getBlockState(this.blockPosition());
+                    if (!bl.isAir()) {
+                        h = 0.3;
+                        str = 1.0;
+                    }
+                    --this.liquidLeap;
+                    double dd0 = entitylivingbase.getX() - this.getX();
+                    double dd1 = entitylivingbase.getZ() - this.getZ();
+                    float f = (float) Math.sqrt(dd0 * dd0 + dd1 * dd1);
+                    this.setDeltaMovement(this.getDeltaMovement().x + dd0 / (double) f * str * 0.8 + this.getDeltaMovement().x * 0.2,
+                            h,
+                            this.getDeltaMovement().z + dd1 / (double) f * str * 0.8 + this.getDeltaMovement().z * 0.2);
+                    this.getLookControl().setLookAt(entitylivingbase.getX(), entitylivingbase.getY() + (double) entitylivingbase.getEyeHeight(), entitylivingbase.getZ(), 10.0f, 40.0f);
+                }
+            }
+        } else if (this.srpTicks > 20) {
+            this.srpTicks = 0;
+        }
+        if (this.getX() == this.xOld && this.getZ() == this.zOld) {
+            ++this.stillTicks;
+        } else {
+            this.canBeStored = 55;
+            this.stillTicks = 0;
+            this.still = false;
+        }
+        if (this.stillTicks > 25) {
+            this.still = true;
+        }
+        this.aniticks = this.still ? (this.aniticks += 0.0012f) : 0.0f;
+        if (this.canBeStored > 0) {
+            --this.canBeStored;
+        }
+    }
     protected void fearPlayer(net.minecraft.world.entity.LivingEntity player) { /* TODO */ }
+    protected void placeNidus() { /* TODO */ }
+    protected void updateAITasks() { /* TODO */ }
+    protected void spawnCyst() { /* TODO */ }
 }
