@@ -1,20 +1,20 @@
 package com.dhanantry.scapeandrunparasites.entity;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
-/**
- * STUB migrado (Fase C en curso): clase esqueleto para compilar.
- * La logica real (IA, NBT, atributos, sync) se migrara en lotes posteriores.
- */
-public class EntityRemain extends net.minecraft.world.entity.monster.Monster {
-    public EntityRemain(net.minecraft.world.entity.EntityType<? extends EntityRemain> type, net.minecraft.world.level.Level level) {
+public class EntityRemain extends net.minecraft.world.entity.Entity {
+    public EntityRemain(EntityType<? extends EntityRemain> type, Level level) {
         super(type, level);
     }
 
-    public static net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder createAttributes() {
-        return Monster.createMonsterAttributes();
-    }
+    @Override
+    protected void defineSynchedData() { }
 
+    @Override
+    protected void addAdditionalSaveData(CompoundTag tag) { }
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag tag) { }
 }
