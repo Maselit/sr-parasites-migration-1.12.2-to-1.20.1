@@ -246,9 +246,55 @@ public abstract class EntityParasiteBase extends Monster {
             --this.canBeStored;
         }
     }
-    protected void fearPlayer(net.minecraft.world.entity.LivingEntity player) { /* TODO */ }
-    protected void placeNidus() { /* TODO */ }
-    protected void updateAITasks() { /* TODO */ }
+    protected void fearPlayer(net.minecraft.world.entity.LivingEntity player) { /* stub: vacio en original */ }
+    protected void placeNidus() {
+        if (SRPConfigSystems.useEvolution && this.phaseCreated <= 0) {
+            return;
+        }
+        if (this.getRandom().nextInt(350) != 0 || this.type < 11) {
+            return;
+        }
+        if (this.killcount < 10.0) {
+            return;
+        }
+        net.minecraft.world.phys.AABB axisalignedbb = new net.minecraft.world.phys.AABB(this.getX(), this.getY(), this.getZ(), this.getX() + 1.0, this.getY() + 1.0, this.getZ() + 1.0).inflate(SRPConfig.nexussivFollow);
+        java.util.List<com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase> moblist = this.level().getEntitiesOfClass(com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase.class, axisalignedbb);
+        int collec = 0;
+        for (com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase mob : moblist) {
+            int idP = mob.getParasiteIDRegister();
+            if (idP == 73 || idP == 77 || idP == 78 || idP == 79) {
+                return;
+            }
+            collec = (int) ((double) collec + mob.getKillC());
+        }
+        if (collec < SRPConfig.reinforcerNidusStart) {
+            return;
+        }
+        double d0 = (float) this.getX() + this.getRandom().nextFloat();
+        double d1 = (float) this.getY() + this.getRandom().nextFloat();
+        double d2 = (float) this.getZ() + this.getRandom().nextFloat();
+        double d3 = d0 - this.getX();
+        double d4 = d1 - this.getY();
+        double d5 = d2 - this.getZ();
+        double d6 = Math.sqrt(d3 * d3 + d4 * d4 + d5 * d5);
+        d3 /= d6;
+        d4 /= d6;
+        d5 /= d6;
+        double d7 = 0.5 / (d6 / 4.0 + 0.1);
+        d4 = d4 * d7 * 2.0;
+        // EntityGore spawn (TODO: migrar EntityGore logic)
+        // com.dhanantry...EntityGore bomb = new ...; ... spawn
+    }
+
+    protected void updateAITasks() {
+        if (this.getWait() > 0) {
+            int j1 = this.getWait() - 1;
+            if (j1 == 0) {
+                this.setParasiteStatus(0);
+            }
+            this.setWait(j1);
+        }
+    }
     protected void skillBreakBlocks() { /* TODO */ }
 
     @Override
