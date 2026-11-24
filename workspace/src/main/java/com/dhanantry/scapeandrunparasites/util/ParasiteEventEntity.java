@@ -9,7 +9,7 @@ import net.minecraft.world.level.Level;
  * STUB migrado (Fase C): esqueleto de ParasiteEventEntity. Metodos referenciados como no-op/stub.
  */
 public class ParasiteEventEntity {
-    public static void alertOthers(EntityParasiteBase self, LivingEntity target, Level world, int type) { }
+    public static boolean alertOthers(EntityParasiteBase self, net.minecraft.world.entity.LivingEntity target, net.minecraft.world.level.Level world, int type) { return false; }
     public static void spawnBeckon(Level world, net.minecraft.world.damagesource.DamageSource cause, EntityParasiteBase self) { }
     public static void leaveScent(Level world, net.minecraft.world.damagesource.DamageSource cause, EntityParasiteBase self) { }
     public static boolean checkEntity(LivingEntity entity, String[] list, boolean white) { return false; }
