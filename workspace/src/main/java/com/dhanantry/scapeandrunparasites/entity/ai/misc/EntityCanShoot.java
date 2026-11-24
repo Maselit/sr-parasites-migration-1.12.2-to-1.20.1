@@ -1,7 +1,6 @@
 package com.dhanantry.scapeandrunparasites.entity.ai.misc;
 
-/**
- * STUB migrado (Fase C): interfaz esqueleto.
- */
 public interface EntityCanShoot {
+    void playProjSound();
+    net.minecraft.world.entity.Entity getProj(double d2, double d3, double d4);
 }
