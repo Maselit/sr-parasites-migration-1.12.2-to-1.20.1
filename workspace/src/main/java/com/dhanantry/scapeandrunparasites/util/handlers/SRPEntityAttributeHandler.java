@@ -16,6 +16,12 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRATHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityRathol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBUTHOL.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityButhol.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYMUDO.get(), com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityMudo.createAttributes().build());
+        // focused + primitive (Bano, Iki, Lum, Ranrac, Wymo)
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBANO.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityBano.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYIKI.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityIki.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYLUM.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityLum.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRANRAC.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityRanrac.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYWYMO.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityWymo.createAttributes().build());
         // infected
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDORPA.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityDorpa.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFBEAR.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityInfBear.createAttributes().build());
