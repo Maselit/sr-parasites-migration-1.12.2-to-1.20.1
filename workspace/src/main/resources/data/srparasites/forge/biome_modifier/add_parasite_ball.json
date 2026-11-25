@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "srparasites:biome_parasite",
-  "features": "srparasites:parasite_ball",
-  "step": "vegetal_decoration"
-}
