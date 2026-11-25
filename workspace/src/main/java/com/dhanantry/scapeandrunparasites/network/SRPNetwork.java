@@ -28,6 +28,10 @@ public class SRPNetwork
             SRPPacketBiomeChange::encode,
             SRPPacketBiomeChange::decode,
             SRPPacketBiomeChange::handle);
+        CHANNEL.registerMessage(id++, SRPPacketCompass.class,
+            SRPPacketCompass::encode,
+            SRPPacketCompass::decode,
+            SRPPacketCompass::handle);
     }
 
     public static void toDimension(ServerLevel level, SRPPacketBiomeChange msg) {
