@@ -1,13 +1,21 @@
 package com.dhanantry.scapeandrunparasites.item;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 /**
- * STUB migrado (Fase C): esqueleto para compilar. La logica real se migrara en lotes.
+ * Migracion (stub compilable) de ItemNodeColonyCompass a 1.20.1.
+ * La logica real (brujula, paquetes) se migrara en lotes posteriores.
  */
-public class ItemNodeColonyCompass extends net.minecraft.world.item.Item {
-    public ItemNodeColonyCompass(String name, int stackSize) {
-        super(new Properties());
+public class ItemNodeColonyCompass extends Item {
+    private String name;
+    private byte cType;
+    public static net.minecraft.core.BlockPos orig;
+
+    public ItemNodeColonyCompass(String name, int type) {
+        super(new Properties().stacksTo(1));
+        this.name = name;
+        this.cType = (byte) type;
     }
 }

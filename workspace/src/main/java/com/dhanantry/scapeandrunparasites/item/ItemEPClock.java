@@ -1,13 +1,27 @@
 package com.dhanantry.scapeandrunparasites.item;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
+import com.dhanantry.scapeandrunparasites.util.config.SRPConfigSystems;
+import com.dhanantry.scapeandrunparasites.world.SRPSaveData;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 
 /**
- * STUB migrado (Fase C): esqueleto para compilar. La logica real se migrara en lotes.
+ * Migracion de ItemEPClock a 1.20.1.
  */
-public class ItemEPClock extends net.minecraft.world.item.Item {
-    public ItemEPClock(String name, int stackSize, int meta) {
-        super(new Properties());
+public class ItemEPClock extends ItemBase {
+    public ItemEPClock(String name, int maxStack, int v) {
+        super(name, maxStack, v);
+    }
+
+    @Override
+    public InteractionResultHolder<ItemStack> use(Level worldIn, Player playerIn, InteractionHand handIn) {
+        if (!worldIn.isClientSide && SRPConfigSystems.useEvolution) {
+            SRPSaveData data = SRPSaveData.get(worldIn);
+            playerIn.displayClientMessage(net.minecraft.network.chat.Component.literal("" + data.getEvolutionPhase(SRPSaveData.dimensionId(worldIn))), true);
+        }
+        return super.use(worldIn, playerIn, handIn);
     }
 }

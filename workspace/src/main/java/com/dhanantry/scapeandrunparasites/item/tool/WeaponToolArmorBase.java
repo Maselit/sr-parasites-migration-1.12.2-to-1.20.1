@@ -1,13 +1,10 @@
-package com.dhanantry.scapeandrunparasites.item;
+package com.dhanantry.scapeandrunparasites.item.tool;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.entity.EquipmentSlot;
 
-/**
- * STUB migrado (Fase C): esqueleto para compilar. La logica real se migrara en lotes.
- */
-public class WeaponToolArmorBase extends net.minecraft.world.item.Item {
-    public WeaponToolArmorBase(net.minecraft.world.item.ArmorMaterial material, String name, int meta, boolean sentient, int id, net.minecraft.world.entity.EquipmentSlot slot) {
+public class WeaponToolArmorBase extends Item {
+    public WeaponToolArmorBase(net.minecraft.world.item.ArmorMaterial material, String name, int renderI, boolean fear, int id, EquipmentSlot eq) {
         super(new Properties());
     }
 }

@@ -1,13 +1,9 @@
-package com.dhanantry.scapeandrunparasites.item;
+package com.dhanantry.scapeandrunparasites.item.tool;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Item.Properties;
 
-/**
- * STUB migrado (Fase C): esqueleto para compilar. La logica real se migrara en lotes.
- */
-public class WeaponToolRangeBase extends net.minecraft.world.item.Item {
-    public WeaponToolRangeBase(String name, int durability, int bonus, int damageCap, int damage, boolean sentient, int id) {
+public class WeaponToolRangeBase extends Item {
+    public WeaponToolRangeBase(String name, int durability, int bonus, int damageC, int damage, boolean fear, int id) {
         super(new Properties());
     }
 }
