@@ -43,7 +43,34 @@ public class SRPPotions {
         SRPMain.MOB_EFFECTS.register("pivot", () -> new SRPEffectBase("pivot", true, 894258, 0, 0));
 
     public static void applyStackPotion(MobEffect effect, net.minecraft.world.entity.LivingEntity in, int duration, int amp) {
-        // STUB: logica pendiente de migracion.
+        if (amp >= 0 ? amp + 1 >= 256 : amp - 1 <= -256) {
+            return;
+        }
+        net.minecraft.world.effect.MobEffectInstance flag = in.getEffect(effect);
+        if (flag != null) {
+            String name = net.minecraft.core.registries.BuiltInRegistries.MOB_EFFECT.getKey(effect).toString();
+            int lockAmp = 0;
+            String[] here = new String[2];
+            for (int i = 0; i < com.dhanantry.scapeandrunparasites.util.config.SRPConfig.stackablePotionsLimit.length; ++i) {
+                here = com.dhanantry.scapeandrunparasites.util.config.SRPConfig.stackablePotionsLimit[i].split(";");
+                if (here.length < 2 || !here[0].equals(name)) continue;
+                lockAmp = Integer.parseInt(here[1]);
+                if (amp <= lockAmp && flag.getAmplifier() + 1 <= lockAmp) break;
+                in.addEffect(new net.minecraft.world.effect.MobEffectInstance(effect, duration, lockAmp, false, false));
+                return;
+            }
+            if (flag.getAmplifier() < amp) {
+                in.addEffect(new net.minecraft.world.effect.MobEffectInstance(effect, duration, amp, false, false));
+                return;
+            }
+            int newAmp = flag.getAmplifier();
+            newAmp = newAmp < 0 ? --newAmp : ++newAmp;
+            int newDur = flag.getDuration();
+            newDur = newDur + 40 <= duration ? duration : (newDur += 10);
+            in.addEffect(new net.minecraft.world.effect.MobEffectInstance(effect, newDur, newAmp, false, false));
+        } else {
+            in.addEffect(new net.minecraft.world.effect.MobEffectInstance(effect, duration, amp, false, false));
+        }
     }
 
     public static boolean applySense(net.minecraft.world.entity.LivingEntity in, int duration, double rangeToCover, int withLimit) {
