@@ -1,22 +1,779 @@
 package com.dhanantry.scapeandrunparasites.client.model.entity.adapted;
 
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityNoglaAdapted;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
 
-/**
- * STUB migrado (Fase renderers/modelos): esqueleto compilable. La geometria real se migrara en lotes.
- */
 public class ModelNoglaAdapted extends EntityModel<Entity> {
-    public ModelNoglaAdapted(ModelPart root) { }
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("srparasites", "noglaadapted"), "main");
+    private final ModelPart mainbody;
+    private final ModelPart body0;
+    private final ModelPart bottom25;
+    private final ModelPart top;
+    private final ModelPart dec;
+    private final ModelPart dec_1;
+    private final ModelPart jointdont;
+    private final ModelPart jointdont_1;
+    private final ModelPart bottom3;
+    private final ModelPart bottom2;
+    private final ModelPart jointdont_2;
+    private final ModelPart jointdont_3;
+    private final ModelPart dec_2;
+    private final ModelPart dec_3;
+    private final ModelPart jointH;
+    private final ModelPart Mouth;
+    private final ModelPart jointUM;
+    private final ModelPart jointDM;
+    private final ModelPart Mouth_1;
+    private final ModelPart JD;
+    private final ModelPart JD_1;
+    private final ModelPart JD_2;
+    private final ModelPart JD_3;
+    private final ModelPart JD_4;
+    private final ModelPart JD_5;
+    private final ModelPart JD_6;
+    private final ModelPart JD_7;
+    private final ModelPart teeth;
+    private final ModelPart teeth_1;
+    private final ModelPart teeth_2;
+    private final ModelPart teeth_3;
+    private final ModelPart teeth_4;
+    private final ModelPart teeth_5;
+    private final ModelPart teeth_6;
+    private final ModelPart teeth_7;
+    private final ModelPart teeth_8;
+    private final ModelPart teeth_9;
+    private final ModelPart teeth_10;
+    private final ModelPart teeth_11;
+    private final ModelPart teeth_12;
+    private final ModelPart teeth_13;
+    private final ModelPart teeth_14;
+    private final ModelPart teeth_15;
+    private final ModelPart Mouth_2;
+    private final ModelPart jointdont_4;
+    private final ModelPart jointdont_5;
+    private final ModelPart dec_4;
+    private final ModelPart dec_5;
+    private final ModelPart jointFRLX;
+    private final ModelPart jointdont_6;
+    private final ModelPart jointFRLY;
+    private final ModelPart leg;
+    private final ModelPart jointFRL1;
+    private final ModelPart legdec;
+    private final ModelPart leg_1;
+    private final ModelPart jointFRL2;
+    private final ModelPart leg_2;
+    private final ModelPart jointFRL3;
+    private final ModelPart leg_3;
+    private final ModelPart dec_6;
+    private final ModelPart jointFLLX;
+    private final ModelPart jointdont_7;
+    private final ModelPart jointFLLY;
+    private final ModelPart leg_4;
+    private final ModelPart jointFLL1;
+    private final ModelPart legdec_1;
+    private final ModelPart leg_5;
+    private final ModelPart jointFLL2;
+    private final ModelPart leg_6;
+    private final ModelPart jointFLL3;
+    private final ModelPart leg_7;
+    private final ModelPart dec_7;
+    private final ModelPart jointRAX;
+    private final ModelPart jointdont_8;
+    private final ModelPart jointRAY;
+    private final ModelPart jointdont_9;
+    private final ModelPart arm;
+    private final ModelPart jointRA1;
+    private final ModelPart legdec_2;
+    private final ModelPart arm_1;
+    private final ModelPart jointRA2;
+    private final ModelPart hand;
+    private final ModelPart jointRAMLF;
+    private final ModelPart jointRAMRF;
+    private final ModelPart jointRABLF;
+    private final ModelPart finger;
+    private final ModelPart dec_8;
+    private final ModelPart dec_9;
+    private final ModelPart finger_1;
+    private final ModelPart dec_10;
+    private final ModelPart finger_2;
+    private final ModelPart finger_3;
+    private final ModelPart dec_11;
+    private final ModelPart dec_12;
+    private final ModelPart jointLAX;
+    private final ModelPart jointdont_10;
+    private final ModelPart joinbtLAY;
+    private final ModelPart jointdont_11;
+    private final ModelPart arm_2;
+    private final ModelPart jointLA1;
+    private final ModelPart legdec_3;
+    private final ModelPart arm_3;
+    private final ModelPart jointLA2;
+    private final ModelPart hand_1;
+    private final ModelPart jointLAMLF;
+    private final ModelPart jointLAMRF;
+    private final ModelPart jointLABRF;
+    private final ModelPart finger_4;
+    private final ModelPart dec_13;
+    private final ModelPart dec_14;
+    private final ModelPart finger_5;
+    private final ModelPart dec_15;
+    private final ModelPart finger_6;
+    private final ModelPart finger_7;
+    private final ModelPart dec_16;
+    private final ModelPart dec_17;
+    private final ModelPart top2;
+    private final ModelPart eyes;
+    private final ModelPart jointdont_12;
+    private final ModelPart jointdont_13;
+    private final ModelPart jointBRLX;
+    private final ModelPart jointdont_14;
+    private final ModelPart jointBRLY;
+    private final ModelPart leg_8;
+    private final ModelPart jointBRL1;
+    private final ModelPart legdec_4;
+    private final ModelPart leg_9;
+    private final ModelPart jointBRL2;
+    private final ModelPart leg_10;
+    private final ModelPart jointBRL3;
+    private final ModelPart leg_11;
+    private final ModelPart dec_18;
+    private final ModelPart jointBLLX;
+    private final ModelPart jointdont_15;
+    private final ModelPart jointBLLY;
+    private final ModelPart leg_12;
+    private final ModelPart jointBLL1;
+    private final ModelPart legdec_5;
+    private final ModelPart leg_13;
+    private final ModelPart jointBLL2;
+    private final ModelPart leg_14;
+    private final ModelPart jointBLL3;
+    private final ModelPart leg_15;
+    private final ModelPart dec_19;
+    private final ModelPart taclejointL;
+    private final ModelPart tentacle;
+    private final ModelPart taclejointL1;
+    private final ModelPart tentacle_1;
+    private final ModelPart taclejointL2;
+    private final ModelPart tentacle_2;
+    private final ModelPart taclejointL3;
+    private final ModelPart tentacle_3;
+    private final ModelPart taclejointR;
+    private final ModelPart tentacle_4;
+    private final ModelPart taclejointR1;
+    private final ModelPart tentacle_5;
+    private final ModelPart taclejointR2;
+    private final ModelPart tentacle_6;
+    private final ModelPart taclejointR3;
+    private final ModelPart tentacle_7;
 
-    public static LayerDefinition createBodyLayer() { return null; }
+    public ModelNoglaAdapted(ModelPart root) {
+        this.mainbody = root.getChild("mainbody");
+        this.body0 = root.getChild("mainbody").getChild("body0");
+        this.bottom25 = root.getChild("mainbody").getChild("body0").getChild("bottom25");
+        this.top = root.getChild("mainbody").getChild("body0").getChild("top");
+        this.dec = root.getChild("mainbody").getChild("body0").getChild("dec");
+        this.dec_1 = root.getChild("mainbody").getChild("body0").getChild("dec_1");
+        this.jointdont = root.getChild("mainbody").getChild("body0").getChild("jointdont");
+        this.jointdont_1 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1");
+        this.bottom3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3");
+        this.bottom2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2");
+        this.jointdont_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2");
+        this.jointdont_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3");
+        this.dec_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("dec_2");
+        this.dec_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("dec_3");
+        this.jointH = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH");
+        this.Mouth = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth");
+        this.jointUM = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM");
+        this.jointDM = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointDM");
+        this.Mouth_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1");
+        this.JD = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD");
+        this.JD_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_1");
+        this.JD_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_2");
+        this.JD_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_3");
+        this.JD_4 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_4");
+        this.JD_5 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_5");
+        this.JD_6 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_6");
+        this.JD_7 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_7");
+        this.teeth = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD").getChild("teeth");
+        this.teeth_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD").getChild("teeth").getChild("teeth_1");
+        this.teeth_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_1").getChild("teeth_2");
+        this.teeth_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_1").getChild("teeth_2").getChild("teeth_3");
+        this.teeth_4 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_2").getChild("teeth_4");
+        this.teeth_5 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_2").getChild("teeth_4").getChild("teeth_5");
+        this.teeth_6 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_3").getChild("teeth_6");
+        this.teeth_7 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_3").getChild("teeth_6").getChild("teeth_7");
+        this.teeth_8 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_4").getChild("teeth_8");
+        this.teeth_9 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_4").getChild("teeth_8").getChild("teeth_9");
+        this.teeth_10 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_5").getChild("teeth_10");
+        this.teeth_11 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_5").getChild("teeth_10").getChild("teeth_11");
+        this.teeth_12 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_6").getChild("teeth_12");
+        this.teeth_13 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_6").getChild("teeth_12").getChild("teeth_13");
+        this.teeth_14 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_7").getChild("teeth_14");
+        this.teeth_15 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointUM").getChild("Mouth_1").getChild("JD_7").getChild("teeth_14").getChild("teeth_15");
+        this.Mouth_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom3").getChild("jointH").getChild("Mouth").getChild("jointDM").getChild("Mouth_2");
+        this.jointdont_4 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4");
+        this.jointdont_5 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5");
+        this.dec_4 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("dec_4");
+        this.dec_5 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("dec_5");
+        this.jointFRLX = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX");
+        this.jointdont_6 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6");
+        this.jointFRLY = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY");
+        this.leg = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg");
+        this.jointFRL1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1");
+        this.legdec = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("legdec");
+        this.leg_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1").getChild("leg_1");
+        this.jointFRL2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1").getChild("leg_1").getChild("jointFRL2");
+        this.leg_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1").getChild("leg_1").getChild("jointFRL2").getChild("leg_2");
+        this.jointFRL3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1").getChild("leg_1").getChild("jointFRL2").getChild("leg_2").getChild("jointFRL3");
+        this.leg_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1").getChild("leg_1").getChild("jointFRL2").getChild("leg_2").getChild("jointFRL3").getChild("leg_3");
+        this.dec_6 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_4").getChild("jointFRLX").getChild("jointdont_6").getChild("jointFRLY").getChild("leg").getChild("jointFRL1").getChild("leg_1").getChild("jointFRL2").getChild("leg_2").getChild("jointFRL3").getChild("leg_3").getChild("dec_6");
+        this.jointFLLX = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX");
+        this.jointdont_7 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7");
+        this.jointFLLY = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY");
+        this.leg_4 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4");
+        this.jointFLL1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1");
+        this.legdec_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("legdec_1");
+        this.leg_5 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1").getChild("leg_5");
+        this.jointFLL2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1").getChild("leg_5").getChild("jointFLL2");
+        this.leg_6 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1").getChild("leg_5").getChild("jointFLL2").getChild("leg_6");
+        this.jointFLL3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1").getChild("leg_5").getChild("jointFLL2").getChild("leg_6").getChild("jointFLL3");
+        this.leg_7 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1").getChild("leg_5").getChild("jointFLL2").getChild("leg_6").getChild("jointFLL3").getChild("leg_7");
+        this.dec_7 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("bottom2").getChild("jointdont_5").getChild("jointFLLX").getChild("jointdont_7").getChild("jointFLLY").getChild("leg_4").getChild("jointFLL1").getChild("leg_5").getChild("jointFLL2").getChild("leg_6").getChild("jointFLL3").getChild("leg_7").getChild("dec_7");
+        this.jointRAX = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX");
+        this.jointdont_8 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8");
+        this.jointRAY = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY");
+        this.jointdont_9 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9");
+        this.arm = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm");
+        this.jointRA1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1");
+        this.legdec_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("legdec_2");
+        this.arm_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1");
+        this.jointRA2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2");
+        this.hand = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand");
+        this.jointRAMLF = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMLF");
+        this.jointRAMRF = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMRF");
+        this.jointRABLF = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRABLF");
+        this.finger = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMLF").getChild("finger");
+        this.dec_8 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMLF").getChild("finger").getChild("dec_8");
+        this.dec_9 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMLF").getChild("finger").getChild("dec_8").getChild("dec_9");
+        this.finger_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMRF").getChild("finger_1");
+        this.dec_10 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMRF").getChild("finger_1").getChild("dec_10");
+        this.finger_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRAMRF").getChild("finger_1").getChild("dec_10").getChild("finger_2");
+        this.finger_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRABLF").getChild("finger_3");
+        this.dec_11 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRABLF").getChild("finger_3").getChild("dec_11");
+        this.dec_12 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_2").getChild("jointRAX").getChild("jointdont_8").getChild("jointRAY").getChild("jointdont_9").getChild("arm").getChild("jointRA1").getChild("arm_1").getChild("jointRA2").getChild("hand").getChild("jointRABLF").getChild("finger_3").getChild("dec_11").getChild("dec_12");
+        this.jointLAX = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX");
+        this.jointdont_10 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10");
+        this.joinbtLAY = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY");
+        this.jointdont_11 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11");
+        this.arm_2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2");
+        this.jointLA1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1");
+        this.legdec_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("legdec_3");
+        this.arm_3 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3");
+        this.jointLA2 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2");
+        this.hand_1 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1");
+        this.jointLAMLF = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMLF");
+        this.jointLAMRF = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMRF");
+        this.jointLABRF = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLABRF");
+        this.finger_4 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMLF").getChild("finger_4");
+        this.dec_13 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMLF").getChild("finger_4").getChild("dec_13");
+        this.dec_14 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMLF").getChild("finger_4").getChild("dec_13").getChild("dec_14");
+        this.finger_5 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMRF").getChild("finger_5");
+        this.dec_15 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMRF").getChild("finger_5").getChild("dec_15");
+        this.finger_6 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLAMRF").getChild("finger_5").getChild("dec_15").getChild("finger_6");
+        this.finger_7 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLABRF").getChild("finger_7");
+        this.dec_16 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLABRF").getChild("finger_7").getChild("dec_16");
+        this.dec_17 = root.getChild("mainbody").getChild("body0").getChild("bottom25").getChild("jointdont_3").getChild("jointLAX").getChild("jointdont_10").getChild("joinbtLAY").getChild("jointdont_11").getChild("arm_2").getChild("jointLA1").getChild("arm_3").getChild("jointLA2").getChild("hand_1").getChild("jointLABRF").getChild("finger_7").getChild("dec_16").getChild("dec_17");
+        this.top2 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2");
+        this.eyes = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("eyes");
+        this.jointdont_12 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12");
+        this.jointdont_13 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13");
+        this.jointBRLX = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX");
+        this.jointdont_14 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14");
+        this.jointBRLY = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY");
+        this.leg_8 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8");
+        this.jointBRL1 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1");
+        this.legdec_4 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("legdec_4");
+        this.leg_9 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1").getChild("leg_9");
+        this.jointBRL2 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1").getChild("leg_9").getChild("jointBRL2");
+        this.leg_10 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1").getChild("leg_9").getChild("jointBRL2").getChild("leg_10");
+        this.jointBRL3 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1").getChild("leg_9").getChild("jointBRL2").getChild("leg_10").getChild("jointBRL3");
+        this.leg_11 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1").getChild("leg_9").getChild("jointBRL2").getChild("leg_10").getChild("jointBRL3").getChild("leg_11");
+        this.dec_18 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_12").getChild("jointBRLX").getChild("jointdont_14").getChild("jointBRLY").getChild("leg_8").getChild("jointBRL1").getChild("leg_9").getChild("jointBRL2").getChild("leg_10").getChild("jointBRL3").getChild("leg_11").getChild("dec_18");
+        this.jointBLLX = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX");
+        this.jointdont_15 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15");
+        this.jointBLLY = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY");
+        this.leg_12 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12");
+        this.jointBLL1 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1");
+        this.legdec_5 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("legdec_5");
+        this.leg_13 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1").getChild("leg_13");
+        this.jointBLL2 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1").getChild("leg_13").getChild("jointBLL2");
+        this.leg_14 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1").getChild("leg_13").getChild("jointBLL2").getChild("leg_14");
+        this.jointBLL3 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1").getChild("leg_13").getChild("jointBLL2").getChild("leg_14").getChild("jointBLL3");
+        this.leg_15 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1").getChild("leg_13").getChild("jointBLL2").getChild("leg_14").getChild("jointBLL3").getChild("leg_15");
+        this.dec_19 = root.getChild("mainbody").getChild("body0").getChild("top").getChild("top2").getChild("jointdont_13").getChild("jointBLLX").getChild("jointdont_15").getChild("jointBLLY").getChild("leg_12").getChild("jointBLL1").getChild("leg_13").getChild("jointBLL2").getChild("leg_14").getChild("jointBLL3").getChild("leg_15").getChild("dec_19");
+        this.taclejointL = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL");
+        this.tentacle = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle");
+        this.taclejointL1 = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle").getChild("taclejointL1");
+        this.tentacle_1 = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle").getChild("taclejointL1").getChild("tentacle_1");
+        this.taclejointL2 = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle").getChild("taclejointL1").getChild("tentacle_1").getChild("taclejointL2");
+        this.tentacle_2 = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle").getChild("taclejointL1").getChild("tentacle_1").getChild("taclejointL2").getChild("tentacle_2");
+        this.taclejointL3 = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle").getChild("taclejointL1").getChild("tentacle_1").getChild("taclejointL2").getChild("tentacle_2").getChild("taclejointL3");
+        this.tentacle_3 = root.getChild("mainbody").getChild("body0").getChild("jointdont").getChild("taclejointL").getChild("tentacle").getChild("taclejointL1").getChild("tentacle_1").getChild("taclejointL2").getChild("tentacle_2").getChild("taclejointL3").getChild("tentacle_3");
+        this.taclejointR = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR");
+        this.tentacle_4 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4");
+        this.taclejointR1 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4").getChild("taclejointR1");
+        this.tentacle_5 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4").getChild("taclejointR1").getChild("tentacle_5");
+        this.taclejointR2 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4").getChild("taclejointR1").getChild("tentacle_5").getChild("taclejointR2");
+        this.tentacle_6 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4").getChild("taclejointR1").getChild("tentacle_5").getChild("taclejointR2").getChild("tentacle_6");
+        this.taclejointR3 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4").getChild("taclejointR1").getChild("tentacle_5").getChild("taclejointR2").getChild("tentacle_6").getChild("taclejointR3");
+        this.tentacle_7 = root.getChild("mainbody").getChild("body0").getChild("jointdont_1").getChild("taclejointR").getChild("tentacle_4").getChild("taclejointR1").getChild("tentacle_5").getChild("taclejointR2").getChild("tentacle_6").getChild("taclejointR3").getChild("tentacle_7");
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+
+        PartDefinition mainbody = root.addOrReplaceChild("mainbody", CubeListBuilder.create().texOffs(0, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, -21.0f, 11.0f));
+        PartDefinition body0 = mainbody.addOrReplaceChild("body0", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0f, 2.0f, 0.0f, 16, 8, 9), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, (float)(-Math.PI), 0.0f, 0.0f));
+        PartDefinition top = body0.addOrReplaceChild("top", CubeListBuilder.create().texOffs(100, 0).addBox(-2.0f, -10.0f, -3.0f, 4, 16, 6), PartPose.offsetAndRotation(0.0f, 1.3f, -1.1f, 0.5061455f, 0.0f, 0.0f));
+        PartDefinition top2 = top.addOrReplaceChild("top2", CubeListBuilder.create().texOffs(132, 63).addBox(-5.0f, -10.0f, -5.0f, 10, 10, 10), PartPose.offsetAndRotation(0.0f, -7.0f, 0.0f, -0.7285004f, 0.0f, 0.0f));
+        PartDefinition jointdont_12 = top2.addOrReplaceChild("jointdont_12", CubeListBuilder.create().texOffs(155, 4).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-5.0f, -4.0f, -1.5f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition jointBRLX = jointdont_12.addOrReplaceChild("jointBRLX", CubeListBuilder.create().texOffs(183, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_14 = jointBRLX.addOrReplaceChild("jointdont_14", CubeListBuilder.create().texOffs(218, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, (float)Math.PI, 2.3038347f));
+        PartDefinition jointBRLY = jointdont_14.addOrReplaceChild("jointBRLY", CubeListBuilder.create().texOffs(143, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition leg_8 = jointBRLY.addOrReplaceChild("leg_8", CubeListBuilder.create().texOffs(44, 64).addBox(-4.0f, 3.0f, -3.0f, 8, 16, 6), PartPose.offset(0.0f, 0.1f, -1.5f));
+        PartDefinition jointBRL1 = leg_8.addOrReplaceChild("jointBRL1", CubeListBuilder.create().texOffs(147, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 15.0f, 3.0f));
+        PartDefinition leg_9 = jointBRL1.addOrReplaceChild("leg_9", CubeListBuilder.create().texOffs(221, 61).addBox(-3.0f, -2.5f, -2.0f, 6, 5, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.05235988f, 0.4886922f, -1.5707964f));
+        PartDefinition jointBRL2 = leg_9.addOrReplaceChild("jointBRL2", CubeListBuilder.create().texOffs(158, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 7.5f));
+        PartDefinition leg_10 = jointBRL2.addOrReplaceChild("leg_10", CubeListBuilder.create().texOffs(198, 68).addBox(-2.0f, 0.0f, -1.5f, 4, 15, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.5235988f, 0.0f, 0.5934119f));
+        PartDefinition jointBRL3 = leg_10.addOrReplaceChild("jointBRL3", CubeListBuilder.create().texOffs(162, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 14.0f, 0.0f));
+        PartDefinition leg_11 = jointBRL3.addOrReplaceChild("leg_11", CubeListBuilder.create().texOffs(0, 69).addBox(-3.0f, -0.5f, -2.0f, 6, 16, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.80285144f, 0.0f, 0.0f));
+        PartDefinition dec_18 = leg_11.addOrReplaceChild("dec_18", CubeListBuilder.create().texOffs(163, 74).addBox(-3.5f, 0.0f, -3.0f, 7, 8, 9), PartPose.offsetAndRotation(0.0f, 13.9f, -2.0f, 0.6632251f, 0.0f, 0.0f));
+        PartDefinition legdec_4 = leg_8.addOrReplaceChild("legdec_4", CubeListBuilder.create().texOffs(75, 68).addBox(-4.0f, -2.0f, -4.5f, 8, 11, 9), PartPose.offset(-1.5f, 0.0f, 0.0f));
+        PartDefinition jointdont_13 = top2.addOrReplaceChild("jointdont_13", CubeListBuilder.create().texOffs(179, 4).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(5.0f, -4.0f, -1.5f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition jointBLLX = jointdont_13.addOrReplaceChild("jointBLLX", CubeListBuilder.create().texOffs(186, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_15 = jointBLLX.addOrReplaceChild("jointdont_15", CubeListBuilder.create().texOffs(190, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, (float)Math.PI, -2.3038347f));
+        PartDefinition jointBLLY = jointdont_15.addOrReplaceChild("jointBLLY", CubeListBuilder.create().texOffs(194, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition leg_12 = jointBLLY.addOrReplaceChild("leg_12", CubeListBuilder.create().texOffs(109, 77).addBox(-4.0f, 3.0f, -3.0f, 8, 16, 6), PartPose.offset(0.0f, 0.1f, -1.5f));
+        PartDefinition legdec_5 = leg_12.addOrReplaceChild("legdec_5", CubeListBuilder.create().texOffs(203, 77).addBox(-4.0f, -2.0f, -4.5f, 8, 11, 9), PartPose.offset(1.5f, 0.0f, 0.0f));
+        PartDefinition jointBLL1 = leg_12.addOrReplaceChild("jointBLL1", CubeListBuilder.create().texOffs(215, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 15.0f, 3.0f));
+        PartDefinition leg_13 = jointBLL1.addOrReplaceChild("leg_13", CubeListBuilder.create().texOffs(20, 75).addBox(-2.5f, -2.5f, -2.0f, 5, 5, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.05235988f, -0.4886922f, 1.5707964f));
+        PartDefinition jointBLL2 = leg_13.addOrReplaceChild("jointBLL2", CubeListBuilder.create().texOffs(56, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 7.5f));
+        PartDefinition leg_14 = jointBLL2.addOrReplaceChild("leg_14", CubeListBuilder.create().texOffs(237, 77).addBox(-2.0f, 0.0f, -1.5f, 4, 15, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.5235988f, 0.0f, -0.5934119f));
+        PartDefinition jointBLL3 = leg_14.addOrReplaceChild("jointBLL3", CubeListBuilder.create().texOffs(94, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 14.0f, 0.0f));
+        PartDefinition leg_15 = jointBLL3.addOrReplaceChild("leg_15", CubeListBuilder.create().texOffs(137, 83).addBox(-3.0f, -0.5f, -2.0f, 6, 16, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.80285144f, 0.0f, 0.0f));
+        PartDefinition dec_19 = leg_15.addOrReplaceChild("dec_19", CubeListBuilder.create().texOffs(43, 86).addBox(-3.5f, 0.0f, -3.0f, 7, 8, 9), PartPose.offsetAndRotation(0.0f, 13.9f, -2.0f, 0.6632251f, 0.0f, 0.0f));
+        PartDefinition eyes = top2.addOrReplaceChild("eyes", CubeListBuilder.create().texOffs(171, 62).addBox(-4.0f, -1.0f, -3.5f, 8, 2, 7), PartPose.offsetAndRotation(0.0f, -10.5f, 0.0f, 0.19198622f, 0.0f, 0.0f));
+        PartDefinition dec_1 = body0.addOrReplaceChild("dec_1", CubeListBuilder.create().texOffs(156, 0).addBox(-2.5f, -3.5f, -12.0f, 5, 10, 13), PartPose.offsetAndRotation(-7.0f, 5.0f, 8.0f, -0.15707964f, 0.4712389f, 0.0f));
+        PartDefinition jointdont_1 = body0.addOrReplaceChild("jointdont_1", CubeListBuilder.create().texOffs(41, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-4.7f, 2.5f, 7.3f, 0.4712389f, -1.3264502f, 0.0f));
+        PartDefinition taclejointR = jointdont_1.addOrReplaceChild("taclejointR", CubeListBuilder.create().texOffs(50, 8).addBox(-2.0f, -2.0f, 0.0f, 4, 4, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition tentacle_4 = taclejointR.addOrReplaceChild("tentacle_4", CubeListBuilder.create().texOffs(14, 91).addBox(-2.5f, -2.5f, -1.0f, 5, 5, 14), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.82030475f, 0.0f, 0.0f));
+        PartDefinition taclejointR1 = tentacle_4.addOrReplaceChild("taclejointR1", CubeListBuilder.create().texOffs(87, 7).addBox(-1.5f, -1.5f, 0.0f, 3, 3, 1), PartPose.offset(0.0f, -0.2f, 11.0f));
+        PartDefinition tentacle_5 = taclejointR1.addOrReplaceChild("tentacle_5", CubeListBuilder.create().texOffs(163, 94).addBox(-2.0f, -2.0f, 0.0f, 4, 4, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.19198622f, 0.0f, 0.0f));
+        PartDefinition taclejointR2 = tentacle_5.addOrReplaceChild("taclejointR2", CubeListBuilder.create().texOffs(159, 7).addBox(-1.0f, -1.0f, 0.0f, 2, 2, 1), PartPose.offset(0.0f, -0.2f, 9.0f));
+        PartDefinition tentacle_6 = taclejointR2.addOrReplaceChild("tentacle_6", CubeListBuilder.create().texOffs(226, 95).addBox(-1.5f, -1.5f, 0.0f, 3, 3, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.19198622f, 0.0f, 0.0f));
+        PartDefinition taclejointR3 = tentacle_6.addOrReplaceChild("taclejointR3", CubeListBuilder.create().texOffs(0, 7).addBox(-0.5f, -0.5f, 0.0f, 1, 1, 1), PartPose.offset(0.0f, -0.2f, 9.0f));
+        PartDefinition tentacle_7 = taclejointR3.addOrReplaceChild("tentacle_7", CubeListBuilder.create().texOffs(201, 97).addBox(-1.0f, -1.0f, 0.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.19198622f, 0.0f, 0.0f));
+        PartDefinition bottom25 = body0.addOrReplaceChild("bottom25", CubeListBuilder.create().texOffs(50, 0).addBox(-6.0f, 1.0f, -6.5f, 12, 9, 13), PartPose.offsetAndRotation(0.0f, -1.0f, 10.0f, 0.5235988f, 0.0f, 0.0f));
+        PartDefinition jointdont_2 = bottom25.addOrReplaceChild("jointdont_2", CubeListBuilder.create().texOffs(45, 0).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-4.0f, -2.5f, 10.0f, -0.5061455f, 0.0f, 0.0f));
+        PartDefinition jointRAX = jointdont_2.addOrReplaceChild("jointRAX", CubeListBuilder.create().texOffs(118, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_8 = jointRAX.addOrReplaceChild("jointdont_8", CubeListBuilder.create().texOffs(226, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.08726646f, 0.0f));
+        PartDefinition jointRAY = jointdont_8.addOrReplaceChild("jointRAY", CubeListBuilder.create().texOffs(230, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_9 = jointRAY.addOrReplaceChild("jointdont_9", CubeListBuilder.create().texOffs(99, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.5707964f, 0.0f, 0.0f));
+        PartDefinition arm = jointdont_9.addOrReplaceChild("arm", CubeListBuilder.create().texOffs(126, 50).addBox(-2.0f, 0.0f, -2.0f, 4, 13, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.3613569f, 0.0f, 2.7576203f));
+        PartDefinition jointRA1 = arm.addOrReplaceChild("jointRA1", CubeListBuilder.create().texOffs(195, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 12.0f, -0.5f));
+        PartDefinition arm_1 = jointRA1.addOrReplaceChild("arm_1", CubeListBuilder.create().texOffs(241, 45).addBox(-1.5f, 0.0f, -1.5f, 3, 13, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.6457718f, 0.0f, 0.0f));
+        PartDefinition jointRA2 = arm_1.addOrReplaceChild("jointRA2", CubeListBuilder.create().texOffs(215, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 12.0f, -0.5f));
+        PartDefinition hand = jointRA2.addOrReplaceChild("hand", CubeListBuilder.create().texOffs(88, 110).addBox(-2.0f, 0.0f, -1.5f, 4, 6, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.3f, -0.4537856f, (float)Math.PI, 0.0f));
+        PartDefinition jointRABLF = hand.addOrReplaceChild("jointRABLF", CubeListBuilder.create().texOffs(96, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(1.4f, 1.3f, 0.5f));
+        PartDefinition finger_3 = jointRABLF.addOrReplaceChild("finger_3", CubeListBuilder.create().texOffs(120, 110).addBox(-1.0f, 0.0f, -1.0f, 2, 4, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -0.3f, 1.3962634f, 0.19198622f, 0.0f));
+        PartDefinition dec_11 = finger_3.addOrReplaceChild("dec_11", CubeListBuilder.create().texOffs(164, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 3, 1), PartPose.offsetAndRotation(0.0f, 3.8f, -0.5f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition dec_12 = dec_11.addOrReplaceChild("dec_12", CubeListBuilder.create().texOffs(144, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 2.6f, -0.1f, 0.9424778f, 0.0f, 0.0f));
+        PartDefinition jointRAMRF = hand.addOrReplaceChild("jointRAMRF", CubeListBuilder.create().texOffs(93, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-1.4f, 5.3f, 0.0f));
+        PartDefinition finger_1 = jointRAMRF.addOrReplaceChild("finger_1", CubeListBuilder.create().texOffs(128, 110).addBox(-1.0f, 0.0f, -1.0f, 2, 5, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -0.3f, 1.2566371f, -0.2617994f, 0.0f));
+        PartDefinition dec_10 = finger_1.addOrReplaceChild("dec_10", CubeListBuilder.create().texOffs(156, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 4.8f, -0.5f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition finger_2 = dec_10.addOrReplaceChild("finger_2", CubeListBuilder.create().texOffs(104, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 3.6f, -0.1f, 1.0821041f, 0.0f, 0.0f));
+        PartDefinition jointRAMLF = hand.addOrReplaceChild("jointRAMLF", CubeListBuilder.create().texOffs(56, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(1.4f, 5.3f, 0.0f));
+        PartDefinition finger = jointRAMLF.addOrReplaceChild("finger", CubeListBuilder.create().texOffs(112, 110).addBox(-1.0f, 0.0f, -1.0f, 2, 6, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -0.3f, 1.2566371f, 0.29670596f, 0.0f));
+        PartDefinition dec_8 = finger.addOrReplaceChild("dec_8", CubeListBuilder.create().texOffs(152, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 5.8f, -0.5f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition dec_9 = dec_8.addOrReplaceChild("dec_9", CubeListBuilder.create().texOffs(148, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 3.6f, -0.1f, 0.87266463f, 0.0f, 0.0f));
+        PartDefinition legdec_2 = arm.addOrReplaceChild("legdec_2", CubeListBuilder.create().texOffs(196, 55).addBox(-2.4f, -5.5f, -2.5f, 5, 8, 5), PartPose.offsetAndRotation(0.0f, -1.0f, 0.5f, -0.15707964f, 0.0f, 0.0f));
+        PartDefinition dec_3 = bottom25.addOrReplaceChild("dec_3", CubeListBuilder.create().texOffs(179, 17).addBox(-2.5f, -5.5f, -6.5f, 5, 11, 13), PartPose.offsetAndRotation(-5.8f, 6.0f, -0.7f, 0.0f, (float)(-Math.PI) / 180, 0.0f));
+        PartDefinition jointdont_3 = bottom25.addOrReplaceChild("jointdont_3", CubeListBuilder.create().texOffs(49, 0).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(4.0f, -2.5f, 10.0f, -0.5061455f, 0.0f, 0.0f));
+        PartDefinition jointLAX = jointdont_3.addOrReplaceChild("jointLAX", CubeListBuilder.create().texOffs(233, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_10 = jointLAX.addOrReplaceChild("jointdont_10", CubeListBuilder.create().texOffs(57, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.08726646f, 0.0f));
+        PartDefinition joinbtLAY = jointdont_10.addOrReplaceChild("joinbtLAY", CubeListBuilder.create().texOffs(95, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_11 = joinbtLAY.addOrReplaceChild("jointdont_11", CubeListBuilder.create().texOffs(102, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.5707964f, 0.0f, 0.0f));
+        PartDefinition arm_2 = jointdont_11.addOrReplaceChild("arm_2", CubeListBuilder.create().texOffs(216, 55).addBox(-2.0f, 0.0f, -2.0f, 4, 13, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.3613569f, 0.0f, -2.7576203f));
+        PartDefinition legdec_3 = arm_2.addOrReplaceChild("legdec_3", CubeListBuilder.create().texOffs(0, 56).addBox(-2.4f, -5.5f, -2.5f, 5, 8, 5), PartPose.offsetAndRotation(0.0f, -1.0f, 0.5f, -0.15707964f, 0.0f, 0.0f));
+        PartDefinition jointLA1 = arm_2.addOrReplaceChild("jointLA1", CubeListBuilder.create().texOffs(114, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 12.0f, -0.5f));
+        PartDefinition arm_3 = jointLA1.addOrReplaceChild("arm_3", CubeListBuilder.create().texOffs(20, 56).addBox(-1.5f, 0.0f, -1.5f, 3, 13, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.6457718f, 0.0f, 0.0f));
+        PartDefinition jointLA2 = arm_3.addOrReplaceChild("jointLA2", CubeListBuilder.create().texOffs(151, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 12.5f, -0.5f));
+        PartDefinition hand_1 = jointLA2.addOrReplaceChild("hand_1", CubeListBuilder.create().texOffs(0, 106).addBox(-2.0f, 0.0f, -1.5f, 4, 6, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.3f, -0.4537856f, (float)Math.PI, 0.0f));
+        PartDefinition jointLAMRF = hand_1.addOrReplaceChild("jointLAMRF", CubeListBuilder.create().texOffs(93, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-1.4f, 5.3f, 0.0f));
+        PartDefinition finger_5 = jointLAMRF.addOrReplaceChild("finger_5", CubeListBuilder.create().texOffs(80, 110).addBox(-1.0f, 0.0f, -1.0f, 2, 6, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -0.3f, 1.2566371f, -0.29670596f, 0.0f));
+        PartDefinition dec_15 = finger_5.addOrReplaceChild("dec_15", CubeListBuilder.create().texOffs(68, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 5.8f, -0.5f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition finger_6 = dec_15.addOrReplaceChild("finger_6", CubeListBuilder.create().texOffs(16, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 3.6f, -0.1f, 0.87266463f, 0.0f, 0.0f));
+        PartDefinition jointLABRF = hand_1.addOrReplaceChild("jointLABRF", CubeListBuilder.create().texOffs(113, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-1.4f, 1.3f, 0.5f));
+        PartDefinition finger_7 = jointLABRF.addOrReplaceChild("finger_7", CubeListBuilder.create().texOffs(48, 110).addBox(-1.0f, 0.0f, -1.0f, 2, 4, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -0.3f, 1.3962634f, -0.19198622f, 0.0f));
+        PartDefinition dec_16 = finger_7.addOrReplaceChild("dec_16", CubeListBuilder.create().texOffs(72, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 3, 1), PartPose.offsetAndRotation(0.0f, 3.8f, -0.5f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition dec_17 = dec_16.addOrReplaceChild("dec_17", CubeListBuilder.create().texOffs(60, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 2.6f, -0.1f, 0.9424778f, 0.0f, 0.0f));
+        PartDefinition jointLAMLF = hand_1.addOrReplaceChild("jointLAMLF", CubeListBuilder.create().texOffs(56, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(1.4f, 5.3f, 0.0f));
+        PartDefinition finger_4 = jointLAMLF.addOrReplaceChild("finger_4", CubeListBuilder.create().texOffs(32, 110).addBox(-1.0f, 0.0f, -1.0f, 2, 5, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -0.3f, 1.2566371f, 0.2617994f, 0.0f));
+        PartDefinition dec_13 = finger_4.addOrReplaceChild("dec_13", CubeListBuilder.create().texOffs(64, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 4.8f, -0.5f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition dec_14 = dec_13.addOrReplaceChild("dec_14", CubeListBuilder.create().texOffs(56, 110).addBox(-0.5f, 0.0f, -0.5f, 1, 4, 1), PartPose.offsetAndRotation(0.0f, 3.6f, -0.1f, 1.0821041f, 0.0f, 0.0f));
+        PartDefinition dec_2 = bottom25.addOrReplaceChild("dec_2", CubeListBuilder.create().texOffs(209, 4).addBox(-2.5f, -5.5f, -6.5f, 5, 11, 13), PartPose.offsetAndRotation(5.8f, 6.0f, -0.7f, 0.0f, (float)Math.PI / 180, 0.0f));
+        PartDefinition bottom2 = bottom25.addOrReplaceChild("bottom2", CubeListBuilder.create().texOffs(0, 17).addBox(-6.0f, 0.1f, -6.5f, 12, 10, 13), PartPose.offsetAndRotation(0.0f, -0.8f, 8.6f, 0.2617994f, 0.0f, 0.0f));
+        PartDefinition jointdont_4 = bottom2.addOrReplaceChild("jointdont_4", CubeListBuilder.create().texOffs(165, 0).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-10.0f, 6.0f, 0.0f, 0.7853982f, 0.0f, 0.0f));
+        PartDefinition jointFRLX = jointdont_4.addOrReplaceChild("jointFRLX", CubeListBuilder.create().texOffs(225, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_6 = jointFRLX.addOrReplaceChild("jointdont_6", CubeListBuilder.create().texOffs(229, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, (float)Math.PI, 0.9250245f));
+        PartDefinition jointFRLY = jointdont_6.addOrReplaceChild("jointFRLY", CubeListBuilder.create().texOffs(233, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition leg = jointFRLY.addOrReplaceChild("leg", CubeListBuilder.create().texOffs(154, 23).addBox(-3.0f, 0.0f, -3.0f, 6, 18, 6), PartPose.offsetAndRotation(0.0f, 0.1f, -1.5f, 0.12217305f, 0.0f, 0.0f));
+        PartDefinition jointFRL1 = leg.addOrReplaceChild("jointFRL1", CubeListBuilder.create().texOffs(102, 1).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 14.0f, 0.0f));
+        PartDefinition leg_1 = jointFRL1.addOrReplaceChild("leg_1", CubeListBuilder.create().texOffs(90, 36).addBox(-2.5f, 0.0f, -2.0f, 5, 17, 4), PartPose.offsetAndRotation(0.0f, 0.0f, -0.6f, -1.7453293f, 0.0f, 0.0f));
+        PartDefinition jointFRL2 = leg_1.addOrReplaceChild("jointFRL2", CubeListBuilder.create().texOffs(129, 1).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 16.1f, 0.0f));
+        PartDefinition leg_2 = jointFRL2.addOrReplaceChild("leg_2", CubeListBuilder.create().texOffs(241, 28).addBox(-2.0f, 0.0f, -1.5f, 4, 14, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.5f, 0.5235988f, 0.0f, 0.0f));
+        PartDefinition jointFRL3 = leg_2.addOrReplaceChild("jointFRL3", CubeListBuilder.create().texOffs(5, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 13.0f, 0.0f));
+        PartDefinition leg_3 = jointFRL3.addOrReplaceChild("leg_3", CubeListBuilder.create().texOffs(32, 40).addBox(-2.5f, -5.0f, -2.0f, 5, 21, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 1.4f, -0.5934119f, 0.0f, 0.0f));
+        PartDefinition dec_6 = leg_3.addOrReplaceChild("dec_6", CubeListBuilder.create().texOffs(120, 2).addBox(-1.5f, -4.5f, -1.0f, 3, 9, 2), PartPose.offsetAndRotation(0.0f, 11.5f, -2.3f, -0.15707964f, 0.0f, 0.0f));
+        PartDefinition legdec = leg.addOrReplaceChild("legdec", CubeListBuilder.create().texOffs(0, 40).addBox(-4.0f, -2.5f, -4.0f, 8, 8, 8), PartPose.offsetAndRotation(1.5f, -1.0f, 0.0f, 0.0f, 0.0f, -0.2617994f));
+        PartDefinition jointdont_5 = bottom2.addOrReplaceChild("jointdont_5", CubeListBuilder.create().texOffs(219, 0).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(10.0f, 6.0f, 0.0f, 0.7853982f, 0.0f, 0.0f));
+        PartDefinition jointFLLX = jointdont_5.addOrReplaceChild("jointFLLX", CubeListBuilder.create().texOffs(46, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition jointdont_7 = jointFLLX.addOrReplaceChild("jointdont_7", CubeListBuilder.create().texOffs(54, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, (float)Math.PI, -0.9250245f));
+        PartDefinition jointFLLY = jointdont_7.addOrReplaceChild("jointFLLY", CubeListBuilder.create().texOffs(58, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition leg_4 = jointFLLY.addOrReplaceChild("leg_4", CubeListBuilder.create().texOffs(50, 40).addBox(-3.0f, 0.0f, -3.0f, 6, 18, 6), PartPose.offsetAndRotation(0.0f, 0.1f, -1.5f, 0.12217305f, 0.0f, 0.0f));
+        PartDefinition jointFLL1 = leg_4.addOrReplaceChild("jointFLL1", CubeListBuilder.create().texOffs(92, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 14.0f, 0.0f));
+        PartDefinition leg_5 = jointFLL1.addOrReplaceChild("leg_5", CubeListBuilder.create().texOffs(178, 41).addBox(-2.5f, 0.0f, -2.0f, 5, 17, 4), PartPose.offsetAndRotation(0.0f, 0.0f, -0.6f, -1.7453293f, 0.0f, 0.0f));
+        PartDefinition jointFLL2 = leg_5.addOrReplaceChild("jointFLL2", CubeListBuilder.create().texOffs(96, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 16.1f, 0.0f));
+        PartDefinition leg_6 = jointFLL2.addOrReplaceChild("leg_6", CubeListBuilder.create().texOffs(74, 40).addBox(-2.0f, 0.0f, -1.5f, 4, 14, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.5f, 0.5235988f, 0.0f, 0.0f));
+        PartDefinition jointFLL3 = leg_6.addOrReplaceChild("jointFLL3", CubeListBuilder.create().texOffs(114, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 13.0f, 0.0f));
+        PartDefinition leg_7 = jointFLL3.addOrReplaceChild("leg_7", CubeListBuilder.create().texOffs(108, 50).addBox(-2.5f, -5.0f, -2.0f, 5, 21, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 1.4f, -0.5934119f, 0.0f, 0.0f));
+        PartDefinition dec_7 = leg_7.addOrReplaceChild("dec_7", CubeListBuilder.create().texOffs(245, 14).addBox(-1.5f, -4.5f, -1.0f, 3, 9, 2), PartPose.offsetAndRotation(0.0f, 11.5f, -2.3f, -0.15707964f, 0.0f, 0.0f));
+        PartDefinition legdec_1 = leg_4.addOrReplaceChild("legdec_1", CubeListBuilder.create().texOffs(146, 47).addBox(-4.0f, -2.5f, -4.0f, 8, 8, 8), PartPose.offsetAndRotation(-1.5f, -1.0f, 0.0f, 0.0f, 0.0f, 0.2617994f));
+        PartDefinition dec_5 = bottom2.addOrReplaceChild("dec_5", CubeListBuilder.create().texOffs(201, 28).addBox(-3.0f, -7.0f, -7.0f, 6, 13, 14), PartPose.offsetAndRotation(-7.0f, 6.0f, 0.0f, 0.0f, -0.17453292f, 0.0f));
+        PartDefinition dec_4 = bottom2.addOrReplaceChild("dec_4", CubeListBuilder.create().texOffs(114, 23).addBox(-3.0f, -7.0f, -7.0f, 6, 13, 14), PartPose.offsetAndRotation(7.0f, 6.0f, 0.0f, 0.0f, 0.17453292f, 0.0f));
+        PartDefinition bottom3 = bottom25.addOrReplaceChild("bottom3", CubeListBuilder.create().texOffs(192, 0).addBox(-4.0f, -5.2f, 0.0f, 8, 10, 7), PartPose.offsetAndRotation(0.0f, 4.6f, 14.7f, 0.15707964f, 0.0f, 0.0f));
+        PartDefinition jointH = bottom3.addOrReplaceChild("jointH", CubeListBuilder.create().texOffs(53, 0).addBox(0.0f, 0.0f, 0.0f, 1, 1, 1), PartPose.offset(0.0f, 3.0f, 6.0f));
+        PartDefinition Mouth = jointH.addOrReplaceChild("Mouth", CubeListBuilder.create().texOffs(232, 0).addBox(-2.5f, -1.0f, 0.0f, 5, 9, 5), PartPose.offsetAndRotation(0.0f, 3.5f, 0.7f, 2.5481808f, 0.0f, 0.0f));
+        PartDefinition jointDM = Mouth.addOrReplaceChild("jointDM", CubeListBuilder.create().texOffs(87, 0).addBox(0.0f, 0.0f, 0.0f, 1, 1, 1), PartPose.offset(0.0f, 7.2f, 4.9f));
+        PartDefinition Mouth_2 = jointDM.addOrReplaceChild("Mouth_2", CubeListBuilder.create().texOffs(94, 22).addBox(-3.0f, -2.0f, -10.0f, 6, 3, 11), PartPose.offsetAndRotation(0.0f, 2.0f, 0.0f, -0.12217305f, 0.0f, 0.0f));
+        PartDefinition jointUM = Mouth.addOrReplaceChild("jointUM", CubeListBuilder.create().texOffs(57, 0).addBox(0.0f, 0.0f, 0.0f, 1, 1, 1), PartPose.offset(0.0f, -1.3f, 3.0f));
+        PartDefinition Mouth_1 = jointUM.addOrReplaceChild("Mouth_1", CubeListBuilder.create().texOffs(50, 22).addBox(-4.5f, -2.5f, -11.0f, 9, 5, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.10471976f, 0.0f, 0.0f));
+        PartDefinition JD_1 = Mouth_1.addOrReplaceChild("JD_1", CubeListBuilder.create().texOffs(95, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-3.9f, 2.2f, -9.8f, 1.5707964f, 0.0f, 0.0f));
+        PartDefinition teeth_2 = JD_1.addOrReplaceChild("teeth_2", CubeListBuilder.create().texOffs(160, 0).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.17453292f, 0.34906584f));
+        PartDefinition teeth_3 = teeth_2.addOrReplaceChild("teeth_3", CubeListBuilder.create().texOffs(179, 0).addBox(-0.5f, -0.5f, -3.0f, 1, 1, 3), PartPose.offsetAndRotation(0.0f, 0.0f, -3.2f, 0.0f, 0.4537856f, (float)Math.PI));
+        PartDefinition JD_3 = Mouth_1.addOrReplaceChild("JD_3", CubeListBuilder.create().texOffs(114, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-3.8f, 2.2f, -6.8f, 1.5707964f, 0.0f, 0.0f));
+        PartDefinition teeth_6 = JD_3.addOrReplaceChild("teeth_6", CubeListBuilder.create().texOffs(247, 0).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.2268928f, 0.0f));
+        PartDefinition teeth_7 = teeth_6.addOrReplaceChild("teeth_7", CubeListBuilder.create().texOffs(157, 0).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -3.1f, 0.0f, 0.27925268f, (float)Math.PI));
+        PartDefinition JD_7 = Mouth_1.addOrReplaceChild("JD_7", CubeListBuilder.create().texOffs(143, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-1.4f, 2.2f, -11.2f, 1.5707964f, -1.5707964f, 0.0f));
+        PartDefinition teeth_14 = JD_7.addOrReplaceChild("teeth_14", CubeListBuilder.create().texOffs(87, 2).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.2268928f, -0.12217305f));
+        PartDefinition teeth_15 = teeth_14.addOrReplaceChild("teeth_15", CubeListBuilder.create().texOffs(221, 0).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -3.2f, 0.0f, 0.5061455f, (float)Math.PI));
+        PartDefinition JD_5 = Mouth_1.addOrReplaceChild("JD_5", CubeListBuilder.create().texOffs(122, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-3.8f, 2.2f, -3.8f, 1.5707964f, 0.0f, 0.0f));
+        PartDefinition teeth_10 = JD_5.addOrReplaceChild("teeth_10", CubeListBuilder.create().texOffs(41, 2).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.2268928f, 0.0f));
+        PartDefinition teeth_11 = teeth_10.addOrReplaceChild("teeth_11", CubeListBuilder.create().texOffs(192, 0).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -3.1f, 0.0f, 0.27925268f, (float)Math.PI));
+        PartDefinition JD = Mouth_1.addOrReplaceChild("JD", CubeListBuilder.create().texOffs(91, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(3.9f, 2.2f, -9.8f, 1.5707964f, (float)(-Math.PI), 0.0f));
+        PartDefinition teeth = JD.addOrReplaceChild("teeth", CubeListBuilder.create().texOffs(144, 0).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.17453292f, -0.34906584f));
+        PartDefinition teeth_1 = teeth.addOrReplaceChild("teeth_1", CubeListBuilder.create().texOffs(152, 0).addBox(-0.5f, -0.5f, -3.0f, 1, 1, 3), PartPose.offsetAndRotation(0.0f, 0.0f, -3.2f, 0.0f, 0.4537856f, (float)Math.PI));
+        PartDefinition JD_2 = Mouth_1.addOrReplaceChild("JD_2", CubeListBuilder.create().texOffs(99, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(3.8f, 2.2f, -6.8f, 1.5707964f, (float)(-Math.PI), 0.0f));
+        PartDefinition teeth_4 = JD_2.addOrReplaceChild("teeth_4", CubeListBuilder.create().texOffs(187, 0).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.2268928f, 0.0f));
+        PartDefinition teeth_5 = teeth_4.addOrReplaceChild("teeth_5", CubeListBuilder.create().texOffs(149, 0).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -3.1f, 0.0f, 0.27925268f, (float)Math.PI));
+        PartDefinition JD_4 = Mouth_1.addOrReplaceChild("JD_4", CubeListBuilder.create().texOffs(118, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(3.8f, 2.2f, -3.8f, 1.5707964f, (float)(-Math.PI), 0.0f));
+        PartDefinition teeth_8 = JD_4.addOrReplaceChild("teeth_8", CubeListBuilder.create().texOffs(0, 2).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.2268928f, 0.0f));
+        PartDefinition teeth_9 = teeth_8.addOrReplaceChild("teeth_9", CubeListBuilder.create().texOffs(184, 0).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -3.1f, 0.0f, 0.27925268f, (float)Math.PI));
+        PartDefinition JD_6 = Mouth_1.addOrReplaceChild("JD_6", CubeListBuilder.create().texOffs(126, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(1.4f, 2.2f, -11.2f, 1.5707964f, -1.5707964f, 0.0f));
+        PartDefinition teeth_12 = JD_6.addOrReplaceChild("teeth_12", CubeListBuilder.create().texOffs(49, 2).addBox(-0.5f, -1.0f, -3.0f, 1, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.2268928f, 0.12217305f));
+        PartDefinition teeth_13 = teeth_12.addOrReplaceChild("teeth_13", CubeListBuilder.create().texOffs(215, 0).addBox(-0.5f, -0.5f, -2.0f, 1, 1, 2), PartPose.offsetAndRotation(0.0f, 0.0f, -3.2f, 0.0f, 0.5061455f, (float)Math.PI));
+        PartDefinition dec = body0.addOrReplaceChild("dec", CubeListBuilder.create().texOffs(120, 0).addBox(-2.5f, -3.5f, -12.0f, 5, 10, 13), PartPose.offsetAndRotation(7.0f, 5.0f, 8.0f, -0.15707964f, -0.4712389f, 0.0f));
+        PartDefinition jointdont = body0.addOrReplaceChild("jointdont", CubeListBuilder.create().texOffs(4, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(4.7f, 2.5f, 7.3f, 0.4712389f, 1.3264502f, 0.0f));
+        PartDefinition taclejointL = jointdont.addOrReplaceChild("taclejointL", CubeListBuilder.create().texOffs(143, 7).addBox(-2.0f, -2.0f, 0.0f, 4, 4, 1), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition tentacle = taclejointL.addOrReplaceChild("tentacle", CubeListBuilder.create().texOffs(75, 88).addBox(-2.5f, -2.5f, -1.0f, 5, 5, 14), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.82030475f, 0.0f, 0.0f));
+        PartDefinition taclejointL1 = tentacle.addOrReplaceChild("taclejointL1", CubeListBuilder.create().texOffs(179, 6).addBox(-1.5f, -1.5f, 0.0f, 3, 3, 1), PartPose.offset(0.0f, -0.2f, 11.0f));
+        PartDefinition tentacle_1 = taclejointL1.addOrReplaceChild("tentacle_1", CubeListBuilder.create().texOffs(184, 86).addBox(-2.0f, -2.0f, 0.0f, 4, 4, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.19198622f, 0.0f, 0.0f));
+        PartDefinition taclejointL2 = tentacle_1.addOrReplaceChild("taclejointL2", CubeListBuilder.create().texOffs(153, 6).addBox(-1.0f, -1.0f, 0.0f, 2, 2, 1), PartPose.offset(0.0f, -0.2f, 9.0f));
+        PartDefinition tentacle_2 = taclejointL2.addOrReplaceChild("tentacle_2", CubeListBuilder.create().texOffs(0, 89).addBox(-1.5f, -1.5f, 0.0f, 3, 3, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.19198622f, 0.0f, 0.0f));
+        PartDefinition taclejointL3 = tentacle_2.addOrReplaceChild("taclejointL3", CubeListBuilder.create().texOffs(165, 6).addBox(-0.5f, -0.5f, 0.0f, 1, 1, 1), PartPose.offset(0.0f, -0.2f, 9.0f));
+        PartDefinition tentacle_3 = taclejointL3.addOrReplaceChild("tentacle_3", CubeListBuilder.create().texOffs(144, 90).addBox(-1.0f, -1.0f, 0.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.19198622f, 0.0f, 0.0f));
+        return LayerDefinition.create(mesh, 256, 120);
+    }
 
     @Override
-    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) { }
+    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+        float f1;
+        float f2;
+        float f3;
+        float f22;
+        float f12;
+        float GD;
+        float GS;
+        EntityNoglaAdapted parasite = (EntityNoglaAdapted)entity;
+        this.jointFLLX.zRot = 0.0f;
+        this.jointFLLY.xRot = 0.0f;
+        this.jointFRLX.zRot = 0.0f;
+        this.jointFRLY.xRot = 0.0f;
+        this.jointBLLX.xRot = 0.0f;
+        this.jointBRLX.xRot = 0.0f;
+        this.mainbody.y = 0.0f;
+        this.mainbody.x = 0.0f;
+        this.mainbody.z = 0.0f;
+        this.mainbody.xRot = 0.0f;
+        this.taclejointL.xRot = 0.0f;
+        this.taclejointL2.xRot = 0.0f;
+        this.taclejointR.xRot = 0.0f;
+        this.taclejointR2.xRot = 0.0f;
+        this.jointLAX.xRot = 0.0f;
+        this.jointLA1.xRot = 0.0f;
+        this.jointRAX.xRot = 0.0f;
+        this.jointRA1.xRot = 0.0f;
+        this.jointUM.xRot = 0.0f;
+        this.jointDM.xRot = 0.0f;
+        this.jointRAMRF.xRot = 0.0f;
+        this.jointRAMLF.xRot = 0.0f;
+        this.jointRABLF.xRot = 0.0f;
+        this.jointLAMRF.xRot = 0.0f;
+        this.jointLAMLF.xRot = 0.0f;
+        this.jointLABRF.xRot = 0.0f;
+        this.jointH.xRot = headPitch * 0.016f;
+        this.jointH.yRot = netHeadYaw * -0.016f;
+        this.taclejointL.visible = !(parasite.getLeft() == 0.0f);
+        this.taclejointR.visible = !(parasite.getRight() == 0.0f);
+        byte i = parasite.getParasiteStatus();
+        if (i == 0) {
+            if (!parasite.getStillAni()) {
+                GS = 1.4f;
+                GD = 0.4f;
+                this.swingZ(this.jointFLLX, 0.2f * GS, 1.5f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFLLY, 0.2f * GS, 1.0f * GD, 1, 1.0f, 0.0f, limbSwing, limbSwingAmount);
+                this.swingZ(this.jointFRLX, 0.2f * GS, 1.5f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFRLY, 0.2f * GS, 1.0f * GD, -1, 1.0f, 0.0f, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBLLX, 0.2f * GS, 1.5f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBRLX, 0.2f * GS, 1.5f * GD, -1, limbSwing, limbSwingAmount);
+                this.moveY(this.mainbody, 0.4f * GS, 1, limbSwing, limbSwingAmount, 0.08f);
+                this.swingX(this.jointLAX, 0.2f * GS, 0.6f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointRAX, 0.2f * GS, 0.6f * GD, -1, limbSwing, limbSwingAmount);
+                this.swingX(this.taclejointL, 0.2f * GS, 0.6f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.taclejointR, 0.2f * GS, 0.6f * GD, -1, limbSwing, limbSwingAmount);
+            } else {
+                f12 = Mth.cos((float)(ageInTicks * 0.2f)) * 0.1f;
+                f22 = Mth.cos((float)(ageInTicks * 0.119f + 3.0f)) * 0.14f;
+                f3 = Mth.cos((float)(ageInTicks * 0.099f)) * 0.05f;
+                this.taclejointL.xRot = -1.0f * f22;
+                this.taclejointL2.xRot = -1.0f * f22;
+                this.taclejointR.xRot = f22;
+                this.taclejointR2.xRot = f22;
+                this.jointLAX.xRot = f3;
+                this.jointLA1.xRot = -1.0f * f3;
+                this.jointRAX.xRot = -1.0f * f3;
+                this.jointRA1.xRot = f3;
+                this.jointUM.xRot = f12;
+                this.jointDM.xRot = -1.0f * f12;
+                f12 = Mth.cos((float)(ageInTicks * 0.2f)) * 0.15f;
+                f22 = Mth.cos((float)(ageInTicks * 0.2f - 1.0f)) * 0.15f;
+                f3 = Mth.cos((float)(ageInTicks * 0.2f - 2.0f)) * 0.15f;
+                this.jointRAMRF.xRot = f22;
+                this.jointRAMLF.xRot = f22;
+                this.jointRABLF.xRot = f3;
+                this.jointLAMRF.xRot = f22;
+                this.jointLAMLF.xRot = f22;
+                this.jointLABRF.xRot = f3;
+            }
+        } else if (i == 1) {
+            if (!parasite.getStillAni()) {
+                GS = 1.4f;
+                GD = 0.4f;
+                this.swingZ(this.jointFLLX, 0.2f * GS, 1.5f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFLLY, 0.2f * GS, 1.0f * GD, 1, 1.0f, 0.0f, limbSwing, limbSwingAmount);
+                this.swingZ(this.jointFRLX, 0.2f * GS, 1.5f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFRLY, 0.2f * GS, 1.0f * GD, -1, 1.0f, 0.0f, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBLLX, 0.2f * GS, 1.5f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBRLX, 0.2f * GS, 1.5f * GD, -1, limbSwing, limbSwingAmount);
+                this.moveY(this.mainbody, 0.4f * GS, 1, limbSwing, limbSwingAmount, 0.08f);
+            }
+            f12 = Mth.cos((float)(ageInTicks * 0.8f)) * 0.15f;
+            f22 = Mth.cos((float)(ageInTicks * 0.5f)) * 0.1f;
+            f3 = Mth.cos((float)(ageInTicks * 0.55f)) * 0.1f;
+            this.taclejointL.xRot = -1.0f * f22;
+            this.taclejointL2.xRot = -1.0f * f22;
+            this.taclejointR.xRot = f22;
+            this.taclejointR2.xRot = f22;
+            this.jointLAX.xRot = f3;
+            this.jointLA1.xRot = 0.5f + -1.0f * f3;
+            this.jointRAX.xRot = -1.0f * f3;
+            this.jointRA1.xRot = 0.5f + f3;
+            this.jointUM.xRot = -0.5f + f12;
+            this.jointDM.xRot = 0.5f + -1.0f * f12;
+            f12 = -0.5f + Mth.cos((float)(ageInTicks * 0.9f)) * 0.15f;
+            f22 = -0.3f + Mth.cos((float)(ageInTicks * 0.9f - 1.0f)) * 0.15f;
+            f3 = -0.1f + Mth.cos((float)(ageInTicks * 0.9f - 2.0f)) * 0.15f;
+            this.jointRAMRF.xRot = -0.5f + f22;
+            this.jointRAMLF.xRot = -1.5f + f22;
+            this.jointRABLF.xRot = -0.5f + f3;
+            this.jointLAMRF.xRot = -1.5f + f22;
+            this.jointLAMLF.xRot = -0.5f + f22;
+            this.jointLABRF.xRot = -0.5f + f3;
+        } else if (i == 2) {
+            if (!parasite.getStillAni()) {
+                GS = 1.4f;
+                GD = 0.3f;
+                this.swingZ(this.jointFLLX, 0.3f * GS, 1.9f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFLLY, 0.3f * GS, 1.0f * GD, 1, 1.0f, 0.1f, limbSwing, limbSwingAmount);
+                this.swingZ(this.jointFRLX, 0.3f * GS, 1.9f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFRLY, 0.3f * GS, 1.0f * GD, -1, 1.0f, 0.1f, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBLLX, 0.3f * GS, 1.9f * GD, 1, 0.0f, 0.2f, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBRLX, 0.3f * GS, 1.9f * GD, -1, 0.0f, 0.2f, limbSwing, limbSwingAmount);
+                this.moveY(this.mainbody, 0.6f * GS, -1, limbSwing, limbSwingAmount, 0.08f);
+                this.swingX(this.mainbody, 0.6f * GS, 0.2f * GD, -1, 0.8f, 0.0f, limbSwing, limbSwingAmount);
+            }
+            f12 = Mth.cos((float)(ageInTicks * 0.8f)) * 0.15f;
+            f22 = Mth.cos((float)(ageInTicks * 0.5f)) * 0.1f;
+            f3 = Mth.cos((float)(ageInTicks * 0.55f)) * 0.1f;
+            this.taclejointL.xRot = -1.0f * f22;
+            this.taclejointL2.xRot = -1.0f * f22;
+            this.taclejointR.xRot = f22;
+            this.taclejointR2.xRot = f22;
+            this.jointLAX.xRot = f3;
+            this.jointLA1.xRot = 0.5f + -1.0f * f3;
+            this.jointRAX.xRot = -1.0f * f3;
+            this.jointRA1.xRot = 0.5f + f3;
+            this.jointUM.xRot = -0.5f + f12;
+            this.jointDM.xRot = 0.5f + -1.0f * f12;
+            f12 = -0.5f + Mth.cos((float)(ageInTicks * 0.9f)) * 0.15f;
+            f22 = -0.3f + Mth.cos((float)(ageInTicks * 0.9f - 1.0f)) * 0.15f;
+            f3 = -0.1f + Mth.cos((float)(ageInTicks * 0.9f - 2.0f)) * 0.15f;
+            this.jointRAMRF.xRot = -0.5f + f22;
+            this.jointRAMLF.xRot = -1.5f + f22;
+            this.jointRABLF.xRot = -0.5f + f3;
+            this.jointLAMRF.xRot = -1.5f + f22;
+            this.jointLAMLF.xRot = -0.5f + f22;
+            this.jointLABRF.xRot = -0.5f + f3;
+        }
+        if (i == 3) {
+            if (!parasite.getStillAni()) {
+                GS = 2.2f;
+                GD = 0.3f;
+                this.swingZ(this.jointFLLX, 0.3f * GS, 1.9f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFLLY, 0.3f * GS, 1.0f * GD, 1, 1.0f, 0.1f, limbSwing, limbSwingAmount);
+                this.swingZ(this.jointFRLX, 0.3f * GS, 1.9f * GD, 1, limbSwing, limbSwingAmount);
+                this.swingX(this.jointFRLY, 0.3f * GS, 1.0f * GD, -1, 1.0f, 0.1f, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBLLX, 0.3f * GS, 1.9f * GD, 1, 0.0f, 0.2f, limbSwing, limbSwingAmount);
+                this.swingX(this.jointBRLX, 0.3f * GS, 1.9f * GD, -1, 0.0f, 0.2f, limbSwing, limbSwingAmount);
+                this.moveY(this.mainbody, 0.6f * GS, -1, limbSwing, limbSwingAmount, 0.08f);
+                this.swingX(this.mainbody, 0.6f * GS, 0.2f * GD, -1, 0.8f, 0.0f, limbSwing, limbSwingAmount);
+            } else {
+                f2 = Mth.cos((float)(ageInTicks * 2.6f)) * 0.015f;
+                f1 = Mth.cos((float)(ageInTicks * 2.27f)) * 0.02f;
+                this.mainbody.x = f2;
+                this.mainbody.z = f1;
+            }
+            f12 = Mth.cos((float)(ageInTicks * 0.4f)) * 0.05f;
+            f22 = Mth.cos((float)(ageInTicks * 0.2f)) * 0.01f;
+            f3 = Mth.cos((float)(ageInTicks * 0.2f)) * 0.01f;
+            this.taclejointL.xRot = -0.5f + -1.0f * f22;
+            this.taclejointL2.xRot = -1.0f * f22;
+            this.taclejointR.xRot = -0.5f + f22;
+            this.taclejointR2.xRot = f22;
+            this.jointLA1.xRot = 0.3f;
+            this.jointRA1.xRot = 0.3f;
+            this.jointUM.xRot = 0.5f + f12;
+            this.jointDM.xRot = 0.5f + f12;
+            f12 = -0.5f + Mth.cos((float)(ageInTicks * 0.4f)) * 0.05f;
+            f22 = -0.3f + Mth.cos((float)(ageInTicks * 0.4f - 1.0f)) * 0.05f;
+            f3 = -0.1f + Mth.cos((float)(ageInTicks * 0.4f - 2.0f)) * 0.05f;
+            this.jointRAMRF.xRot = 0.5f + f22;
+            this.jointRAMLF.xRot = 0.5f + f22;
+            this.jointRABLF.xRot = 0.5f + f3;
+            this.jointLAMRF.xRot = 0.5f + f22;
+            this.jointLAMLF.xRot = 0.5f + f22;
+            this.jointLABRF.xRot = 0.5f + f3;
+        } else if (i == 25) {
+            f2 = Mth.cos((float)(ageInTicks * 2.6f)) * 0.015f;
+            f1 = Mth.cos((float)(ageInTicks * 2.27f)) * 0.02f;
+            this.mainbody.x = f2;
+            this.mainbody.z = f1;
+            f2 = Mth.cos((float)(ageInTicks * 0.119f + 3.0f)) * 0.14f;
+            this.taclejointL.xRot = -0.5f + -1.0f * f2;
+            this.taclejointL2.xRot = -1.0f * f2;
+            this.taclejointR.xRot = -0.5f + f2;
+            this.taclejointR2.xRot = f2;
+            f1 = Mth.cos((float)(ageInTicks * 0.4f)) * 0.05f;
+            this.jointUM.xRot = -0.7f + f1;
+            this.jointDM.xRot = 0.7f + -1.0f * f1;
+            this.jointH.xRot = 0.3f;
+            this.jointH.yRot = f2 = Mth.cos((float)(ageInTicks * 0.1f)) * 0.4f;
+            f3 = Mth.cos((float)(ageInTicks * 0.15f)) * 0.05f;
+            this.jointLAX.xRot = 0.5f + f3;
+            this.jointLA1.xRot = 0.5f + -1.0f * f3;
+            this.jointRAX.xRot = 0.5f + -1.0f * f3;
+            this.jointRA1.xRot = 0.5f + f3;
+        }
+        this.underground(parasite, ageInTicks, this.mainbody);
+    
+    }
 
     @Override
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack poseStack, com.mojang.blaze3d.vertex.VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) { }
+    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack poseStack, com.mojang.blaze3d.vertex.VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        mainbody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    }
+
+    private void setRotateAngle(ModelPart modelRenderer, float x, float y, float z) {
+        modelRenderer.xRot = x;
+        modelRenderer.yRot = y;
+        modelRenderer.zRot = z;
+    }
+
+    private void swingX(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingX(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingX(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingY(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingY(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingY(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingZ(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingZ(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingZ(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void moveY(ModelPart modelRenderer, float speed, int invert, float f, float f1, float distance) {
+        modelRenderer.y = (float)invert * Mth.cos(f * speed) * f1 * distance;
+    }
+
+    private void underground(com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase parasite, float ageInTicks, ModelPart mainbody) {
+    }
+
 }
