@@ -12,7 +12,6 @@ public class BlockSlabDouble extends BlockSlabBase
     public BlockSlabDouble(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState()
-            .setValue(VARIANT, EnumType.DEFAULT)
             .setValue(TYPE, SlabType.DOUBLE)
             .setValue(WATERLOGGED, Boolean.FALSE));
     }

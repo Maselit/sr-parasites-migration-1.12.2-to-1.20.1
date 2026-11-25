@@ -22,6 +22,15 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYLUM.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityLum.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRANRAC.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityRanrac.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYWYMO.get(), com.dhanantry.scapeandrunparasites.entity.monster.primitive.EntityWymo.createAttributes().build());
+        // biomass/tendril/wave (EntityParasiteBase subclasses)
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBIOMASS.get(), com.dhanantry.scapeandrunparasites.entity.monster.EntityBiomass.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYTENDRIL.get(), com.dhanantry.scapeandrunparasites.entity.monster.EntityTendril.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYWAVE.get(), com.dhanantry.scapeandrunparasites.entity.monster.EntityWave.createAttributes().build());
+        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYWAVESHOCK.get(), com.dhanantry.scapeandrunparasites.entity.monster.EntityWaveShock.createAttributes().build());
+        // carrier_light uses EntityGothol
+        net.minecraft.resources.ResourceLocation cl = new net.minecraft.resources.ResourceLocation("srparasites", "carrier_light");
+        net.minecraft.world.entity.EntityType<?> clType = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getValue(cl);
+        if (clType != null) event.put((net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.LivingEntity>) clType, com.dhanantry.scapeandrunparasites.entity.monster.inborn.EntityGothol.createAttributes().build());
         // infected
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDORPA.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityDorpa.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYINFBEAR.get(), com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityInfBear.createAttributes().build());
@@ -58,7 +67,6 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYTONRO.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityTonro.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYUNVO.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.EntityUnvo.createAttributes().build());
         // nexus (Dod)
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDOD.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus.EntityDod.createAttributes().build());
         // nexus
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDOD.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus.EntityDod.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYDODSII.get(), com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus.EntityDodSII.createAttributes().build());
@@ -85,14 +93,6 @@ public class SRPEntityAttributeHandler {
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYTENN.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityTenn.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYVESTA.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.preeminent.EntityVesta.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYORCH.get(), com.dhanantry.scapeandrunparasites.entity.monster.pure.EntityOrch.createAttributes().build());
-        // adapted
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBANOADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityBanoAdapted.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYCANRAADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityCanraAdapted.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYEMANAADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityEmanaAdapted.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYHULLADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityHullAdapted.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYNOGLAADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityNoglaAdapted.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYRANRACADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityRanracAdapted.createAttributes().build());
-        event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYSHYCOADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityShycoAdapted.createAttributes().build());
         // adapted
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYBANOADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityBanoAdapted.createAttributes().build());
         event.put(com.dhanantry.scapeandrunparasites.init.SRPEntities.ENTITYCANRAADAPTED.get(), com.dhanantry.scapeandrunparasites.entity.monster.adapted.EntityCanraAdapted.createAttributes().build());

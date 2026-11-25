@@ -12,7 +12,6 @@ public class BlockSlabHalf extends BlockSlabBase
     public BlockSlabHalf(BlockBehaviour.Properties properties) {
         super(properties);
         this.registerDefaultState(this.defaultBlockState()
-            .setValue(VARIANT, EnumType.DEFAULT)
             .setValue(TYPE, SlabType.BOTTOM)
             .setValue(WATERLOGGED, Boolean.FALSE));
     }

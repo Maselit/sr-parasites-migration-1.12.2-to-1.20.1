@@ -263,15 +263,15 @@ public class SRPEntities {
     public static final RegistryObject<EntityType<EntityProjectileLenciaBall>> ENTITYPROJECTILELENCIABALL =
         SRPMain.ENTITIES.register("ballmall", () -> EntityType.Builder.of(EntityProjectileLenciaBall::new, MobCategory.MISC).sized(0.5F, 0.5F).build("ballmall"));
     public static final RegistryObject<EntityType<EntityScaryOrb>> ENTITYSCARYORB =
-        SRPMain.ENTITIES.register("orb", () -> EntityType.Builder.of(EntityScaryOrb::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("orb"));
+        SRPMain.ENTITIES.register("orb", () -> EntityType.Builder.of(EntityScaryOrb::new, MobCategory.MISC).sized(0.9F, 1.9F).build("orb"));
     public static final RegistryObject<EntityType<EntitySource>> ENTITYSOURCE =
-        SRPMain.ENTITIES.register("source", () -> EntityType.Builder.of(EntitySource::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("source"));
+        SRPMain.ENTITIES.register("source", () -> EntityType.Builder.of(EntitySource::new, MobCategory.MISC).sized(0.9F, 1.9F).build("source"));
     public static final RegistryObject<EntityType<EntityRemain>> ENTITYREMAIN =
-        SRPMain.ENTITIES.register("remain", () -> EntityType.Builder.of(EntityRemain::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("remain"));
+        SRPMain.ENTITIES.register("remain", () -> EntityType.Builder.of(EntityRemain::new, MobCategory.MISC).sized(0.9F, 1.9F).build("remain"));
     public static final RegistryObject<EntityType<EntityBomb>> ENTITYBOMB =
         SRPMain.ENTITIES.register("bomb", () -> EntityType.Builder.of(EntityBomb::new, MobCategory.MISC).sized(0.5F, 0.5F).build("bomb"));
     public static final RegistryObject<EntityType<EntityToxicCloud>> ENTITYTOXICCLOUD =
-        SRPMain.ENTITIES.register("cloudtoxic", () -> EntityType.Builder.of(EntityToxicCloud::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("cloudtoxic"));
+        SRPMain.ENTITIES.register("cloudtoxic", () -> EntityType.Builder.of(EntityToxicCloud::new, MobCategory.MISC).sized(0.9F, 1.9F).build("cloudtoxic"));
     public static final RegistryObject<EntityType<EntityBiomass>> ENTITYBIOMASS =
         SRPMain.ENTITIES.register("biomass", () -> EntityType.Builder.of(EntityBiomass::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("biomass"));
     public static final RegistryObject<EntityType<EntityGore>> ENTITYGORE =
@@ -279,7 +279,7 @@ public class SRPEntities {
     public static final RegistryObject<EntityType<EntityTendril>> ENTITYTENDRIL =
         SRPMain.ENTITIES.register("tendril", () -> EntityType.Builder.of(EntityTendril::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("tendril"));
     public static final RegistryObject<EntityType<EntityParasiticScent>> ENTITYPARASITICSCENT =
-        SRPMain.ENTITIES.register("scent", () -> EntityType.Builder.of(EntityParasiticScent::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("scent"));
+        SRPMain.ENTITIES.register("scent", () -> EntityType.Builder.of(EntityParasiticScent::new, MobCategory.MISC).sized(0.9F, 1.9F).build("scent"));
     public static final RegistryObject<EntityType<EntityWave>> ENTITYWAVE =
         SRPMain.ENTITIES.register("wave", () -> EntityType.Builder.of(EntityWave::new, MobCategory.MONSTER).sized(0.9F, 1.9F).build("wave"));
     public static final RegistryObject<EntityType<EntityWaveShock>> ENTITYWAVESHOCK =

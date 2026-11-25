@@ -6,5 +6,6 @@ import net.minecraft.world.level.Level;
 
 public class EntityBiomass extends EntityParasiteBase {
     public EntityBiomass(EntityType<? extends EntityBiomass> type, Level level) { super(type, level); }
+    public static net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder createAttributes() { return net.minecraft.world.entity.monster.Monster.createMonsterAttributes(); }
     @Override public int getParasiteIDRegister() { return 205; }
 }

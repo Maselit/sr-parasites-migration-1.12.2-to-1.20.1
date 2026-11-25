@@ -85,10 +85,10 @@ public class SRPMain
         MinecraftForge.EVENT_BUS.register(this);
 
         // Configuracion
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfig.SPEC);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigSystems.SPEC);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigWorld.SPEC);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigMobs.SPEC);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfig.SPEC, "srparasites-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigSystems.SPEC, "srparasites-systems.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigWorld.SPEC, "srparasites-world.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, SRPConfigMobs.SPEC, "srparasites-mobs.toml");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event)

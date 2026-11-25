@@ -15,7 +15,7 @@ public class WeaponToolRangeBase extends Item {
     protected int idTool;
 
     public WeaponToolRangeBase(String name, int durability, int bonus, int damageC, int damage, boolean fear, int id) {
-        super(new Properties().durability(durability).stacksTo(1));
+        super(new Properties().durability(durability));
         this.bonus = bonus;
         this.damageCap = damageC;
         this.damage = damage;
