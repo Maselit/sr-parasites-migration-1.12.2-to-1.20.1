@@ -9,6 +9,8 @@ import net.minecraft.world.level.Level;
  * La logica real (IA, NBT, atributos, sync) se migrara en lotes posteriores.
  */
 public class EntityDropPod extends net.minecraft.world.entity.projectile.ThrowableProjectile {
+    public byte getParasiteStatus() { return 0; }
+
     public EntityDropPod(net.minecraft.world.entity.EntityType<? extends EntityDropPod> type, net.minecraft.world.level.Level level) {
         super(type, level);
     }
@@ -17,3 +19,5 @@ public class EntityDropPod extends net.minecraft.world.entity.projectile.Throwab
     protected void defineSynchedData() { }
 
 }
+
+
