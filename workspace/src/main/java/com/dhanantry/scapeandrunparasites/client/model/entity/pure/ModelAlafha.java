@@ -1,22 +1,698 @@
 package com.dhanantry.scapeandrunparasites.client.model.entity.pure;
 
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
 
-/**
- * STUB migrado (Fase renderers/modelos): esqueleto compilable. La geometria real se migrara en lotes.
- */
 public class ModelAlafha extends EntityModel<Entity> {
-    public ModelAlafha(ModelPart root) { }
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("srparasites", "alafha"), "main");
+    private final ModelPart mainbody;
+    private final ModelPart body;
+    private final ModelPart body_1;
+    private final ModelPart jointN;
+    private final ModelPart bodya;
+    private final ModelPart bodyb;
+    private final ModelPart taclejointFLA0;
+    private final ModelPart taclejointFRA0;
+    private final ModelPart jointFLL0;
+    private final ModelPart jointFRL0;
+    private final ModelPart bodyc;
+    private final ModelPart taclejointMLA0;
+    private final ModelPart taclejointMRA0;
+    private final ModelPart bodyd;
+    private final ModelPart taclejointBLA0;
+    private final ModelPart taclejointBRA0;
+    private final ModelPart body_2;
+    private final ModelPart jointBLL0;
+    private final ModelPart jointBRL0;
+    private final ModelPart body_3;
+    private final ModelPart taclejointBLL1;
+    private final ModelPart tentacle;
+    private final ModelPart taclejointBLL2;
+    private final ModelPart tentacle_1;
+    private final ModelPart taclejointBLL3;
+    private final ModelPart tentacle_2;
+    private final ModelPart taclejointBLL4;
+    private final ModelPart tentacle_3;
+    private final ModelPart taclejointBLL5;
+    private final ModelPart tentacle_4;
+    private final ModelPart taclejointBLL6;
+    private final ModelPart tentacle_5;
+    private final ModelPart body_4;
+    private final ModelPart taclejointBRL1;
+    private final ModelPart tentacle_6;
+    private final ModelPart taclejointBRL2;
+    private final ModelPart tentacle_7;
+    private final ModelPart taclejointBRL3;
+    private final ModelPart tentacle_8;
+    private final ModelPart taclejointBRL4;
+    private final ModelPart tentacle_9;
+    private final ModelPart taclejointBRL5;
+    private final ModelPart tentacle_10;
+    private final ModelPart taclejointBRL6;
+    private final ModelPart tentacle_11;
+    private final ModelPart tentacle_12;
+    private final ModelPart taclejointBLA1;
+    private final ModelPart dec;
+    private final ModelPart tentacle_13;
+    private final ModelPart taclejointBLA2;
+    private final ModelPart tentacle_14;
+    private final ModelPart taclejointBLA3;
+    private final ModelPart tentacle_15;
+    private final ModelPart tentacle_16;
+    private final ModelPart taclejointBRA1;
+    private final ModelPart dec_1;
+    private final ModelPart tentacle_17;
+    private final ModelPart taclejointBRA2;
+    private final ModelPart tentacle_18;
+    private final ModelPart taclejointBRA3;
+    private final ModelPart tentacle_19;
+    private final ModelPart tentacle_20;
+    private final ModelPart taclejointMLA1;
+    private final ModelPart dec_2;
+    private final ModelPart tentacle_21;
+    private final ModelPart taclejointMLA2;
+    private final ModelPart tentacle_22;
+    private final ModelPart taclejointMLA3;
+    private final ModelPart tentacle_23;
+    private final ModelPart tentacle_24;
+    private final ModelPart taclejointMRA1;
+    private final ModelPart dec_3;
+    private final ModelPart tentacle_25;
+    private final ModelPart taclejointMRA2;
+    private final ModelPart tentacle_26;
+    private final ModelPart taclejointMRA3;
+    private final ModelPart tentacle_27;
+    private final ModelPart tentacle_28;
+    private final ModelPart taclejointFLA1;
+    private final ModelPart dec_4;
+    private final ModelPart tentacle_29;
+    private final ModelPart taclejointFLA2;
+    private final ModelPart tentacle_30;
+    private final ModelPart taclejointFLA3;
+    private final ModelPart tentacle_31;
+    private final ModelPart tentacle_32;
+    private final ModelPart taclejointFRA1;
+    private final ModelPart dec_5;
+    private final ModelPart tentacle_33;
+    private final ModelPart taclejointFRA2;
+    private final ModelPart tentacle_34;
+    private final ModelPart taclejointFRA3;
+    private final ModelPart tentacle_35;
+    private final ModelPart body_5;
+    private final ModelPart taclejointFLL1;
+    private final ModelPart tentacle_36;
+    private final ModelPart taclejointFLL2;
+    private final ModelPart tentacle_37;
+    private final ModelPart taclejointFLL3;
+    private final ModelPart tentacle_38;
+    private final ModelPart taclejointFLL4;
+    private final ModelPart tentacle_39;
+    private final ModelPart taclejointFLL5;
+    private final ModelPart tentacle_40;
+    private final ModelPart taclejointFLL6;
+    private final ModelPart tentacle_41;
+    private final ModelPart body_6;
+    private final ModelPart taclejointFRL1;
+    private final ModelPart tentacle_42;
+    private final ModelPart taclejointFRL2;
+    private final ModelPart tentacle_43;
+    private final ModelPart taclejointFRL3;
+    private final ModelPart tentacle_44;
+    private final ModelPart taclejointFRL4;
+    private final ModelPart tentacle_45;
+    private final ModelPart taclejointFRL5;
+    private final ModelPart tentacle_46;
+    private final ModelPart taclejointFRL6;
+    private final ModelPart tentacle_47;
+    private final ModelPart bodyn;
+    private final ModelPart dec_6;
+    private final ModelPart dec_7;
+    private final ModelPart dec_8;
+    private final ModelPart dec_9;
+    private final ModelPart body_7;
+    private final ModelPart body_8;
+    private final ModelPart body_9;
+    private final ModelPart jointH;
+    private final ModelPart body_10;
+    private final ModelPart body_11;
+    private final ModelPart body_12;
+    private final ModelPart body_13;
+    private final ModelPart jointDRM;
+    private final ModelPart jointLDM;
+    private final ModelPart jointDLM;
+    private final ModelPart jointLUM;
+    private final ModelPart jointRUM;
+    private final ModelPart jointRDM;
+    private final ModelPart jointURM;
+    private final ModelPart jointULM;
+    private final ModelPart body_14;
+    private final ModelPart body_15;
+    private final ModelPart dec_10;
+    private final ModelPart dec_11;
+    private final ModelPart body_16;
+    private final ModelPart dec_12;
+    private final ModelPart dec_13;
+    private final ModelPart body_17;
+    private final ModelPart dec_14;
+    private final ModelPart dec_15;
+    private final ModelPart body_18;
+    private final ModelPart dec_16;
+    private final ModelPart dec_17;
+    private final ModelPart body_19;
+    private final ModelPart dec_18;
+    private final ModelPart dec_19;
+    private final ModelPart body_20;
+    private final ModelPart dec_20;
+    private final ModelPart dec_21;
+    private final ModelPart body_21;
+    private final ModelPart dec_22;
+    private final ModelPart dec_23;
+    private final ModelPart body_22;
+    private final ModelPart dec_24;
+    private final ModelPart dec_25;
 
-    public static LayerDefinition createBodyLayer() { return null; }
+    public ModelAlafha(ModelPart root) {
+        this.mainbody = root.getChild("mainbody");
+        this.body = root.getChild("mainbody").getChild("body");
+        this.body_1 = root.getChild("mainbody").getChild("body_1");
+        this.jointN = root.getChild("mainbody").getChild("jointN");
+        this.bodya = root.getChild("mainbody").getChild("body").getChild("bodya");
+        this.bodyb = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb");
+        this.taclejointFLA0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0");
+        this.taclejointFRA0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0");
+        this.jointFLL0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0");
+        this.jointFRL0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0");
+        this.bodyc = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc");
+        this.taclejointMLA0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0");
+        this.taclejointMRA0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0");
+        this.bodyd = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd");
+        this.taclejointBLA0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0");
+        this.taclejointBRA0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0");
+        this.body_2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("body_2");
+        this.jointBLL0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0");
+        this.jointBRL0 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0");
+        this.body_3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3");
+        this.taclejointBLL1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1");
+        this.tentacle = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle");
+        this.taclejointBLL2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2");
+        this.tentacle_1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1");
+        this.taclejointBLL3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3");
+        this.tentacle_2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2");
+        this.taclejointBLL4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2").getChild("taclejointBLL4");
+        this.tentacle_3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2").getChild("taclejointBLL4").getChild("tentacle_3");
+        this.taclejointBLL5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2").getChild("taclejointBLL4").getChild("tentacle_3").getChild("taclejointBLL5");
+        this.tentacle_4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2").getChild("taclejointBLL4").getChild("tentacle_3").getChild("taclejointBLL5").getChild("tentacle_4");
+        this.taclejointBLL6 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2").getChild("taclejointBLL4").getChild("tentacle_3").getChild("taclejointBLL5").getChild("tentacle_4").getChild("taclejointBLL6");
+        this.tentacle_5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBLL0").getChild("body_3").getChild("taclejointBLL1").getChild("tentacle").getChild("taclejointBLL2").getChild("tentacle_1").getChild("taclejointBLL3").getChild("tentacle_2").getChild("taclejointBLL4").getChild("tentacle_3").getChild("taclejointBLL5").getChild("tentacle_4").getChild("taclejointBLL6").getChild("tentacle_5");
+        this.body_4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4");
+        this.taclejointBRL1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1");
+        this.tentacle_6 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6");
+        this.taclejointBRL2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2");
+        this.tentacle_7 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7");
+        this.taclejointBRL3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3");
+        this.tentacle_8 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8");
+        this.taclejointBRL4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8").getChild("taclejointBRL4");
+        this.tentacle_9 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8").getChild("taclejointBRL4").getChild("tentacle_9");
+        this.taclejointBRL5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8").getChild("taclejointBRL4").getChild("tentacle_9").getChild("taclejointBRL5");
+        this.tentacle_10 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8").getChild("taclejointBRL4").getChild("tentacle_9").getChild("taclejointBRL5").getChild("tentacle_10");
+        this.taclejointBRL6 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8").getChild("taclejointBRL4").getChild("tentacle_9").getChild("taclejointBRL5").getChild("tentacle_10").getChild("taclejointBRL6");
+        this.tentacle_11 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("bodyd").getChild("jointBRL0").getChild("body_4").getChild("taclejointBRL1").getChild("tentacle_6").getChild("taclejointBRL2").getChild("tentacle_7").getChild("taclejointBRL3").getChild("tentacle_8").getChild("taclejointBRL4").getChild("tentacle_9").getChild("taclejointBRL5").getChild("tentacle_10").getChild("taclejointBRL6").getChild("tentacle_11");
+        this.tentacle_12 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12");
+        this.taclejointBLA1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("taclejointBLA1");
+        this.dec = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("dec");
+        this.tentacle_13 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("taclejointBLA1").getChild("tentacle_13");
+        this.taclejointBLA2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("taclejointBLA1").getChild("tentacle_13").getChild("taclejointBLA2");
+        this.tentacle_14 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("taclejointBLA1").getChild("tentacle_13").getChild("taclejointBLA2").getChild("tentacle_14");
+        this.taclejointBLA3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("taclejointBLA1").getChild("tentacle_13").getChild("taclejointBLA2").getChild("tentacle_14").getChild("taclejointBLA3");
+        this.tentacle_15 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBLA0").getChild("tentacle_12").getChild("taclejointBLA1").getChild("tentacle_13").getChild("taclejointBLA2").getChild("tentacle_14").getChild("taclejointBLA3").getChild("tentacle_15");
+        this.tentacle_16 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16");
+        this.taclejointBRA1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("taclejointBRA1");
+        this.dec_1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("dec_1");
+        this.tentacle_17 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("taclejointBRA1").getChild("tentacle_17");
+        this.taclejointBRA2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("taclejointBRA1").getChild("tentacle_17").getChild("taclejointBRA2");
+        this.tentacle_18 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("taclejointBRA1").getChild("tentacle_17").getChild("taclejointBRA2").getChild("tentacle_18");
+        this.taclejointBRA3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("taclejointBRA1").getChild("tentacle_17").getChild("taclejointBRA2").getChild("tentacle_18").getChild("taclejointBRA3");
+        this.tentacle_19 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("bodyc").getChild("taclejointBRA0").getChild("tentacle_16").getChild("taclejointBRA1").getChild("tentacle_17").getChild("taclejointBRA2").getChild("tentacle_18").getChild("taclejointBRA3").getChild("tentacle_19");
+        this.tentacle_20 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20");
+        this.taclejointMLA1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("taclejointMLA1");
+        this.dec_2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("dec_2");
+        this.tentacle_21 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("taclejointMLA1").getChild("tentacle_21");
+        this.taclejointMLA2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("taclejointMLA1").getChild("tentacle_21").getChild("taclejointMLA2");
+        this.tentacle_22 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("taclejointMLA1").getChild("tentacle_21").getChild("taclejointMLA2").getChild("tentacle_22");
+        this.taclejointMLA3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("taclejointMLA1").getChild("tentacle_21").getChild("taclejointMLA2").getChild("tentacle_22").getChild("taclejointMLA3");
+        this.tentacle_23 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMLA0").getChild("tentacle_20").getChild("taclejointMLA1").getChild("tentacle_21").getChild("taclejointMLA2").getChild("tentacle_22").getChild("taclejointMLA3").getChild("tentacle_23");
+        this.tentacle_24 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24");
+        this.taclejointMRA1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("taclejointMRA1");
+        this.dec_3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("dec_3");
+        this.tentacle_25 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("taclejointMRA1").getChild("tentacle_25");
+        this.taclejointMRA2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("taclejointMRA1").getChild("tentacle_25").getChild("taclejointMRA2");
+        this.tentacle_26 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("taclejointMRA1").getChild("tentacle_25").getChild("taclejointMRA2").getChild("tentacle_26");
+        this.taclejointMRA3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("taclejointMRA1").getChild("tentacle_25").getChild("taclejointMRA2").getChild("tentacle_26").getChild("taclejointMRA3");
+        this.tentacle_27 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("bodyb").getChild("taclejointMRA0").getChild("tentacle_24").getChild("taclejointMRA1").getChild("tentacle_25").getChild("taclejointMRA2").getChild("tentacle_26").getChild("taclejointMRA3").getChild("tentacle_27");
+        this.tentacle_28 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28");
+        this.taclejointFLA1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("taclejointFLA1");
+        this.dec_4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("dec_4");
+        this.tentacle_29 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("taclejointFLA1").getChild("tentacle_29");
+        this.taclejointFLA2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("taclejointFLA1").getChild("tentacle_29").getChild("taclejointFLA2");
+        this.tentacle_30 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("taclejointFLA1").getChild("tentacle_29").getChild("taclejointFLA2").getChild("tentacle_30");
+        this.taclejointFLA3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("taclejointFLA1").getChild("tentacle_29").getChild("taclejointFLA2").getChild("tentacle_30").getChild("taclejointFLA3");
+        this.tentacle_31 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFLA0").getChild("tentacle_28").getChild("taclejointFLA1").getChild("tentacle_29").getChild("taclejointFLA2").getChild("tentacle_30").getChild("taclejointFLA3").getChild("tentacle_31");
+        this.tentacle_32 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32");
+        this.taclejointFRA1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("taclejointFRA1");
+        this.dec_5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("dec_5");
+        this.tentacle_33 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("taclejointFRA1").getChild("tentacle_33");
+        this.taclejointFRA2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("taclejointFRA1").getChild("tentacle_33").getChild("taclejointFRA2");
+        this.tentacle_34 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("taclejointFRA1").getChild("tentacle_33").getChild("taclejointFRA2").getChild("tentacle_34");
+        this.taclejointFRA3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("taclejointFRA1").getChild("tentacle_33").getChild("taclejointFRA2").getChild("tentacle_34").getChild("taclejointFRA3");
+        this.tentacle_35 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("taclejointFRA0").getChild("tentacle_32").getChild("taclejointFRA1").getChild("tentacle_33").getChild("taclejointFRA2").getChild("tentacle_34").getChild("taclejointFRA3").getChild("tentacle_35");
+        this.body_5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5");
+        this.taclejointFLL1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1");
+        this.tentacle_36 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36");
+        this.taclejointFLL2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2");
+        this.tentacle_37 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37");
+        this.taclejointFLL3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3");
+        this.tentacle_38 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38");
+        this.taclejointFLL4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38").getChild("taclejointFLL4");
+        this.tentacle_39 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38").getChild("taclejointFLL4").getChild("tentacle_39");
+        this.taclejointFLL5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38").getChild("taclejointFLL4").getChild("tentacle_39").getChild("taclejointFLL5");
+        this.tentacle_40 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38").getChild("taclejointFLL4").getChild("tentacle_39").getChild("taclejointFLL5").getChild("tentacle_40");
+        this.taclejointFLL6 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38").getChild("taclejointFLL4").getChild("tentacle_39").getChild("taclejointFLL5").getChild("tentacle_40").getChild("taclejointFLL6");
+        this.tentacle_41 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFLL0").getChild("body_5").getChild("taclejointFLL1").getChild("tentacle_36").getChild("taclejointFLL2").getChild("tentacle_37").getChild("taclejointFLL3").getChild("tentacle_38").getChild("taclejointFLL4").getChild("tentacle_39").getChild("taclejointFLL5").getChild("tentacle_40").getChild("taclejointFLL6").getChild("tentacle_41");
+        this.body_6 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6");
+        this.taclejointFRL1 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1");
+        this.tentacle_42 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42");
+        this.taclejointFRL2 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2");
+        this.tentacle_43 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43");
+        this.taclejointFRL3 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3");
+        this.tentacle_44 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44");
+        this.taclejointFRL4 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44").getChild("taclejointFRL4");
+        this.tentacle_45 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44").getChild("taclejointFRL4").getChild("tentacle_45");
+        this.taclejointFRL5 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44").getChild("taclejointFRL4").getChild("tentacle_45").getChild("taclejointFRL5");
+        this.tentacle_46 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44").getChild("taclejointFRL4").getChild("tentacle_45").getChild("taclejointFRL5").getChild("tentacle_46");
+        this.taclejointFRL6 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44").getChild("taclejointFRL4").getChild("tentacle_45").getChild("taclejointFRL5").getChild("tentacle_46").getChild("taclejointFRL6");
+        this.tentacle_47 = root.getChild("mainbody").getChild("body").getChild("bodya").getChild("jointFRL0").getChild("body_6").getChild("taclejointFRL1").getChild("tentacle_42").getChild("taclejointFRL2").getChild("tentacle_43").getChild("taclejointFRL3").getChild("tentacle_44").getChild("taclejointFRL4").getChild("tentacle_45").getChild("taclejointFRL5").getChild("tentacle_46").getChild("taclejointFRL6").getChild("tentacle_47");
+        this.bodyn = root.getChild("mainbody").getChild("body_1").getChild("bodyn");
+        this.dec_6 = root.getChild("mainbody").getChild("body_1").getChild("bodyn").getChild("dec_6");
+        this.dec_7 = root.getChild("mainbody").getChild("body_1").getChild("bodyn").getChild("dec_7");
+        this.dec_8 = root.getChild("mainbody").getChild("body_1").getChild("bodyn").getChild("dec_8");
+        this.dec_9 = root.getChild("mainbody").getChild("body_1").getChild("bodyn").getChild("dec_9");
+        this.body_7 = root.getChild("mainbody").getChild("jointN").getChild("body_7");
+        this.body_8 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("body_8");
+        this.body_9 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("body_9");
+        this.jointH = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH");
+        this.body_10 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10");
+        this.body_11 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("body_11");
+        this.body_12 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("body_12");
+        this.body_13 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("body_13");
+        this.jointDRM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDRM");
+        this.jointLDM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLDM");
+        this.jointDLM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDLM");
+        this.jointLUM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLUM");
+        this.jointRUM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRUM");
+        this.jointRDM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRDM");
+        this.jointURM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointURM");
+        this.jointULM = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointULM");
+        this.body_14 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("body_14");
+        this.body_15 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDRM").getChild("body_15");
+        this.dec_10 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDRM").getChild("body_15").getChild("dec_10");
+        this.dec_11 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDRM").getChild("body_15").getChild("dec_11");
+        this.body_16 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLDM").getChild("body_16");
+        this.dec_12 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLDM").getChild("body_16").getChild("dec_12");
+        this.dec_13 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLDM").getChild("body_16").getChild("dec_13");
+        this.body_17 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDLM").getChild("body_17");
+        this.dec_14 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDLM").getChild("body_17").getChild("dec_14");
+        this.dec_15 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointDLM").getChild("body_17").getChild("dec_15");
+        this.body_18 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLUM").getChild("body_18");
+        this.dec_16 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLUM").getChild("body_18").getChild("dec_16");
+        this.dec_17 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointLUM").getChild("body_18").getChild("dec_17");
+        this.body_19 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRUM").getChild("body_19");
+        this.dec_18 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRUM").getChild("body_19").getChild("dec_18");
+        this.dec_19 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRUM").getChild("body_19").getChild("dec_19");
+        this.body_20 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRDM").getChild("body_20");
+        this.dec_20 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRDM").getChild("body_20").getChild("dec_20");
+        this.dec_21 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointRDM").getChild("body_20").getChild("dec_21");
+        this.body_21 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointURM").getChild("body_21");
+        this.dec_22 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointURM").getChild("body_21").getChild("dec_22");
+        this.dec_23 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointURM").getChild("body_21").getChild("dec_23");
+        this.body_22 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointULM").getChild("body_22");
+        this.dec_24 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointULM").getChild("body_22").getChild("dec_24");
+        this.dec_25 = root.getChild("mainbody").getChild("jointN").getChild("body_7").getChild("jointH").getChild("body_10").getChild("jointULM").getChild("body_22").getChild("dec_25");
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+
+        PartDefinition mainbody = root.addOrReplaceChild("mainbody", CubeListBuilder.create().texOffs(0, 0).addBox(0.0f, 0.0f, 0.0f, 1, 1, 1), PartPose.offsetAndRotation(0.0f, -4.0f, -11.0f, 0.06981317f, 0.0f, 0.0f));
+        PartDefinition body = mainbody.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-12.5f, -14.0f, -8.0f, 25, 29, 10), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.06981317f, 0.0f, 0.0f));
+        PartDefinition bodya = body.addOrReplaceChild("bodya", CubeListBuilder.create().texOffs(132, 0).addBox(-14.5f, -15.0f, -6.0f, 29, 35, 14), PartPose.offsetAndRotation(0.0f, 0.0f, 7.0f, -0.05235988f, 0.0f, 0.0f));
+        PartDefinition bodyb = bodya.addOrReplaceChild("bodyb", CubeListBuilder.create().texOffs(60, 32).addBox(-12.5f, -15.5f, -7.0f, 25, 31, 10), PartPose.offsetAndRotation(0.0f, 1.0f, 14.0f, 0.06981317f, 0.0f, 0.0f));
+        PartDefinition taclejointMLA0 = bodyb.addOrReplaceChild("taclejointMLA0", CubeListBuilder.create().texOffs(76, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(5.0f, 15.5f, -2.0f));
+        PartDefinition tentacle_20 = taclejointMLA0.addOrReplaceChild("tentacle_20", CubeListBuilder.create().texOffs(112, 91).addBox(-1.0f, -1.0f, -0.6f, 2, 2, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.9198622f, 0.0f, -0.20943952f));
+        PartDefinition dec_2 = tentacle_20.addOrReplaceChild("dec_2", CubeListBuilder.create().texOffs(240, 2).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 3), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition taclejointMLA1 = tentacle_20.addOrReplaceChild("taclejointMLA1", CubeListBuilder.create().texOffs(204, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_21 = taclejointMLA1.addOrReplaceChild("tentacle_21", CubeListBuilder.create().texOffs(29, 92).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.31415927f, 0.0f, 0.0f));
+        PartDefinition taclejointMLA2 = tentacle_21.addOrReplaceChild("taclejointMLA2", CubeListBuilder.create().texOffs(208, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_22 = taclejointMLA2.addOrReplaceChild("tentacle_22", CubeListBuilder.create().texOffs(125, 92).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.40142572f, 0.0f, 0.0f));
+        PartDefinition taclejointMLA3 = tentacle_22.addOrReplaceChild("taclejointMLA3", CubeListBuilder.create().texOffs(224, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_23 = taclejointMLA3.addOrReplaceChild("tentacle_23", CubeListBuilder.create().texOffs(66, 91).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.27925268f, 0.0f, 0.0f));
+        PartDefinition taclejointMRA0 = bodyb.addOrReplaceChild("taclejointMRA0", CubeListBuilder.create().texOffs(122, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-5.0f, 15.5f, -2.0f));
+        PartDefinition tentacle_24 = taclejointMRA0.addOrReplaceChild("tentacle_24", CubeListBuilder.create().texOffs(178, 92).addBox(-1.0f, -1.0f, -0.6f, 2, 2, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.9198622f, 0.0f, 0.20943952f));
+        PartDefinition taclejointMRA1 = tentacle_24.addOrReplaceChild("taclejointMRA1", CubeListBuilder.create().texOffs(228, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_25 = taclejointMRA1.addOrReplaceChild("tentacle_25", CubeListBuilder.create().texOffs(192, 93).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.31415927f, 0.0f, 0.0f));
+        PartDefinition taclejointMRA2 = tentacle_25.addOrReplaceChild("taclejointMRA2", CubeListBuilder.create().texOffs(249, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_26 = taclejointMRA2.addOrReplaceChild("tentacle_26", CubeListBuilder.create().texOffs(142, 94).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.40142572f, 0.0f, 0.0f));
+        PartDefinition taclejointMRA3 = tentacle_26.addOrReplaceChild("taclejointMRA3", CubeListBuilder.create().texOffs(0, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_27 = taclejointMRA3.addOrReplaceChild("tentacle_27", CubeListBuilder.create().texOffs(222, 94).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.27925268f, 0.0f, 0.0f));
+        PartDefinition dec_3 = tentacle_24.addOrReplaceChild("dec_3", CubeListBuilder.create().texOffs(132, 8).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 3), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition bodyc = bodyb.addOrReplaceChild("bodyc", CubeListBuilder.create().texOffs(0, 39).addBox(-10.5f, -15.5f, -7.0f, 21, 25, 9), PartPose.offsetAndRotation(0.0f, 1.0f, 9.0f, 0.10471976f, 0.0f, 0.0f));
+        PartDefinition bodyd = bodyc.addOrReplaceChild("bodyd", CubeListBuilder.create().texOffs(130, 49).addBox(-8.5f, -15.5f, -7.0f, 17, 19, 10), PartPose.offsetAndRotation(0.0f, 1.0f, 8.0f, 0.17453292f, 0.0f, 0.0f));
+        PartDefinition jointBLL0 = bodyd.addOrReplaceChild("jointBLL0", CubeListBuilder.create().texOffs(134, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(10.0f, -2.0f, 0.0f));
+        PartDefinition body_3 = jointBLL0.addOrReplaceChild("body_3", CubeListBuilder.create().texOffs(204, 0).addBox(-3.0f, -3.0f, -3.0f, 6, 6, 8), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.7853982f, 0.0f, -0.5235988f));
+        PartDefinition taclejointBLL1 = body_3.addOrReplaceChild("taclejointBLL1", CubeListBuilder.create().texOffs(142, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 4.0f));
+        PartDefinition tentacle = taclejointBLL1.addOrReplaceChild("tentacle", CubeListBuilder.create().texOffs(219, 1).addBox(-2.0f, -2.0f, -2.5f, 4, 4, 13), PartPose.offsetAndRotation(0.0f, 0.1f, 0.0f, -0.43633232f, -0.36651915f, 0.19198622f));
+        PartDefinition taclejointBLL2 = tentacle.addOrReplaceChild("taclejointBLL2", CubeListBuilder.create().texOffs(204, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_1 = taclejointBLL2.addOrReplaceChild("tentacle_1", CubeListBuilder.create().texOffs(218, 18).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBLL3 = tentacle_1.addOrReplaceChild("taclejointBLL3", CubeListBuilder.create().texOffs(208, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_2 = taclejointBLL3.addOrReplaceChild("tentacle_2", CubeListBuilder.create().texOffs(184, 51).addBox(-2.0f, -2.0f, -0.6f, 4, 4, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.4886922f, 0.0f, 0.0f));
+        PartDefinition taclejointBLL4 = tentacle_2.addOrReplaceChild("taclejointBLL4", CubeListBuilder.create().texOffs(224, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_3 = taclejointBLL4.addOrReplaceChild("tentacle_3", CubeListBuilder.create().texOffs(202, 62).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBLL5 = tentacle_3.addOrReplaceChild("taclejointBLL5", CubeListBuilder.create().texOffs(228, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_4 = taclejointBLL5.addOrReplaceChild("tentacle_4", CubeListBuilder.create().texOffs(219, 64).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBLL6 = tentacle_4.addOrReplaceChild("taclejointBLL6", CubeListBuilder.create().texOffs(240, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_5 = taclejointBLL6.addOrReplaceChild("tentacle_5", CubeListBuilder.create().texOffs(171, 66).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.4537856f, 0.0f, 0.0f));
+        PartDefinition body_2 = bodyd.addOrReplaceChild("body_2", CubeListBuilder.create().texOffs(208, 39).addBox(-6.5f, -8.5f, -1.0f, 13, 13, 10), PartPose.offsetAndRotation(0.0f, -4.8f, 2.0f, 0.27925268f, 0.0f, 0.0f));
+        PartDefinition jointBRL0 = bodyd.addOrReplaceChild("jointBRL0", CubeListBuilder.create().texOffs(138, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-10.0f, -2.0f, 0.0f));
+        PartDefinition body_4 = jointBRL0.addOrReplaceChild("body_4", CubeListBuilder.create().texOffs(0, 73).addBox(-3.0f, -3.0f, -3.0f, 6, 6, 8), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.7853982f, 0.0f, 0.5235988f));
+        PartDefinition taclejointBRL1 = body_4.addOrReplaceChild("taclejointBRL1", CubeListBuilder.create().texOffs(244, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.1f, 4.0f));
+        PartDefinition tentacle_6 = taclejointBRL1.addOrReplaceChild("tentacle_6", CubeListBuilder.create().texOffs(28, 73).addBox(-2.0f, -2.0f, -2.5f, 4, 4, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.43633232f, 0.36651915f, -0.19198622f));
+        PartDefinition taclejointBRL2 = tentacle_6.addOrReplaceChild("taclejointBRL2", CubeListBuilder.create().texOffs(248, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_7 = taclejointBRL2.addOrReplaceChild("tentacle_7", CubeListBuilder.create().texOffs(62, 73).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBRL3 = tentacle_7.addOrReplaceChild("taclejointBRL3", CubeListBuilder.create().texOffs(251, 1).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_8 = taclejointBRL3.addOrReplaceChild("tentacle_8", CubeListBuilder.create().texOffs(94, 73).addBox(-2.0f, -2.0f, -0.6f, 4, 4, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.4886922f, 0.0f, 0.0f));
+        PartDefinition taclejointBRL4 = tentacle_8.addOrReplaceChild("taclejointBRL4", CubeListBuilder.create().texOffs(0, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_9 = taclejointBRL4.addOrReplaceChild("tentacle_9", CubeListBuilder.create().texOffs(112, 76).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBRL5 = tentacle_9.addOrReplaceChild("taclejointBRL5", CubeListBuilder.create().texOffs(4, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_10 = taclejointBRL5.addOrReplaceChild("tentacle_10", CubeListBuilder.create().texOffs(186, 77).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBRL6 = tentacle_10.addOrReplaceChild("taclejointBRL6", CubeListBuilder.create().texOffs(60, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_11 = taclejointBRL6.addOrReplaceChild("tentacle_11", CubeListBuilder.create().texOffs(129, 78).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.4537856f, 0.0f, 0.0f));
+        PartDefinition taclejointBLA0 = bodyc.addOrReplaceChild("taclejointBLA0", CubeListBuilder.create().texOffs(126, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(5.0f, 9.5f, -2.0f));
+        PartDefinition tentacle_12 = taclejointBLA0.addOrReplaceChild("tentacle_12", CubeListBuilder.create().texOffs(49, 73).addBox(-1.0f, -1.0f, -0.6f, 2, 2, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.9198622f, 0.0f, -0.20943952f));
+        PartDefinition dec = tentacle_12.addOrReplaceChild("dec", CubeListBuilder.create().texOffs(65, 2).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 3), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition taclejointBLA1 = tentacle_12.addOrReplaceChild("taclejointBLA1", CubeListBuilder.create().texOffs(64, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_13 = taclejointBLA1.addOrReplaceChild("tentacle_13", CubeListBuilder.create().texOffs(216, 79).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBLA2 = tentacle_13.addOrReplaceChild("taclejointBLA2", CubeListBuilder.create().texOffs(74, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_14 = taclejointBLA2.addOrReplaceChild("tentacle_14", CubeListBuilder.create().texOffs(144, 79).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition taclejointBLA3 = tentacle_14.addOrReplaceChild("taclejointBLA3", CubeListBuilder.create().texOffs(122, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_15 = taclejointBLA3.addOrReplaceChild("tentacle_15", CubeListBuilder.create().texOffs(161, 81).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition taclejointBRA0 = bodyc.addOrReplaceChild("taclejointBRA0", CubeListBuilder.create().texOffs(130, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-5.0f, 9.5f, -2.0f));
+        PartDefinition tentacle_16 = taclejointBRA0.addOrReplaceChild("tentacle_16", CubeListBuilder.create().texOffs(0, 87).addBox(-1.0f, -1.0f, -0.6f, 2, 2, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.9198622f, 0.0f, 0.20943952f));
+        PartDefinition taclejointBRA1 = tentacle_16.addOrReplaceChild("taclejointBRA1", CubeListBuilder.create().texOffs(126, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_17 = taclejointBRA1.addOrReplaceChild("tentacle_17", CubeListBuilder.create().texOffs(82, 88).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointBRA2 = tentacle_17.addOrReplaceChild("taclejointBRA2", CubeListBuilder.create().texOffs(136, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_18 = taclejointBRA2.addOrReplaceChild("tentacle_18", CubeListBuilder.create().texOffs(49, 89).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.34906584f, 0.0f, 0.0f));
+        PartDefinition taclejointBRA3 = tentacle_18.addOrReplaceChild("taclejointBRA3", CubeListBuilder.create().texOffs(140, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_19 = taclejointBRA3.addOrReplaceChild("tentacle_19", CubeListBuilder.create().texOffs(13, 87).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_1 = tentacle_16.addOrReplaceChild("dec_1", CubeListBuilder.create().texOffs(127, 2).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 3), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition taclejointFRA0 = bodya.addOrReplaceChild("taclejointFRA0", CubeListBuilder.create().texOffs(64, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-5.0f, 20.0f, 0.0f));
+        PartDefinition tentacle_32 = taclejointFRA0.addOrReplaceChild("tentacle_32", CubeListBuilder.create().texOffs(176, 105).addBox(-1.0f, -1.0f, -0.6f, 2, 2, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.9198622f, 0.0f, 0.20943952f));
+        PartDefinition dec_5 = tentacle_32.addOrReplaceChild("dec_5", CubeListBuilder.create().texOffs(218, 18).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 3), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition taclejointFRA1 = tentacle_32.addOrReplaceChild("taclejointFRA1", CubeListBuilder.create().texOffs(139, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_33 = taclejointFRA1.addOrReplaceChild("tentacle_33", CubeListBuilder.create().texOffs(62, 106).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.2268928f, 0.0f, 0.0f));
+        PartDefinition taclejointFRA2 = tentacle_33.addOrReplaceChild("taclejointFRA2", CubeListBuilder.create().texOffs(204, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_34 = taclejointFRA2.addOrReplaceChild("tentacle_34", CubeListBuilder.create().texOffs(98, 105).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.15707964f, 0.0f, 0.0f));
+        PartDefinition taclejointFRA3 = tentacle_34.addOrReplaceChild("taclejointFRA3", CubeListBuilder.create().texOffs(208, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_35 = taclejointFRA3.addOrReplaceChild("tentacle_35", CubeListBuilder.create().texOffs(17, 107).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.4537856f, 0.0f, 0.0f));
+        PartDefinition taclejointFLA0 = bodya.addOrReplaceChild("taclejointFLA0", CubeListBuilder.create().texOffs(60, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(5.0f, 20.0f, 0.0f));
+        PartDefinition tentacle_28 = taclejointFLA0.addOrReplaceChild("tentacle_28", CubeListBuilder.create().texOffs(161, 98).addBox(-1.0f, -1.0f, -0.6f, 2, 2, 11), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -1.9198622f, 0.0f, -0.20943952f));
+        PartDefinition dec_4 = tentacle_28.addOrReplaceChild("dec_4", CubeListBuilder.create().texOffs(240, 8).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 3), PartPose.offset(0.0f, 0.0f, 0.0f));
+        PartDefinition taclejointFLA1 = tentacle_28.addOrReplaceChild("taclejointFLA1", CubeListBuilder.create().texOffs(4, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_29 = taclejointFLA1.addOrReplaceChild("tentacle_29", CubeListBuilder.create().texOffs(0, 101).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 12), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.2268928f, 0.0f, 0.0f));
+        PartDefinition taclejointFLA2 = tentacle_29.addOrReplaceChild("taclejointFLA2", CubeListBuilder.create().texOffs(60, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition tentacle_30 = taclejointFLA2.addOrReplaceChild("tentacle_30", CubeListBuilder.create().texOffs(81, 103).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.15707964f, 0.0f, 0.0f));
+        PartDefinition taclejointFLA3 = tentacle_30.addOrReplaceChild("taclejointFLA3", CubeListBuilder.create().texOffs(122, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 10.0f));
+        PartDefinition tentacle_31 = taclejointFLA3.addOrReplaceChild("tentacle_31", CubeListBuilder.create().texOffs(46, 104).addBox(-0.5f, -0.5f, -1.0f, 1, 1, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.4537856f, 0.0f, 0.0f));
+        PartDefinition jointFLL0 = bodya.addOrReplaceChild("jointFLL0", CubeListBuilder.create().texOffs(68, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(13.0f, 13.0f, 1.0f));
+        PartDefinition body_5 = jointFLL0.addOrReplaceChild("body_5", CubeListBuilder.create().texOffs(202, 108).addBox(-4.0f, -4.0f, -4.0f, 10, 8, 8), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.7853982f, 0.0f, -0.5235988f));
+        PartDefinition taclejointFLL1 = body_5.addOrReplaceChild("taclejointFLL1", CubeListBuilder.create().texOffs(224, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(2.0f, 0.0f, 4.0f));
+        PartDefinition tentacle_36 = taclejointFLL1.addOrReplaceChild("tentacle_36", CubeListBuilder.create().texOffs(113, 107).addBox(-2.5f, -2.5f, -2.5f, 5, 5, 15), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.4712389f, -0.36651915f, 0.19198622f));
+        PartDefinition taclejointFLL2 = tentacle_36.addOrReplaceChild("taclejointFLL2", CubeListBuilder.create().texOffs(228, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 11.0f));
+        PartDefinition tentacle_37 = taclejointFLL2.addOrReplaceChild("tentacle_37", CubeListBuilder.create().texOffs(153, 111).addBox(-2.0f, -2.0f, -1.0f, 4, 4, 15), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointFLL3 = tentacle_37.addOrReplaceChild("taclejointFLL3", CubeListBuilder.create().texOffs(142, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 12.0f));
+        PartDefinition tentacle_38 = taclejointFLL3.addOrReplaceChild("tentacle_38", CubeListBuilder.create().texOffs(32, 118).addBox(-2.5f, -2.5f, -0.6f, 5, 5, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.4886922f, 0.0f, 0.0f));
+        PartDefinition taclejointFLL4 = tentacle_38.addOrReplaceChild("taclejointFLL4", CubeListBuilder.create().texOffs(0, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 11.0f));
+        PartDefinition tentacle_39 = taclejointFLL4.addOrReplaceChild("tentacle_39", CubeListBuilder.create().texOffs(177, 118).addBox(-2.0f, -2.0f, -1.0f, 4, 4, 14), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointFLL5 = tentacle_39.addOrReplaceChild("taclejointFLL5", CubeListBuilder.create().texOffs(4, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 11.0f));
+        PartDefinition tentacle_40 = taclejointFLL5.addOrReplaceChild("tentacle_40", CubeListBuilder.create().texOffs(77, 118).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 15), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointFLL6 = tentacle_40.addOrReplaceChild("taclejointFLL6", CubeListBuilder.create().texOffs(60, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 12.0f));
+        PartDefinition tentacle_41 = taclejointFLL6.addOrReplaceChild("tentacle_41", CubeListBuilder.create().texOffs(0, 121).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 16), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.4537856f, 0.0f, 0.0f));
+        PartDefinition jointFRL0 = bodya.addOrReplaceChild("jointFRL0", CubeListBuilder.create().texOffs(72, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-13.0f, 13.0f, 1.0f));
+        PartDefinition body_6 = jointFRL0.addOrReplaceChild("body_6", CubeListBuilder.create().texOffs(213, 124).addBox(-6.0f, -4.0f, -4.0f, 10, 8, 8), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.7853982f, 0.0f, 0.5235988f));
+        PartDefinition taclejointFRL1 = body_6.addOrReplaceChild("taclejointFRL1", CubeListBuilder.create().texOffs(122, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-2.0f, 0.0f, 4.0f));
+        PartDefinition tentacle_42 = taclejointFRL1.addOrReplaceChild("tentacle_42", CubeListBuilder.create().texOffs(98, 127).addBox(-2.5f, -2.5f, -2.5f, 5, 5, 15), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.4712389f, 0.36651915f, -0.19198622f));
+        PartDefinition taclejointFRL2 = tentacle_42.addOrReplaceChild("taclejointFRL2", CubeListBuilder.create().texOffs(139, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 11.0f));
+        PartDefinition tentacle_43 = taclejointFRL2.addOrReplaceChild("tentacle_43", CubeListBuilder.create().texOffs(53, 121).addBox(-2.0f, -2.0f, -1.0f, 4, 4, 15), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointFRL3 = tentacle_43.addOrReplaceChild("taclejointFRL3", CubeListBuilder.create().texOffs(204, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 12.0f));
+        PartDefinition tentacle_44 = taclejointFRL3.addOrReplaceChild("tentacle_44", CubeListBuilder.create().texOffs(138, 130).addBox(-2.5f, -2.5f, -0.6f, 5, 5, 13), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.4886922f, 0.0f, 0.0f));
+        PartDefinition taclejointFRL4 = tentacle_44.addOrReplaceChild("taclejointFRL4", CubeListBuilder.create().texOffs(208, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 11.0f));
+        PartDefinition tentacle_45 = taclejointFRL4.addOrReplaceChild("tentacle_45", CubeListBuilder.create().texOffs(22, 136).addBox(-2.0f, -2.0f, -1.0f, 4, 4, 14), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointFRL5 = tentacle_45.addOrReplaceChild("taclejointFRL5", CubeListBuilder.create().texOffs(224, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 11.0f));
+        PartDefinition tentacle_46 = taclejointFRL5.addOrReplaceChild("tentacle_46", CubeListBuilder.create().texOffs(76, 136).addBox(-1.5f, -1.5f, -1.0f, 3, 3, 15), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.54105204f, 0.0f, 0.0f));
+        PartDefinition taclejointFRL6 = tentacle_46.addOrReplaceChild("taclejointFRL6", CubeListBuilder.create().texOffs(228, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 12.0f));
+        PartDefinition tentacle_47 = taclejointFRL6.addOrReplaceChild("tentacle_47", CubeListBuilder.create().texOffs(158, 136).addBox(-1.0f, -1.0f, -1.0f, 2, 2, 16), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.4537856f, 0.0f, 0.0f));
+        PartDefinition jointN = mainbody.addOrReplaceChild("jointN", CubeListBuilder.create().texOffs(4, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 5.5f, -20.0f));
+        PartDefinition body_7 = jointN.addOrReplaceChild("body_7", CubeListBuilder.create().texOffs(93, 147).addBox(-5.0f, -5.0f, -3.0f, 10, 10, 19), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -2.146755f, 0.0f, 0.0f));
+        PartDefinition jointH = body_7.addOrReplaceChild("jointH", CubeListBuilder.create().texOffs(76, 7).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 13.0f));
+        PartDefinition body_10 = jointH.addOrReplaceChild("body_10", CubeListBuilder.create().texOffs(11, 154).addBox(-5.0f, -5.0f, 0.0f, 10, 10, 19), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.62831855f, 0.0f, 0.0f));
+        PartDefinition body_13 = body_10.addOrReplaceChild("body_13", CubeListBuilder.create().texOffs(179, 167).addBox(-3.0f, -3.0f, -2.0f, 6, 6, 13), PartPose.offset(0.0f, 0.0f, 9.0f));
+        PartDefinition jointRDM = body_10.addOrReplaceChild("jointRDM", CubeListBuilder.create().texOffs(64, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(5.0f, -2.0f, 19.0f));
+        PartDefinition body_20 = jointRDM.addOrReplaceChild("body_20", CubeListBuilder.create().texOffs(244, 40).addBox(-1.0f, -1.5f, -1.5f, 2, 3, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, (float)Math.PI, -0.38397244f, (float)Math.PI));
+        PartDefinition dec_21 = body_20.addOrReplaceChild("dec_21", CubeListBuilder.create().texOffs(251, 23).addBox(0.0f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.8f, -0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition dec_20 = body_20.addOrReplaceChild("dec_20", CubeListBuilder.create().texOffs(249, 25).addBox(0.0f, -0.5f, -0.5f, 2, 1, 1), PartPose.offsetAndRotation(0.8f, 0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition jointLUM = body_10.addOrReplaceChild("jointLUM", CubeListBuilder.create().texOffs(4, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-5.0f, 2.0f, 19.0f));
+        PartDefinition body_18 = jointLUM.addOrReplaceChild("body_18", CubeListBuilder.create().texOffs(120, 32).addBox(-1.0f, -1.5f, -1.5f, 2, 3, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition dec_16 = body_18.addOrReplaceChild("dec_16", CubeListBuilder.create().texOffs(250, 18).addBox(0.0f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.8f, 0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition dec_17 = body_18.addOrReplaceChild("dec_17", CubeListBuilder.create().texOffs(249, 20).addBox(0.0f, -0.5f, -0.5f, 2, 1, 1), PartPose.offsetAndRotation(0.8f, -0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition jointLDM = body_10.addOrReplaceChild("jointLDM", CubeListBuilder.create().texOffs(251, 7).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-5.0f, -2.0f, 19.0f));
+        PartDefinition body_16 = jointLDM.addOrReplaceChild("body_16", CubeListBuilder.create().texOffs(237, 23).addBox(-1.0f, -1.5f, -1.5f, 2, 3, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition dec_12 = body_16.addOrReplaceChild("dec_12", CubeListBuilder.create().texOffs(126, 8).addBox(0.0f, -0.5f, -0.5f, 2, 1, 1), PartPose.offsetAndRotation(0.8f, 0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition dec_13 = body_16.addOrReplaceChild("dec_13", CubeListBuilder.create().texOffs(141, 9).addBox(0.0f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.8f, -0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition body_14 = body_10.addOrReplaceChild("body_14", CubeListBuilder.create().texOffs(217, 167).addBox(-5.5f, -5.5f, -3.0f, 11, 11, 4), PartPose.offset(0.0f, 0.0f, 10.3f));
+        PartDefinition jointRUM = body_10.addOrReplaceChild("jointRUM", CubeListBuilder.create().texOffs(60, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(5.0f, 2.0f, 19.0f));
+        PartDefinition body_19 = jointRUM.addOrReplaceChild("body_19", CubeListBuilder.create().texOffs(244, 34).addBox(-1.0f, -1.5f, -1.5f, 2, 3, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, (float)Math.PI, -0.38397244f, (float)Math.PI));
+        PartDefinition dec_18 = body_19.addOrReplaceChild("dec_18", CubeListBuilder.create().texOffs(248, 22).addBox(0.0f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.8f, 0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition dec_19 = body_19.addOrReplaceChild("dec_19", CubeListBuilder.create().texOffs(244, 24).addBox(0.0f, -0.5f, -0.5f, 2, 1, 1), PartPose.offsetAndRotation(0.8f, -0.7f, -0.3f, 0.0f, -0.38397244f, 0.0f));
+        PartDefinition jointURM = body_10.addOrReplaceChild("jointURM", CubeListBuilder.create().texOffs(68, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-2.0f, 5.0f, 19.0f));
+        PartDefinition body_21 = jointURM.addOrReplaceChild("body_21", CubeListBuilder.create().texOffs(174, 49).addBox(-1.5f, -1.0f, -1.5f, 3, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.38397244f, (float)Math.PI, (float)Math.PI));
+        PartDefinition dec_23 = body_21.addOrReplaceChild("dec_23", CubeListBuilder.create().texOffs(247, 27).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_22 = body_21.addOrReplaceChild("dec_22", CubeListBuilder.create().texOffs(227, 24).addBox(-0.5f, 0.0f, -0.5f, 1, 2, 1), PartPose.offsetAndRotation(0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition jointDLM = body_10.addOrReplaceChild("jointDLM", CubeListBuilder.create().texOffs(0, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(2.0f, -5.0f, 19.0f));
+        PartDefinition body_17 = jointDLM.addOrReplaceChild("body_17", CubeListBuilder.create().texOffs(218, 24).addBox(-1.5f, -1.0f, -1.5f, 3, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_14 = body_17.addOrReplaceChild("dec_14", CubeListBuilder.create().texOffs(249, 9).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_15 = body_17.addOrReplaceChild("dec_15", CubeListBuilder.create().texOffs(246, 18).addBox(-0.5f, 0.0f, -0.5f, 1, 2, 1), PartPose.offsetAndRotation(-0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition jointULM = body_10.addOrReplaceChild("jointULM", CubeListBuilder.create().texOffs(72, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(2.0f, 5.0f, 19.0f));
+        PartDefinition body_22 = jointULM.addOrReplaceChild("body_22", CubeListBuilder.create().texOffs(183, 51).addBox(-1.5f, -1.0f, -1.5f, 3, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, -0.38397244f, (float)Math.PI, (float)Math.PI));
+        PartDefinition dec_24 = body_22.addOrReplaceChild("dec_24", CubeListBuilder.create().texOffs(251, 27).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_25 = body_22.addOrReplaceChild("dec_25", CubeListBuilder.create().texOffs(250, 29).addBox(-0.5f, 0.0f, -0.5f, 1, 2, 1), PartPose.offsetAndRotation(-0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition body_11 = body_10.addOrReplaceChild("body_11", CubeListBuilder.create().texOffs(50, 154).addBox(-5.5f, -5.5f, -1.0f, 11, 11, 4), PartPose.offset(0.0f, 0.0f, 3.0f));
+        PartDefinition body_12 = body_10.addOrReplaceChild("body_12", CubeListBuilder.create().texOffs(162, 154).addBox(-5.5f, -5.5f, -3.0f, 11, 11, 4), PartPose.offset(0.0f, 0.0f, 15.7f));
+        PartDefinition jointDRM = body_10.addOrReplaceChild("jointDRM", CubeListBuilder.create().texOffs(142, 7).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(-2.0f, -5.0f, 19.0f));
+        PartDefinition body_15 = jointDRM.addOrReplaceChild("body_15", CubeListBuilder.create().texOffs(237, 18).addBox(-1.5f, -1.0f, -1.5f, 3, 2, 3), PartPose.offsetAndRotation(0.0f, 0.0f, 1.0f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_10 = body_15.addOrReplaceChild("dec_10", CubeListBuilder.create().texOffs(227, 18).addBox(-0.5f, 0.0f, -0.5f, 1, 2, 1), PartPose.offsetAndRotation(0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition dec_11 = body_15.addOrReplaceChild("dec_11", CubeListBuilder.create().texOffs(122, 8).addBox(-0.5f, 0.0f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-0.7f, 0.8f, -0.3f, 0.38397244f, 0.0f, 0.0f));
+        PartDefinition body_8 = body_7.addOrReplaceChild("body_8", CubeListBuilder.create().texOffs(132, 150).addBox(-5.5f, -5.5f, -1.0f, 11, 11, 4), PartPose.offset(0.0f, 0.0f, 2.7f));
+        PartDefinition body_9 = body_7.addOrReplaceChild("body_9", CubeListBuilder.create().texOffs(0, 154).addBox(-5.5f, -5.5f, -1.0f, 11, 11, 4), PartPose.offset(0.0f, 0.0f, 8.0f));
+        PartDefinition body_1 = mainbody.addOrReplaceChild("body_1", CubeListBuilder.create().texOffs(70, 0).addBox(-10.5f, -10.0f, -3.0f, 21, 22, 10), PartPose.offsetAndRotation(0.0f, -1.0f, -11.0f, 0.29670596f, 0.0f, 0.0f));
+        PartDefinition bodyn = body_1.addOrReplaceChild("bodyn", CubeListBuilder.create().texOffs(194, 140).addBox(-8.5f, -8.0f, -3.0f, 17, 17, 10), PartPose.offsetAndRotation(0.0f, 2.0f, -7.0f, 0.29670596f, 0.0f, 0.0f));
+        PartDefinition dec_7 = bodyn.addOrReplaceChild("dec_7", CubeListBuilder.create().texOffs(186, 66).addBox(-5.5f, -1.0f, -1.0f, 12, 2, 2), PartPose.offsetAndRotation(-5.6f, 0.0f, -3.6f, 0.7853982f, 0.0f, 1.5707964f));
+        PartDefinition dec_8 = bodyn.addOrReplaceChild("dec_8", CubeListBuilder.create().texOffs(186, 70).addBox(-5.5f, -1.0f, -1.0f, 12, 2, 2), PartPose.offsetAndRotation(5.6f, 0.0f, -3.6f, 0.7853982f, 0.0f, 1.5707964f));
+        PartDefinition dec_9 = bodyn.addOrReplaceChild("dec_9", CubeListBuilder.create().texOffs(81, 73).addBox(-5.0f, -1.0f, -1.0f, 10, 2, 2), PartPose.offsetAndRotation(0.0f, 6.0f, -3.6f, 0.7679449f, 0.0f, 0.0f));
+        PartDefinition dec_6 = bodyn.addOrReplaceChild("dec_6", CubeListBuilder.create().texOffs(218, 34).addBox(-5.0f, -1.0f, -1.0f, 10, 2, 2), PartPose.offsetAndRotation(0.0f, -5.0f, -3.6f, 0.75049156f, 0.0f, 0.0f));
+        return LayerDefinition.create(mesh, 256, 190);
+    }
 
     @Override
-    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) { }
+    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+        EntityParasiteBase parasite = (EntityParasiteBase)entity;
+        this.jointFLL0.xRot = 0.0f;
+        this.taclejointFLL1.yRot = 0.0f;
+        this.taclejointFLL2.xRot = 0.0f;
+        this.taclejointFLL3.xRot = 0.0f;
+        this.taclejointFLL4.xRot = 0.0f;
+        this.taclejointFLL5.xRot = 0.0f;
+        this.jointBLL0.xRot = 0.0f;
+        this.taclejointBLL1.yRot = 0.0f;
+        this.taclejointBLL2.xRot = 0.0f;
+        this.taclejointBLL3.xRot = 0.0f;
+        this.taclejointBLL4.xRot = 0.0f;
+        this.taclejointBLL5.xRot = 0.0f;
+        this.taclejointFLA0.zRot = 0.0f;
+        this.taclejointFLA1.xRot = 0.0f;
+        this.taclejointFLA2.xRot = 0.0f;
+        this.taclejointFLA3.xRot = 0.0f;
+        this.taclejointMLA0.zRot = 0.0f;
+        this.taclejointMLA1.xRot = 0.0f;
+        this.taclejointMLA2.xRot = 0.0f;
+        this.taclejointMLA3.xRot = 0.0f;
+        this.taclejointBLA0.zRot = 0.0f;
+        this.taclejointBLA1.xRot = 0.0f;
+        this.taclejointBLA2.xRot = 0.0f;
+        this.taclejointBLA3.xRot = 0.0f;
+        this.jointFRL0.xRot = 0.0f;
+        this.taclejointFRL1.yRot = 0.0f;
+        this.taclejointFRL2.xRot = 0.0f;
+        this.taclejointFRL3.xRot = 0.0f;
+        this.taclejointFRL4.xRot = 0.0f;
+        this.taclejointFRL5.xRot = 0.0f;
+        this.jointBRL0.xRot = 0.0f;
+        this.taclejointBRL1.yRot = 0.0f;
+        this.taclejointBRL2.xRot = 0.0f;
+        this.taclejointBRL3.xRot = 0.0f;
+        this.taclejointBRL4.xRot = 0.0f;
+        this.taclejointBRL5.xRot = 0.0f;
+        this.taclejointFRA0.zRot = 0.0f;
+        this.taclejointFRA1.xRot = 0.0f;
+        this.taclejointFRA2.xRot = 0.0f;
+        this.taclejointFRA3.xRot = 0.0f;
+        this.taclejointMRA0.zRot = 0.0f;
+        this.taclejointMRA1.xRot = 0.0f;
+        this.taclejointMRA2.xRot = 0.0f;
+        this.taclejointMRA3.xRot = 0.0f;
+        this.taclejointBRA0.zRot = 0.0f;
+        this.taclejointBRA1.xRot = 0.0f;
+        this.taclejointBRA2.xRot = 0.0f;
+        this.taclejointBRA3.xRot = 0.0f;
+        this.jointN.yRot = 0.0f;
+        this.jointH.xRot = 0.0f;
+        byte i = parasite.getParasiteStatus();
+        i = 0;
+        if (i == 0) {
+            float f1 = Mth.sin((float)(ageInTicks * 0.06f + 0.0f)) * 0.1f;
+            float f2 = Mth.sin((float)(ageInTicks * 0.04f + 8.0f)) * 0.1f;
+            float f3 = Mth.sin((float)(ageInTicks * 0.09f + 4.0f)) * 0.1f;
+            float f4 = Mth.sin((float)(ageInTicks * 0.08f + 8.0f)) * 0.1f;
+            this.jointFLL0.xRot = f1;
+            this.taclejointFLL1.yRot = f1;
+            this.taclejointFLL2.xRot = f1;
+            this.taclejointFLL3.xRot = f1;
+            this.taclejointFLL4.xRot = f1;
+            this.taclejointFLL5.xRot = f1;
+            this.jointBLL0.xRot = -1.0f * f1;
+            this.taclejointBLL1.yRot = -1.0f * f1;
+            this.taclejointBLL2.xRot = -1.0f * f1;
+            this.taclejointBLL3.xRot = -1.0f * f1;
+            this.taclejointBLL4.xRot = -1.0f * f1;
+            this.taclejointBLL5.xRot = -1.0f * f1;
+            this.taclejointFLA0.zRot = f2;
+            this.taclejointFLA1.xRot = f2;
+            this.taclejointFLA2.xRot = f2;
+            this.taclejointFLA3.xRot = f2;
+            this.taclejointMLA0.zRot = f3;
+            this.taclejointMLA1.xRot = f3;
+            this.taclejointMLA2.xRot = f3;
+            this.taclejointMLA3.xRot = f3;
+            this.taclejointBLA0.zRot = f4;
+            this.taclejointBLA1.xRot = f4;
+            this.taclejointBLA2.xRot = f4;
+            this.taclejointBLA3.xRot = f4;
+            this.jointFRL0.xRot = -1.0f * f1;
+            this.taclejointFRL1.yRot = -1.0f * f1;
+            this.taclejointFRL2.xRot = -1.0f * f1;
+            this.taclejointFRL3.xRot = -1.0f * f1;
+            this.taclejointFRL4.xRot = -1.0f * f1;
+            this.taclejointFRL5.xRot = -1.0f * f1;
+            this.jointBRL0.xRot = f1;
+            this.taclejointBRL1.yRot = f1;
+            this.taclejointBRL2.xRot = f1;
+            this.taclejointBRL3.xRot = f1;
+            this.taclejointBRL4.xRot = f1;
+            this.taclejointBRL5.xRot = f1;
+            this.taclejointFRA0.zRot = -1.0f * f2;
+            this.taclejointFRA1.xRot = -1.0f * f2;
+            this.taclejointFRA2.xRot = -1.0f * f2;
+            this.taclejointFRA3.xRot = -1.0f * f2;
+            this.taclejointMRA0.zRot = -1.0f * f3;
+            this.taclejointMRA1.xRot = -1.0f * f3;
+            this.taclejointMRA2.xRot = -1.0f * f3;
+            this.taclejointMRA3.xRot = -1.0f * f3;
+            this.taclejointBRA0.zRot = -1.0f * f4;
+            this.taclejointBRA1.xRot = -1.0f * f4;
+            this.taclejointBRA2.xRot = -1.0f * f4;
+            this.taclejointBRA3.xRot = -1.0f * f4;
+            this.jointN.yRot = f1;
+            this.jointH.xRot = f2;
+        } else if (i == 1) {
+            // empty if block
+        }
+        this.underground(parasite, ageInTicks, this.mainbody);
+    
+    }
 
     @Override
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack poseStack, com.mojang.blaze3d.vertex.VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) { }
+    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack poseStack, com.mojang.blaze3d.vertex.VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        mainbody.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    }
+
+    private void setRotateAngle(ModelPart modelRenderer, float x, float y, float z) {
+        modelRenderer.xRot = x;
+        modelRenderer.yRot = y;
+        modelRenderer.zRot = z;
+    }
+
+    private void swingX(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingX(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingX(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingY(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingY(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingY(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingZ(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingZ(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingZ(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void moveY(ModelPart modelRenderer, float speed, int invert, float f, float f1, float distance) {
+        modelRenderer.y = (float)invert * Mth.cos(f * speed) * f1 * distance;
+    }
+
+    private void underground(com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase parasite, float ageInTicks, ModelPart mainbody) {
+    }
+
 }

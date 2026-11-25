@@ -1,22 +1,641 @@
 package com.dhanantry.scapeandrunparasites.client.model.entity.pure.preeminent;
 
 import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
 
-/**
- * STUB migrado (Fase renderers/modelos): esqueleto compilable. La geometria real se migrara en lotes.
- */
 public class ModelFlam extends EntityModel<Entity> {
-    public ModelFlam(ModelPart root) { }
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("srparasites", "flam"), "main");
+    private final ModelPart mainmodel;
+    private final ModelPart b;
+    private final ModelPart b_1;
+    private final ModelPart b_2;
+    private final ModelPart b_3;
+    private final ModelPart b_4;
+    private final ModelPart b_5;
+    private final ModelPart b_6;
+    private final ModelPart b_7;
+    private final ModelPart b_8;
+    private final ModelPart b_9;
+    private final ModelPart b_10;
+    private final ModelPart hjointJ;
+    private final ModelPart hjointI;
+    private final ModelPart hjointH;
+    private final ModelPart hjointG;
+    private final ModelPart hjointF;
+    private final ModelPart hjointD;
+    private final ModelPart hjointC;
+    private final ModelPart hjointB;
+    private final ModelPart hjointE;
+    private final ModelPart hjointA;
+    private final ModelPart hair;
+    private final ModelPart hjointJ_1;
+    private final ModelPart hair_1;
+    private final ModelPart hjointJ_2;
+    private final ModelPart hair_2;
+    private final ModelPart hjointJ_3;
+    private final ModelPart hair_3;
+    private final ModelPart hjointJ_4;
+    private final ModelPart hair_4;
+    private final ModelPart hjointJ_5;
+    private final ModelPart hair_5;
+    private final ModelPart hjointJ_6;
+    private final ModelPart hair_6;
+    private final ModelPart hjointJ_7;
+    private final ModelPart hair_7;
+    private final ModelPart hair_8;
+    private final ModelPart hjointI_1;
+    private final ModelPart hair_9;
+    private final ModelPart hjointI_2;
+    private final ModelPart hair_10;
+    private final ModelPart hjointI_3;
+    private final ModelPart hair_11;
+    private final ModelPart hjointI_4;
+    private final ModelPart hair_12;
+    private final ModelPart hjointI_5;
+    private final ModelPart hair_13;
+    private final ModelPart hjointI_6;
+    private final ModelPart hair_14;
+    private final ModelPart hjointI_7;
+    private final ModelPart hair_15;
+    private final ModelPart hair_16;
+    private final ModelPart hjointH_1;
+    private final ModelPart hair_17;
+    private final ModelPart hjointH_2;
+    private final ModelPart hair_18;
+    private final ModelPart hjointH_3;
+    private final ModelPart hair_19;
+    private final ModelPart hjointH_4;
+    private final ModelPart hair_20;
+    private final ModelPart hjointH_5;
+    private final ModelPart hair_21;
+    private final ModelPart hjointH_6;
+    private final ModelPart hair_22;
+    private final ModelPart hjointH_7;
+    private final ModelPart hair_23;
+    private final ModelPart hair_24;
+    private final ModelPart hjointG_1;
+    private final ModelPart hair_25;
+    private final ModelPart hjointG_2;
+    private final ModelPart hair_26;
+    private final ModelPart hjointG_3;
+    private final ModelPart hair_27;
+    private final ModelPart hjointG_4;
+    private final ModelPart hair_28;
+    private final ModelPart hjointG_5;
+    private final ModelPart hair_29;
+    private final ModelPart hjointG_6;
+    private final ModelPart hair_30;
+    private final ModelPart hjointG_7;
+    private final ModelPart hair_31;
+    private final ModelPart hair_32;
+    private final ModelPart hjointF_1;
+    private final ModelPart hair_33;
+    private final ModelPart hjointF_2;
+    private final ModelPart hair_34;
+    private final ModelPart hjointF_3;
+    private final ModelPart hair_35;
+    private final ModelPart hjointF_4;
+    private final ModelPart hair_36;
+    private final ModelPart hjointF_5;
+    private final ModelPart hair_37;
+    private final ModelPart hjointF_6;
+    private final ModelPart hair_38;
+    private final ModelPart hjointF_7;
+    private final ModelPart hair_39;
+    private final ModelPart hair_40;
+    private final ModelPart hjointD_1;
+    private final ModelPart hair_41;
+    private final ModelPart hjointD_2;
+    private final ModelPart hair_42;
+    private final ModelPart hjointD_3;
+    private final ModelPart hair_43;
+    private final ModelPart hjointD_4;
+    private final ModelPart hair_44;
+    private final ModelPart hjointD_5;
+    private final ModelPart hair_45;
+    private final ModelPart hjointD_6;
+    private final ModelPart hair_46;
+    private final ModelPart hjointD_7;
+    private final ModelPart hair_47;
+    private final ModelPart hair_48;
+    private final ModelPart hjointC_1;
+    private final ModelPart hair_49;
+    private final ModelPart hjointC_2;
+    private final ModelPart hair_50;
+    private final ModelPart hjointC_3;
+    private final ModelPart hair_51;
+    private final ModelPart hjointC_4;
+    private final ModelPart hair_52;
+    private final ModelPart hjointC_5;
+    private final ModelPart hair_53;
+    private final ModelPart hjointC_6;
+    private final ModelPart hair_54;
+    private final ModelPart hair_55;
+    private final ModelPart hjointB_1;
+    private final ModelPart hair_56;
+    private final ModelPart hjointB_2;
+    private final ModelPart hair_57;
+    private final ModelPart hjointB_3;
+    private final ModelPart hair_58;
+    private final ModelPart hjointB_4;
+    private final ModelPart hair_59;
+    private final ModelPart hair_60;
+    private final ModelPart hjointE_1;
+    private final ModelPart hair_61;
+    private final ModelPart hjointE_2;
+    private final ModelPart hair_62;
+    private final ModelPart hjointE_3;
+    private final ModelPart hair_63;
+    private final ModelPart hjointE_4;
+    private final ModelPart hair_64;
+    private final ModelPart hjointE_5;
+    private final ModelPart hair_65;
+    private final ModelPart hjointE_6;
+    private final ModelPart hair_66;
+    private final ModelPart hair_67;
+    private final ModelPart hjointA_1;
+    private final ModelPart hair_68;
+    private final ModelPart hjointA_2;
+    private final ModelPart hair_69;
+    private final ModelPart hjointA_3;
+    private final ModelPart hair_70;
+    private final ModelPart hjointA_4;
+    private final ModelPart hair_71;
 
-    public static LayerDefinition createBodyLayer() { return null; }
+    public ModelFlam(ModelPart root) {
+        this.mainmodel = root.getChild("mainmodel");
+        this.b = root.getChild("mainmodel").getChild("b");
+        this.b_1 = root.getChild("mainmodel").getChild("b_1");
+        this.b_2 = root.getChild("mainmodel").getChild("b_2");
+        this.b_3 = root.getChild("mainmodel").getChild("b_3");
+        this.b_4 = root.getChild("mainmodel").getChild("b_4");
+        this.b_5 = root.getChild("mainmodel").getChild("b_5");
+        this.b_6 = root.getChild("mainmodel").getChild("b_6");
+        this.b_7 = root.getChild("mainmodel").getChild("b_7");
+        this.b_8 = root.getChild("mainmodel").getChild("b_8");
+        this.b_9 = root.getChild("mainmodel").getChild("b_9");
+        this.b_10 = root.getChild("mainmodel").getChild("b_10");
+        this.hjointJ = root.getChild("mainmodel").getChild("hjointJ");
+        this.hjointI = root.getChild("mainmodel").getChild("hjointI");
+        this.hjointH = root.getChild("mainmodel").getChild("hjointH");
+        this.hjointG = root.getChild("mainmodel").getChild("hjointG");
+        this.hjointF = root.getChild("mainmodel").getChild("hjointF");
+        this.hjointD = root.getChild("mainmodel").getChild("hjointD");
+        this.hjointC = root.getChild("mainmodel").getChild("hjointC");
+        this.hjointB = root.getChild("mainmodel").getChild("hjointB");
+        this.hjointE = root.getChild("mainmodel").getChild("hjointE");
+        this.hjointA = root.getChild("mainmodel").getChild("hjointA");
+        this.hair = root.getChild("mainmodel").getChild("hjointJ").getChild("hair");
+        this.hjointJ_1 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1");
+        this.hair_1 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1");
+        this.hjointJ_2 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2");
+        this.hair_2 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2");
+        this.hjointJ_3 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3");
+        this.hair_3 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3");
+        this.hjointJ_4 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4");
+        this.hair_4 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4");
+        this.hjointJ_5 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4").getChild("hjointJ_5");
+        this.hair_5 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4").getChild("hjointJ_5").getChild("hair_5");
+        this.hjointJ_6 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4").getChild("hjointJ_5").getChild("hair_5").getChild("hjointJ_6");
+        this.hair_6 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4").getChild("hjointJ_5").getChild("hair_5").getChild("hjointJ_6").getChild("hair_6");
+        this.hjointJ_7 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4").getChild("hjointJ_5").getChild("hair_5").getChild("hjointJ_6").getChild("hair_6").getChild("hjointJ_7");
+        this.hair_7 = root.getChild("mainmodel").getChild("hjointJ").getChild("hair").getChild("hjointJ_1").getChild("hair_1").getChild("hjointJ_2").getChild("hair_2").getChild("hjointJ_3").getChild("hair_3").getChild("hjointJ_4").getChild("hair_4").getChild("hjointJ_5").getChild("hair_5").getChild("hjointJ_6").getChild("hair_6").getChild("hjointJ_7").getChild("hair_7");
+        this.hair_8 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8");
+        this.hjointI_1 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1");
+        this.hair_9 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9");
+        this.hjointI_2 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2");
+        this.hair_10 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10");
+        this.hjointI_3 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3");
+        this.hair_11 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11");
+        this.hjointI_4 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4");
+        this.hair_12 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12");
+        this.hjointI_5 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12").getChild("hjointI_5");
+        this.hair_13 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12").getChild("hjointI_5").getChild("hair_13");
+        this.hjointI_6 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12").getChild("hjointI_5").getChild("hair_13").getChild("hjointI_6");
+        this.hair_14 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12").getChild("hjointI_5").getChild("hair_13").getChild("hjointI_6").getChild("hair_14");
+        this.hjointI_7 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12").getChild("hjointI_5").getChild("hair_13").getChild("hjointI_6").getChild("hair_14").getChild("hjointI_7");
+        this.hair_15 = root.getChild("mainmodel").getChild("hjointI").getChild("hair_8").getChild("hjointI_1").getChild("hair_9").getChild("hjointI_2").getChild("hair_10").getChild("hjointI_3").getChild("hair_11").getChild("hjointI_4").getChild("hair_12").getChild("hjointI_5").getChild("hair_13").getChild("hjointI_6").getChild("hair_14").getChild("hjointI_7").getChild("hair_15");
+        this.hair_16 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16");
+        this.hjointH_1 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1");
+        this.hair_17 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17");
+        this.hjointH_2 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2");
+        this.hair_18 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18");
+        this.hjointH_3 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3");
+        this.hair_19 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19");
+        this.hjointH_4 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4");
+        this.hair_20 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20");
+        this.hjointH_5 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20").getChild("hjointH_5");
+        this.hair_21 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20").getChild("hjointH_5").getChild("hair_21");
+        this.hjointH_6 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20").getChild("hjointH_5").getChild("hair_21").getChild("hjointH_6");
+        this.hair_22 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20").getChild("hjointH_5").getChild("hair_21").getChild("hjointH_6").getChild("hair_22");
+        this.hjointH_7 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20").getChild("hjointH_5").getChild("hair_21").getChild("hjointH_6").getChild("hair_22").getChild("hjointH_7");
+        this.hair_23 = root.getChild("mainmodel").getChild("hjointH").getChild("hair_16").getChild("hjointH_1").getChild("hair_17").getChild("hjointH_2").getChild("hair_18").getChild("hjointH_3").getChild("hair_19").getChild("hjointH_4").getChild("hair_20").getChild("hjointH_5").getChild("hair_21").getChild("hjointH_6").getChild("hair_22").getChild("hjointH_7").getChild("hair_23");
+        this.hair_24 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24");
+        this.hjointG_1 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1");
+        this.hair_25 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25");
+        this.hjointG_2 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2");
+        this.hair_26 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26");
+        this.hjointG_3 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3");
+        this.hair_27 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27");
+        this.hjointG_4 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4");
+        this.hair_28 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28");
+        this.hjointG_5 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28").getChild("hjointG_5");
+        this.hair_29 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28").getChild("hjointG_5").getChild("hair_29");
+        this.hjointG_6 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28").getChild("hjointG_5").getChild("hair_29").getChild("hjointG_6");
+        this.hair_30 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28").getChild("hjointG_5").getChild("hair_29").getChild("hjointG_6").getChild("hair_30");
+        this.hjointG_7 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28").getChild("hjointG_5").getChild("hair_29").getChild("hjointG_6").getChild("hair_30").getChild("hjointG_7");
+        this.hair_31 = root.getChild("mainmodel").getChild("hjointG").getChild("hair_24").getChild("hjointG_1").getChild("hair_25").getChild("hjointG_2").getChild("hair_26").getChild("hjointG_3").getChild("hair_27").getChild("hjointG_4").getChild("hair_28").getChild("hjointG_5").getChild("hair_29").getChild("hjointG_6").getChild("hair_30").getChild("hjointG_7").getChild("hair_31");
+        this.hair_32 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32");
+        this.hjointF_1 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1");
+        this.hair_33 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33");
+        this.hjointF_2 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2");
+        this.hair_34 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34");
+        this.hjointF_3 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3");
+        this.hair_35 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35");
+        this.hjointF_4 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4");
+        this.hair_36 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36");
+        this.hjointF_5 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36").getChild("hjointF_5");
+        this.hair_37 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36").getChild("hjointF_5").getChild("hair_37");
+        this.hjointF_6 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36").getChild("hjointF_5").getChild("hair_37").getChild("hjointF_6");
+        this.hair_38 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36").getChild("hjointF_5").getChild("hair_37").getChild("hjointF_6").getChild("hair_38");
+        this.hjointF_7 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36").getChild("hjointF_5").getChild("hair_37").getChild("hjointF_6").getChild("hair_38").getChild("hjointF_7");
+        this.hair_39 = root.getChild("mainmodel").getChild("hjointF").getChild("hair_32").getChild("hjointF_1").getChild("hair_33").getChild("hjointF_2").getChild("hair_34").getChild("hjointF_3").getChild("hair_35").getChild("hjointF_4").getChild("hair_36").getChild("hjointF_5").getChild("hair_37").getChild("hjointF_6").getChild("hair_38").getChild("hjointF_7").getChild("hair_39");
+        this.hair_40 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40");
+        this.hjointD_1 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1");
+        this.hair_41 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41");
+        this.hjointD_2 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2");
+        this.hair_42 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42");
+        this.hjointD_3 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3");
+        this.hair_43 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43");
+        this.hjointD_4 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4");
+        this.hair_44 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44");
+        this.hjointD_5 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44").getChild("hjointD_5");
+        this.hair_45 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44").getChild("hjointD_5").getChild("hair_45");
+        this.hjointD_6 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44").getChild("hjointD_5").getChild("hair_45").getChild("hjointD_6");
+        this.hair_46 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44").getChild("hjointD_5").getChild("hair_45").getChild("hjointD_6").getChild("hair_46");
+        this.hjointD_7 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44").getChild("hjointD_5").getChild("hair_45").getChild("hjointD_6").getChild("hair_46").getChild("hjointD_7");
+        this.hair_47 = root.getChild("mainmodel").getChild("hjointD").getChild("hair_40").getChild("hjointD_1").getChild("hair_41").getChild("hjointD_2").getChild("hair_42").getChild("hjointD_3").getChild("hair_43").getChild("hjointD_4").getChild("hair_44").getChild("hjointD_5").getChild("hair_45").getChild("hjointD_6").getChild("hair_46").getChild("hjointD_7").getChild("hair_47");
+        this.hair_48 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48");
+        this.hjointC_1 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1");
+        this.hair_49 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49");
+        this.hjointC_2 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2");
+        this.hair_50 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50");
+        this.hjointC_3 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3");
+        this.hair_51 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51");
+        this.hjointC_4 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51").getChild("hjointC_4");
+        this.hair_52 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51").getChild("hjointC_4").getChild("hair_52");
+        this.hjointC_5 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51").getChild("hjointC_4").getChild("hair_52").getChild("hjointC_5");
+        this.hair_53 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51").getChild("hjointC_4").getChild("hair_52").getChild("hjointC_5").getChild("hair_53");
+        this.hjointC_6 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51").getChild("hjointC_4").getChild("hair_52").getChild("hjointC_5").getChild("hair_53").getChild("hjointC_6");
+        this.hair_54 = root.getChild("mainmodel").getChild("hjointC").getChild("hair_48").getChild("hjointC_1").getChild("hair_49").getChild("hjointC_2").getChild("hair_50").getChild("hjointC_3").getChild("hair_51").getChild("hjointC_4").getChild("hair_52").getChild("hjointC_5").getChild("hair_53").getChild("hjointC_6").getChild("hair_54");
+        this.hair_55 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55");
+        this.hjointB_1 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1");
+        this.hair_56 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56");
+        this.hjointB_2 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56").getChild("hjointB_2");
+        this.hair_57 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56").getChild("hjointB_2").getChild("hair_57");
+        this.hjointB_3 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56").getChild("hjointB_2").getChild("hair_57").getChild("hjointB_3");
+        this.hair_58 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56").getChild("hjointB_2").getChild("hair_57").getChild("hjointB_3").getChild("hair_58");
+        this.hjointB_4 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56").getChild("hjointB_2").getChild("hair_57").getChild("hjointB_3").getChild("hair_58").getChild("hjointB_4");
+        this.hair_59 = root.getChild("mainmodel").getChild("hjointB").getChild("hair_55").getChild("hjointB_1").getChild("hair_56").getChild("hjointB_2").getChild("hair_57").getChild("hjointB_3").getChild("hair_58").getChild("hjointB_4").getChild("hair_59");
+        this.hair_60 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60");
+        this.hjointE_1 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1");
+        this.hair_61 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61");
+        this.hjointE_2 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2");
+        this.hair_62 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62");
+        this.hjointE_3 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3");
+        this.hair_63 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63");
+        this.hjointE_4 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63").getChild("hjointE_4");
+        this.hair_64 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63").getChild("hjointE_4").getChild("hair_64");
+        this.hjointE_5 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63").getChild("hjointE_4").getChild("hair_64").getChild("hjointE_5");
+        this.hair_65 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63").getChild("hjointE_4").getChild("hair_64").getChild("hjointE_5").getChild("hair_65");
+        this.hjointE_6 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63").getChild("hjointE_4").getChild("hair_64").getChild("hjointE_5").getChild("hair_65").getChild("hjointE_6");
+        this.hair_66 = root.getChild("mainmodel").getChild("hjointE").getChild("hair_60").getChild("hjointE_1").getChild("hair_61").getChild("hjointE_2").getChild("hair_62").getChild("hjointE_3").getChild("hair_63").getChild("hjointE_4").getChild("hair_64").getChild("hjointE_5").getChild("hair_65").getChild("hjointE_6").getChild("hair_66");
+        this.hair_67 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67");
+        this.hjointA_1 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1");
+        this.hair_68 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68");
+        this.hjointA_2 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68").getChild("hjointA_2");
+        this.hair_69 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68").getChild("hjointA_2").getChild("hair_69");
+        this.hjointA_3 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68").getChild("hjointA_2").getChild("hair_69").getChild("hjointA_3");
+        this.hair_70 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68").getChild("hjointA_2").getChild("hair_69").getChild("hjointA_3").getChild("hair_70");
+        this.hjointA_4 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68").getChild("hjointA_2").getChild("hair_69").getChild("hjointA_3").getChild("hair_70").getChild("hjointA_4");
+        this.hair_71 = root.getChild("mainmodel").getChild("hjointA").getChild("hair_67").getChild("hjointA_1").getChild("hair_68").getChild("hjointA_2").getChild("hair_69").getChild("hjointA_3").getChild("hair_70").getChild("hjointA_4").getChild("hair_71");
+    }
+
+    public static LayerDefinition createBodyLayer() {
+        MeshDefinition mesh = new MeshDefinition();
+        PartDefinition root = mesh.getRoot();
+
+        PartDefinition mainmodel = root.addOrReplaceChild("mainmodel", CubeListBuilder.create().texOffs(0, 0).addBox(0.0f, 0.0f, 0.0f, 1, 1, 1), PartPose.offset(0.0f, 16.0f, 0.0f));
+        PartDefinition b_5 = mainmodel.addOrReplaceChild("b_5", CubeListBuilder.create().texOffs(88, 34).addBox(-4.0f, -4.0f, -4.0f, 8, 11, 8), PartPose.offsetAndRotation(7.0f, 5.0f, 4.0f, 0.56548667f, 0.0f, -0.81681406f));
+        PartDefinition b_1 = mainmodel.addOrReplaceChild("b_1", CubeListBuilder.create().texOffs(64, 0).addBox(-5.0f, -5.0f, -4.0f, 10, 10, 14), PartPose.offsetAndRotation(0.0f, -2.0f, 10.0f, 0.25132743f, 0.0f, 0.0f));
+        PartDefinition hjointA = mainmodel.addOrReplaceChild("hjointA", CubeListBuilder.create().texOffs(72, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-3.0f, 1.0f, 18.0f, 1.5707964f, 0.0f, (float)Math.PI));
+        PartDefinition hair_67 = hjointA.addOrReplaceChild("hair_67", CubeListBuilder.create().texOffs(31, 90).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.56548667f, 0.56548667f, 0.0f));
+        PartDefinition hjointA_1 = hair_67.addOrReplaceChild("hjointA_1", CubeListBuilder.create().texOffs(74, 12).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_68 = hjointA_1.addOrReplaceChild("hair_68", CubeListBuilder.create().texOffs(43, 90).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointA_2 = hair_68.addOrReplaceChild("hjointA_2", CubeListBuilder.create().texOffs(98, 12).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_69 = hjointA_2.addOrReplaceChild("hair_69", CubeListBuilder.create().texOffs(64, 90).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointA_3 = hair_69.addOrReplaceChild("hjointA_3", CubeListBuilder.create().texOffs(102, 12).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_70 = hjointA_3.addOrReplaceChild("hair_70", CubeListBuilder.create().texOffs(110, 90).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointA_4 = hair_70.addOrReplaceChild("hjointA_4", CubeListBuilder.create().texOffs(106, 12).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_71 = hjointA_4.addOrReplaceChild("hair_71", CubeListBuilder.create().texOffs(50, 91).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.25132743f, 0.0f));
+        PartDefinition b_3 = mainmodel.addOrReplaceChild("b_3", CubeListBuilder.create().texOffs(0, 32).addBox(-4.5f, -4.0f, -4.0f, 9, 7, 7), PartPose.offsetAndRotation(0.0f, -3.0f, -9.0f, -1.0053097f, 0.0f, 0.0f));
+        PartDefinition hjointE = mainmodel.addOrReplaceChild("hjointE", CubeListBuilder.create().texOffs(68, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-4.0f, 2.0f, 14.0f, 1.5707964f, 0.0f, (float)Math.PI));
+        PartDefinition hair_60 = hjointE.addOrReplaceChild("hair_60", CubeListBuilder.create().texOffs(0, 89).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.25132743f, 0.31415927f, 0.0f));
+        PartDefinition hjointE_1 = hair_60.addOrReplaceChild("hjointE_1", CubeListBuilder.create().texOffs(61, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_61 = hjointE_1.addOrReplaceChild("hair_61", CubeListBuilder.create().texOffs(12, 89).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointE_2 = hair_61.addOrReplaceChild("hjointE_2", CubeListBuilder.create().texOffs(74, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_62 = hjointE_2.addOrReplaceChild("hair_62", CubeListBuilder.create().texOffs(57, 89).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointE_3 = hair_62.addOrReplaceChild("hjointE_3", CubeListBuilder.create().texOffs(67, 11).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_63 = hjointE_3.addOrReplaceChild("hair_63", CubeListBuilder.create().texOffs(79, 89).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointE_4 = hair_63.addOrReplaceChild("hjointE_4", CubeListBuilder.create().texOffs(71, 11).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_64 = hjointE_4.addOrReplaceChild("hair_64", CubeListBuilder.create().texOffs(91, 89).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointE_5 = hair_64.addOrReplaceChild("hjointE_5", CubeListBuilder.create().texOffs(121, 11).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_65 = hjointE_5.addOrReplaceChild("hair_65", CubeListBuilder.create().texOffs(103, 89).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointE_6 = hair_65.addOrReplaceChild("hjointE_6", CubeListBuilder.create().texOffs(12, 12).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_66 = hjointE_6.addOrReplaceChild("hair_66", CubeListBuilder.create().texOffs(19, 90).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.69115037f, 0.0f));
+        PartDefinition b_8 = mainmodel.addOrReplaceChild("b_8", CubeListBuilder.create().texOffs(91, 53).addBox(-5.0f, -6.0f, -3.0f, 10, 12, 6), PartPose.offsetAndRotation(-7.0f, -6.0f, -3.0f, 0.0f, -0.50265485f, 0.75398225f));
+        PartDefinition hjointB = mainmodel.addOrReplaceChild("hjointB", CubeListBuilder.create().texOffs(64, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(3.0f, 1.0f, 18.0f, 1.5707964f, (float)Math.PI, (float)Math.PI));
+        PartDefinition hair_55 = hjointB.addOrReplaceChild("hair_55", CubeListBuilder.create().texOffs(43, 84).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.56548667f, 0.56548667f, 0.0f));
+        PartDefinition hjointB_1 = hair_55.addOrReplaceChild("hjointB_1", CubeListBuilder.create().texOffs(7, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_56 = hjointB_1.addOrReplaceChild("hair_56", CubeListBuilder.create().texOffs(65, 84).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointB_2 = hair_56.addOrReplaceChild("hjointB_2", CubeListBuilder.create().texOffs(11, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_57 = hjointB_2.addOrReplaceChild("hair_57", CubeListBuilder.create().texOffs(115, 84).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointB_3 = hair_57.addOrReplaceChild("hjointB_3", CubeListBuilder.create().texOffs(48, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_58 = hjointB_3.addOrReplaceChild("hair_58", CubeListBuilder.create().texOffs(50, 85).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointB_4 = hair_58.addOrReplaceChild("hjointB_4", CubeListBuilder.create().texOffs(55, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_59 = hjointB_4.addOrReplaceChild("hair_59", CubeListBuilder.create().texOffs(72, 85).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.25132743f, 0.0f));
+        PartDefinition b_4 = mainmodel.addOrReplaceChild("b_4", CubeListBuilder.create().texOffs(32, 34).addBox(-6.0f, -4.0f, -4.0f, 12, 8, 8), PartPose.offsetAndRotation(0.0f, -1.0f, -9.6f, 0.87964594f, 0.0f, 0.0f));
+        PartDefinition b = mainmodel.addOrReplaceChild("b", CubeListBuilder.create().texOffs(0, 0).addBox(-8.0f, -8.0f, -8.0f, 16, 16, 16), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.7853982f, 0.7853982f, 1.5707964f));
+        PartDefinition b_2 = mainmodel.addOrReplaceChild("b_2", CubeListBuilder.create().texOffs(64, 24).addBox(-5.0f, -6.0f, -3.0f, 10, 12, 6), PartPose.offsetAndRotation(7.0f, -6.0f, -3.0f, 0.0f, 0.50265485f, -0.75398225f));
+        PartDefinition b_7 = mainmodel.addOrReplaceChild("b_7", CubeListBuilder.create().texOffs(0, 46).addBox(-5.0f, -4.0f, -3.0f, 10, 8, 10), PartPose.offsetAndRotation(7.0f, -5.0f, 10.0f, 0.0f, -0.12566371f, -0.62831855f));
+        PartDefinition hjointH = mainmodel.addOrReplaceChild("hjointH", CubeListBuilder.create().texOffs(12, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(5.0f, 3.0f, 10.0f, 1.5707964f, (float)Math.PI, (float)Math.PI));
+        PartDefinition hair_16 = hjointH.addOrReplaceChild("hair_16", CubeListBuilder.create().texOffs(114, 24).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.62831855f, 1.1309733f, 0.0f));
+        PartDefinition hjointH_1 = hair_16.addOrReplaceChild("hjointH_1", CubeListBuilder.create().texOffs(105, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_17 = hjointH_1.addOrReplaceChild("hair_17", CubeListBuilder.create().texOffs(112, 30).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointH_2 = hair_17.addOrReplaceChild("hjointH_2", CubeListBuilder.create().texOffs(109, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_18 = hjointH_2.addOrReplaceChild("hair_18", CubeListBuilder.create().texOffs(25, 32).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointH_3 = hair_18.addOrReplaceChild("hjointH_3", CubeListBuilder.create().texOffs(117, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_19 = hjointH_3.addOrReplaceChild("hair_19", CubeListBuilder.create().texOffs(112, 36).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointH_4 = hair_19.addOrReplaceChild("hjointH_4", CubeListBuilder.create().texOffs(121, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_20 = hjointH_4.addOrReplaceChild("hair_20", CubeListBuilder.create().texOffs(70, 59).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointH_5 = hair_20.addOrReplaceChild("hjointH_5", CubeListBuilder.create().texOffs(74, 3).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_21 = hjointH_5.addOrReplaceChild("hair_21", CubeListBuilder.create().texOffs(77, 60).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointH_6 = hair_21.addOrReplaceChild("hjointH_6", CubeListBuilder.create().texOffs(0, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_22 = hjointH_6.addOrReplaceChild("hair_22", CubeListBuilder.create().texOffs(70, 65).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.69115037f, 0.0f));
+        PartDefinition hjointH_7 = hair_22.addOrReplaceChild("hjointH_7", CubeListBuilder.create().texOffs(7, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_23 = hjointH_7.addOrReplaceChild("hair_23", CubeListBuilder.create().texOffs(105, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.43982297f, 0.0f));
+        PartDefinition hjointG = mainmodel.addOrReplaceChild("hjointG", CubeListBuilder.create().texOffs(48, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-5.0f, 3.0f, 10.0f, 1.5707964f, 0.0f, (float)Math.PI));
+        PartDefinition hair_24 = hjointG.addOrReplaceChild("hair_24", CubeListBuilder.create().texOffs(77, 66).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.62831855f, 1.1309733f, 0.0f));
+        PartDefinition hjointG_1 = hair_24.addOrReplaceChild("hjointG_1", CubeListBuilder.create().texOffs(11, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_25 = hjointG_1.addOrReplaceChild("hair_25", CubeListBuilder.create().texOffs(84, 67).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointG_2 = hair_25.addOrReplaceChild("hjointG_2", CubeListBuilder.create().texOffs(48, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_26 = hjointG_2.addOrReplaceChild("hair_26", CubeListBuilder.create().texOffs(65, 71).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointG_3 = hair_26.addOrReplaceChild("hjointG_3", CubeListBuilder.create().texOffs(55, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_27 = hjointG_3.addOrReplaceChild("hair_27", CubeListBuilder.create().texOffs(91, 71).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointG_4 = hair_27.addOrReplaceChild("hjointG_4", CubeListBuilder.create().texOffs(61, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_28 = hjointG_4.addOrReplaceChild("hair_28", CubeListBuilder.create().texOffs(103, 71).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointG_5 = hair_28.addOrReplaceChild("hjointG_5", CubeListBuilder.create().texOffs(67, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_29 = hjointG_5.addOrReplaceChild("hair_29", CubeListBuilder.create().texOffs(115, 71).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointG_6 = hair_29.addOrReplaceChild("hjointG_6", CubeListBuilder.create().texOffs(122, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_30 = hjointG_6.addOrReplaceChild("hair_30", CubeListBuilder.create().texOffs(32, 72).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.69115037f, 0.0f));
+        PartDefinition hjointG_7 = hair_30.addOrReplaceChild("hjointG_7", CubeListBuilder.create().texOffs(74, 5).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_31 = hjointG_7.addOrReplaceChild("hair_31", CubeListBuilder.create().texOffs(117, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.43982297f, 0.0f));
+        PartDefinition b_10 = mainmodel.addOrReplaceChild("b_10", CubeListBuilder.create().texOffs(0, 64).addBox(-4.0f, -4.0f, -4.0f, 8, 11, 8), PartPose.offsetAndRotation(-7.0f, 5.0f, 4.0f, 0.56548667f, 0.0f, 0.81681406f));
+        PartDefinition hjointI = mainmodel.addOrReplaceChild("hjointI", CubeListBuilder.create().texOffs(8, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-4.0f, -6.0f, 6.0f, 1.5707964f, (float)Math.PI, 0.0f));
+        PartDefinition hair_8 = hjointI.addOrReplaceChild("hair_8", CubeListBuilder.create().texOffs(0, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.18849556f, 0.9424778f, 0.0f));
+        PartDefinition hjointI_1 = hair_8.addOrReplaceChild("hjointI_1", CubeListBuilder.create().texOffs(11, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_9 = hjointI_1.addOrReplaceChild("hair_9", CubeListBuilder.create().texOffs(48, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointI_2 = hair_9.addOrReplaceChild("hjointI_2", CubeListBuilder.create().texOffs(48, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_10 = hjointI_2.addOrReplaceChild("hair_10", CubeListBuilder.create().texOffs(60, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointI_3 = hair_10.addOrReplaceChild("hjointI_3", CubeListBuilder.create().texOffs(55, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_11 = hjointI_3.addOrReplaceChild("hair_11", CubeListBuilder.create().texOffs(112, 12).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointI_4 = hair_11.addOrReplaceChild("hjointI_4", CubeListBuilder.create().texOffs(61, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_12 = hjointI_4.addOrReplaceChild("hair_12", CubeListBuilder.create().texOffs(112, 18).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointI_5 = hair_12.addOrReplaceChild("hjointI_5", CubeListBuilder.create().texOffs(67, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_13 = hjointI_5.addOrReplaceChild("hair_13", CubeListBuilder.create().texOffs(90, 24).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointI_6 = hair_13.addOrReplaceChild("hjointI_6", CubeListBuilder.create().texOffs(71, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_14 = hjointI_6.addOrReplaceChild("hair_14", CubeListBuilder.create().texOffs(102, 24).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointI_7 = hair_14.addOrReplaceChild("hjointI_7", CubeListBuilder.create().texOffs(98, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_15 = hjointI_7.addOrReplaceChild("hair_15", CubeListBuilder.create().texOffs(68, 4).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition b_6 = mainmodel.addOrReplaceChild("b_6", CubeListBuilder.create().texOffs(63, 44).addBox(-4.0f, -3.0f, -8.0f, 8, 6, 9), PartPose.offsetAndRotation(0.0f, 8.0f, -4.0f, -0.43982297f, 0.0f, 0.0f));
+        PartDefinition hjointJ = mainmodel.addOrReplaceChild("hjointJ", CubeListBuilder.create().texOffs(4, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(4.0f, -6.0f, 6.0f, 1.5707964f, 0.0f, 0.0f));
+        PartDefinition hair = hjointJ.addOrReplaceChild("hair", CubeListBuilder.create().texOffs(98, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.18849556f, 0.9424778f, 0.0f));
+        PartDefinition hjointJ_1 = hair.addOrReplaceChild("hjointJ_1", CubeListBuilder.create().texOffs(98, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_1 = hjointJ_1.addOrReplaceChild("hair_1", CubeListBuilder.create().texOffs(110, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointJ_2 = hair_1.addOrReplaceChild("hjointJ_2", CubeListBuilder.create().texOffs(105, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_2 = hjointJ_2.addOrReplaceChild("hair_2", CubeListBuilder.create().texOffs(0, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointJ_3 = hair_2.addOrReplaceChild("hjointJ_3", CubeListBuilder.create().texOffs(109, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_3 = hjointJ_3.addOrReplaceChild("hair_3", CubeListBuilder.create().texOffs(48, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointJ_4 = hair_3.addOrReplaceChild("hjointJ_4", CubeListBuilder.create().texOffs(117, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_4 = hjointJ_4.addOrReplaceChild("hair_4", CubeListBuilder.create().texOffs(60, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointJ_5 = hair_4.addOrReplaceChild("hjointJ_5", CubeListBuilder.create().texOffs(121, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_5 = hjointJ_5.addOrReplaceChild("hair_5", CubeListBuilder.create().texOffs(98, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointJ_6 = hair_5.addOrReplaceChild("hjointJ_6", CubeListBuilder.create().texOffs(0, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_6 = hjointJ_6.addOrReplaceChild("hair_6", CubeListBuilder.create().texOffs(110, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointJ_7 = hair_6.addOrReplaceChild("hjointJ_7", CubeListBuilder.create().texOffs(7, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_7 = hjointJ_7.addOrReplaceChild("hair_7", CubeListBuilder.create().texOffs(55, 2).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition b_9 = mainmodel.addOrReplaceChild("b_9", CubeListBuilder.create().texOffs(30, 54).addBox(-5.0f, -4.0f, -3.0f, 10, 8, 10), PartPose.offsetAndRotation(-7.0f, -5.0f, 10.0f, 0.0f, 0.12566371f, 0.62831855f));
+        PartDefinition hjointD = mainmodel.addOrReplaceChild("hjointD", CubeListBuilder.create().texOffs(56, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(-4.0f, 7.0f, -8.0f, 1.5707964f, (float)Math.PI, 0.0f));
+        PartDefinition hair_40 = hjointD.addOrReplaceChild("hair_40", CubeListBuilder.create().texOffs(110, 77).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, -0.62831855f, 0.9424778f, 0.0f));
+        PartDefinition hjointD_1 = hair_40.addOrReplaceChild("hjointD_1", CubeListBuilder.create().texOffs(7, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_41 = hjointD_1.addOrReplaceChild("hair_41", CubeListBuilder.create().texOffs(27, 78).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointD_2 = hair_41.addOrReplaceChild("hjointD_2", CubeListBuilder.create().texOffs(11, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_42 = hjointD_2.addOrReplaceChild("hair_42", CubeListBuilder.create().texOffs(39, 78).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointD_3 = hair_42.addOrReplaceChild("hjointD_3", CubeListBuilder.create().texOffs(48, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_43 = hjointD_3.addOrReplaceChild("hair_43", CubeListBuilder.create().texOffs(51, 78).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointD_4 = hair_43.addOrReplaceChild("hjointD_4", CubeListBuilder.create().texOffs(55, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_44 = hjointD_4.addOrReplaceChild("hair_44", CubeListBuilder.create().texOffs(70, 78).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointD_5 = hair_44.addOrReplaceChild("hjointD_5", CubeListBuilder.create().texOffs(61, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_45 = hjointD_5.addOrReplaceChild("hair_45", CubeListBuilder.create().texOffs(77, 79).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.87964594f, 0.0f));
+        PartDefinition hjointD_6 = hair_45.addOrReplaceChild("hjointD_6", CubeListBuilder.create().texOffs(98, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_46 = hjointD_6.addOrReplaceChild("hair_46", CubeListBuilder.create().texOffs(0, 83).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.87964594f, 0.0f));
+        PartDefinition hjointD_7 = hair_46.addOrReplaceChild("hjointD_7", CubeListBuilder.create().texOffs(105, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_47 = hjointD_7.addOrReplaceChild("hair_47", CubeListBuilder.create().texOffs(97, 24).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.87964594f, 0.0f));
+        PartDefinition hjointC = mainmodel.addOrReplaceChild("hjointC", CubeListBuilder.create().texOffs(60, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(4.0f, 2.0f, 14.0f, 1.5707964f, (float)Math.PI, (float)Math.PI));
+        PartDefinition hair_48 = hjointC.addOrReplaceChild("hair_48", CubeListBuilder.create().texOffs(12, 83).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.25132743f, 0.31415927f, 0.0f));
+        PartDefinition hjointC_1 = hair_48.addOrReplaceChild("hjointC_1", CubeListBuilder.create().texOffs(111, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_49 = hjointC_1.addOrReplaceChild("hair_49", CubeListBuilder.create().texOffs(58, 83).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointC_2 = hair_49.addOrReplaceChild("hjointC_2", CubeListBuilder.create().texOffs(117, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_50 = hjointC_2.addOrReplaceChild("hair_50", CubeListBuilder.create().texOffs(84, 83).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointC_3 = hair_50.addOrReplaceChild("hjointC_3", CubeListBuilder.create().texOffs(123, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_51 = hjointC_3.addOrReplaceChild("hair_51", CubeListBuilder.create().texOffs(96, 83).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointC_4 = hair_51.addOrReplaceChild("hjointC_4", CubeListBuilder.create().texOffs(67, 9).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_52 = hjointC_4.addOrReplaceChild("hair_52", CubeListBuilder.create().texOffs(108, 83).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointC_5 = hair_52.addOrReplaceChild("hjointC_5", CubeListBuilder.create().texOffs(71, 9).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_53 = hjointC_5.addOrReplaceChild("hair_53", CubeListBuilder.create().texOffs(19, 84).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.75398225f, 0.0f));
+        PartDefinition hjointC_6 = hair_53.addOrReplaceChild("hjointC_6", CubeListBuilder.create().texOffs(0, 10).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_54 = hjointC_6.addOrReplaceChild("hair_54", CubeListBuilder.create().texOffs(31, 84).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.69115037f, 0.0f));
+        PartDefinition hjointF = mainmodel.addOrReplaceChild("hjointF", CubeListBuilder.create().texOffs(52, 0).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offsetAndRotation(4.0f, 7.0f, -8.0f, 1.5707964f, 0.0f, 0.0f));
+        PartDefinition hair_32 = hjointF.addOrReplaceChild("hair_32", CubeListBuilder.create().texOffs(44, 72).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.62831855f, 0.9424778f, 0.0f));
+        PartDefinition hjointF_1 = hair_32.addOrReplaceChild("hjointF_1", CubeListBuilder.create().texOffs(12, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_33 = hjointF_1.addOrReplaceChild("hair_33", CubeListBuilder.create().texOffs(56, 72).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointF_2 = hair_33.addOrReplaceChild("hjointF_2", CubeListBuilder.create().texOffs(98, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_34 = hjointF_2.addOrReplaceChild("hair_34", CubeListBuilder.create().texOffs(72, 72).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, -0.31415927f, 0.0f));
+        PartDefinition hjointF_3 = hair_34.addOrReplaceChild("hjointF_3", CubeListBuilder.create().texOffs(105, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_35 = hjointF_3.addOrReplaceChild("hair_35", CubeListBuilder.create().texOffs(79, 73).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.43982297f, 0.0f));
+        PartDefinition hjointF_4 = hair_35.addOrReplaceChild("hjointF_4", CubeListBuilder.create().texOffs(111, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_36 = hjointF_4.addOrReplaceChild("hair_36", CubeListBuilder.create().texOffs(63, 77).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.62831855f, 0.0f));
+        PartDefinition hjointF_5 = hair_36.addOrReplaceChild("hjointF_5", CubeListBuilder.create().texOffs(117, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_37 = hjointF_5.addOrReplaceChild("hair_37", CubeListBuilder.create().texOffs(86, 77).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.87964594f, 0.0f));
+        PartDefinition hjointF_6 = hair_37.addOrReplaceChild("hjointF_6", CubeListBuilder.create().texOffs(123, 6).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_38 = hjointF_6.addOrReplaceChild("hair_38", CubeListBuilder.create().texOffs(98, 77).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 5), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.87964594f, 0.0f));
+        PartDefinition hjointF_7 = hair_38.addOrReplaceChild("hjointF_7", CubeListBuilder.create().texOffs(0, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1), PartPose.offset(0.0f, 0.0f, 5.0f));
+        PartDefinition hair_39 = hjointF_7.addOrReplaceChild("hair_39", CubeListBuilder.create().texOffs(55, 8).addBox(-0.5f, -0.5f, -0.5f, 1, 1, 4), PartPose.offsetAndRotation(0.0f, 0.0f, 0.0f, 0.0f, 0.87964594f, 0.0f));
+        return LayerDefinition.create(mesh, 128, 110);
+    }
 
     @Override
-    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) { }
+    public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+        float GS = 30.0f;
+        float f1 = -0.5f + -Mth.sin((float)(ageInTicks * 0.01678f * GS)) * 0.45325f;
+        float f2 = 0.5f + Mth.sin((float)(ageInTicks * 0.00878f * GS)) * 0.35f;
+        float f3 = 0.3f + -Mth.sin((float)(ageInTicks * 0.00578f * GS)) * 0.325f;
+        float f4 = 0.3f + Mth.sin((float)(ageInTicks * 0.0178f * GS)) * 0.4325f;
+        this.hjointA_1.yRot = f1;
+        this.hjointA_2.yRot = f2;
+        this.hjointA_3.yRot = f3;
+        this.hjointA_4.yRot = f4;
+        this.hjointF_1.yRot = -f1;
+        this.hjointF_2.yRot = f3;
+        this.hjointF_3.yRot = f4;
+        this.hjointF_4.yRot = -f3;
+        this.hjointF_5.yRot = -f2;
+        this.hjointF_6.yRot = f3;
+        this.hjointF_7.yRot = f1;
+        f1 = 0.1f + Mth.sin((float)(ageInTicks * 0.0078f * GS)) * 0.45325f;
+        f2 = 0.1f + -Mth.sin((float)(ageInTicks * 0.00878f * GS)) * 0.325f;
+        f3 = 0.3f + -Mth.sin((float)(ageInTicks * 0.00678f * GS)) * 0.4325f;
+        f4 = 0.3f + Mth.sin((float)(ageInTicks * 0.00578f * GS)) * 0.5325f;
+        this.hjointE_1.yRot = -f4;
+        this.hjointE_2.yRot = f3;
+        this.hjointE_3.yRot = -f1;
+        this.hjointE_4.yRot = f2;
+        this.hjointE_5.yRot = -f3;
+        this.hjointE_6.yRot = f1;
+        this.hjointJ_1.yRot = -f3;
+        this.hjointJ_2.yRot = f2;
+        this.hjointJ_3.yRot = -f4;
+        this.hjointJ_4.yRot = -f3;
+        this.hjointJ_5.yRot = f2;
+        this.hjointJ_6.yRot = f1;
+        this.hjointJ_7.yRot = -f3;
+        f1 = -0.5f + Mth.sin((float)(ageInTicks * 0.0178f * GS)) * 0.5325f;
+        f2 = 0.1f + -Mth.sin((float)(ageInTicks * 0.00878f * GS)) * 0.325f;
+        f3 = 0.3f + -Mth.sin((float)(ageInTicks * 0.01578f * GS)) * 0.7325f;
+        this.hjointD_1.yRot = f4 = 0.3f + Mth.sin((float)(ageInTicks * 0.00678f * GS)) * 0.4325f;
+        this.hjointD_2.yRot = f2;
+        this.hjointD_3.yRot = f3;
+        this.hjointD_4.yRot = -f1;
+        this.hjointD_5.yRot = -f4;
+        this.hjointD_6.yRot = -f1;
+        this.hjointD_7.yRot = f3;
+        this.hjointB_1.yRot = f2;
+        this.hjointB_2.yRot = f4;
+        this.hjointB_3.yRot = -f3;
+        this.hjointB_4.yRot = f1;
+        f1 = 0.1f + Mth.sin((float)(ageInTicks * 0.006578f * GS)) * 0.22325f;
+        f2 = 0.1f + -Mth.sin((float)(ageInTicks * 0.0178f * GS)) * 0.1325f;
+        f3 = 0.3f + -Mth.sin((float)(ageInTicks * 0.00678f * GS)) * 0.325f;
+        f4 = 0.3f + Mth.sin((float)(ageInTicks * 0.01578f * GS)) * 0.4325f;
+        this.hjointG_1.yRot = -f2;
+        this.hjointG_2.yRot = f3;
+        this.hjointG_3.yRot = -f2;
+        this.hjointG_4.yRot = f1;
+        this.hjointG_5.yRot = f2;
+        this.hjointG_6.yRot = -f4;
+        this.hjointG_7.yRot = f3;
+        this.hjointC_1.yRot = -f3;
+        this.hjointC_2.yRot = -f2;
+        this.hjointC_3.yRot = f1;
+        this.hjointC_4.yRot = f4;
+        this.hjointC_5.yRot = -f2;
+        this.hjointC_6.yRot = f3;
+        f1 = 0.1f + -Mth.sin((float)(ageInTicks * 0.0078f * GS)) * 0.325f;
+        f2 = 0.1f + Mth.sin((float)(ageInTicks * 0.0078f * GS)) * 0.325f;
+        this.hjointI_1.yRot = -f2;
+        this.hjointI_2.yRot = f1;
+        this.hjointI_3.yRot = -f3;
+        this.hjointI_4.yRot = -f4;
+        this.hjointI_5.yRot = f2;
+        this.hjointI_6.yRot = f1;
+        this.hjointI_7.yRot = f3;
+        this.hjointH_1.yRot = f1;
+        this.hjointH_2.yRot = -f2;
+        this.hjointH_3.yRot = f4;
+        this.hjointH_4.yRot = f3;
+        this.hjointH_5.yRot = -f1;
+        this.hjointH_6.yRot = f3;
+        this.hjointH_7.yRot = -f2;
+        f1 = 0.1f + -Mth.sin((float)(ageInTicks * 0.012378f * GS)) * 0.05325f;
+        f2 = 0.1f + Mth.sin((float)(ageInTicks * 0.0078f * GS)) * 0.325f;
+        this.mainmodel.y = f1;
+    
+    }
 
     @Override
-    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack poseStack, com.mojang.blaze3d.vertex.VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) { }
+    public void renderToBuffer(com.mojang.blaze3d.vertex.PoseStack poseStack, com.mojang.blaze3d.vertex.VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+        mainmodel.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+    }
+
+    private void setRotateAngle(ModelPart modelRenderer, float x, float y, float z) {
+        modelRenderer.xRot = x;
+        modelRenderer.yRot = y;
+        modelRenderer.zRot = z;
+    }
+
+    private void swingX(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingX(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingX(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.xRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingY(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingY(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingY(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.yRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingZ(ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void swingZ(ModelPart modelRenderer, float speed, float degree, int invert, float offset, float weight, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed + offset) + (double)(weight * limbSwingAmount));
+    }
+
+    private void swingZ(float pref, ModelPart modelRenderer, float speed, float degree, int invert, float limbSwing, float limbSwingAmount) {
+        modelRenderer.zRot = pref + (float)((double)((float)invert * limbSwingAmount * degree) * Math.cos(limbSwing * speed) * (double)limbSwingAmount);
+    }
+
+    private void moveY(ModelPart modelRenderer, float speed, int invert, float f, float f1, float distance) {
+        modelRenderer.y = (float)invert * Mth.cos(f * speed) * f1 * distance;
+    }
+
+    private void underground(com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase parasite, float ageInTicks, ModelPart mainbody) {
+    }
+
 }
