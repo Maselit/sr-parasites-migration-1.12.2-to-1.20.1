@@ -25,4 +25,5 @@ public class EntityShyco extends EntityParasiteBase {
     @Override protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource d) { return SRPSounds.SHYCO_HURT.get(); }
     @Override protected net.minecraft.sounds.SoundEvent getDeathSound() { return SRPSounds.SHYCO_DEATH.get(); }
     public float getEyeHeight(net.minecraft.world.entity.Pose p) { return 0.8f; }
+    public float getAttackTimer() { return 0.0f; }
 }

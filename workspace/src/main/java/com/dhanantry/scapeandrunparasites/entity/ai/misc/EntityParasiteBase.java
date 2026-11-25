@@ -117,6 +117,7 @@ public abstract class EntityParasiteBase extends Monster {
     public void setSkin(int texture) { this.entityData.set(SKIN, (byte) texture); }
     public boolean getColdL() { return this.entityData.get(COLD_L); }
     public byte getParasiteStatus() { return this.entityData.get(SPECIAL); }
+    public boolean getStillAni() { return this.still; }
     public void setParasiteStatus(int state) { this.entityData.set(SPECIAL, (byte) state); }
     public int getSelfeState() { return this.entityData.get(SELFE); }
     public void setSelfeState(int state) { this.entityData.set(SELFE, state); }
