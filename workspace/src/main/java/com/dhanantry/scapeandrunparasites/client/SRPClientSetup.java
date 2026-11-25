@@ -135,5 +135,7 @@ public class SRPClientSetup {
 
     @SubscribeEvent
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(com.dhanantry.scapeandrunparasites.client.model.entity.misc.ModelScaryOrb.LAYER_LOCATION, com.dhanantry.scapeandrunparasites.client.model.entity.misc.ModelScaryOrb::createBodyLayer);
+        event.registerLayerDefinition(com.dhanantry.scapeandrunparasites.client.model.entity.misc.ModelNade.LAYER_LOCATION, com.dhanantry.scapeandrunparasites.client.model.entity.misc.ModelNade::createBodyLayer);
     }
 }
