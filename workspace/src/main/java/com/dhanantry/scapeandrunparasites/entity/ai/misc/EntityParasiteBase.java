@@ -33,7 +33,21 @@ public abstract class EntityParasiteBase extends Monster {
     private static final EntityDataAccessor<Integer> SELFE = SynchedEntityData.defineId(EntityParasiteBase.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Byte> SKIN = SynchedEntityData.defineId(EntityParasiteBase.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> COLD_L = SynchedEntityData.defineId(EntityParasiteBase.class, EntityDataSerializers.BOOLEAN);
-    protected int srpTicks;
+    public float getLeft() { return 0.0f; }
+    public float getRight() { return 0.0f; }
+    public float getHead() { return 0.0f; }
+    public boolean getBack() { return false; }
+    public float getBODY() { return 0.0f; }
+    public boolean getFlyingState() { return false; }
+    public float getAttackTimer() { return 0.0f; }
+    public float getAttackTimerM() { return 0.0f; }
+    public float getAttackTimerR() { return 0.0f; }
+    public boolean getBurrowed() { return false; }
+    public float getBurrowTimer() { return 0.0f; }
+    public boolean getOpen() { return false; }
+    public Object getTargetedEntity() { return null; }
+    public float getaaa() { return 0.0f; }
+    public int shakingC() { return 0; }    protected int srpTicks;
     protected int lastActiveTime;
     protected int timeSinceIgnited;
     protected int fuseTime = 40;
