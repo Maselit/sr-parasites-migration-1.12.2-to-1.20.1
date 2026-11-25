@@ -2,6 +2,7 @@ package com.dhanantry.scapeandrunparasites;
 
 import com.dhanantry.scapeandrunparasites.init.SRPBiomes;
 import com.dhanantry.scapeandrunparasites.init.SRPBlocks;
+import com.dhanantry.scapeandrunparasites.init.SRPFeatures;
 import com.dhanantry.scapeandrunparasites.init.SRPEntities;
 import com.dhanantry.scapeandrunparasites.init.SRPFluids;
 import com.dhanantry.scapeandrunparasites.init.SRPItems;
@@ -17,6 +18,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -47,6 +49,7 @@ public class SRPMain
     public static final DeferredRegister<net.minecraft.world.entity.EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, MODID);
     public static final DeferredRegister<net.minecraft.sounds.SoundEvent> SOUNDS = DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MODID);
     public static final DeferredRegister<net.minecraft.world.level.biome.Biome> BIOMES = DeferredRegister.create(Registries.BIOME, MODID);
+    public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(Registries.FEATURE, MODID);
     public static final DeferredRegister<net.minecraft.world.effect.MobEffect> MOB_EFFECTS = DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MODID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
@@ -56,12 +59,14 @@ public class SRPMain
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         modEventBus.addListener(this::commonSetup);
+        // biome defined via datapack JSON (data/srparasites/worldgen/biome/biome_parasite.json)
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
         ENTITIES.register(modEventBus);
         SOUNDS.register(modEventBus);
         BIOMES.register(modEventBus);
+        FEATURES.register(modEventBus);
         MOB_EFFECTS.register(modEventBus);
         BLOCK_ENTITY_TYPES.register(modEventBus);
         CREATIVE_MODE_TABS.register(modEventBus);
@@ -74,6 +79,7 @@ public class SRPMain
         // Si se inicializan mas tarde (p. ej. en commonSetup) el registro falla con
         // "Cannot register new entries to DeferredRegister after RegisterEvent has been fired".
         SRPBlocks.init();
+        SRPFeatures.init();
         SRPBiomes.clearMobSpawnList();
         SRPFluids.init();
         SRPSounds.init();

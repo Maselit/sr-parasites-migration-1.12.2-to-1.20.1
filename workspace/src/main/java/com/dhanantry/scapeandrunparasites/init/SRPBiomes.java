@@ -15,7 +15,8 @@ import net.minecraftforge.registries.RegistryObject;
 public class SRPBiomes
 {
     public static final RegistryObject<Biome> BIOME_INFESTED =
-        SRPMain.BIOMES.register("biome_parasite", BiomeParasite::create);
+        RegistryObject.create(new net.minecraft.resources.ResourceLocation(com.dhanantry.scapeandrunparasites.SRPMain.MODID, "biome_parasite"),
+            net.minecraft.core.registries.Registries.BIOME, com.dhanantry.scapeandrunparasites.SRPMain.MODID);
 
     /** True si la posicion esta en el bioma parasitario. */
     public static boolean isParasiteBiome(Level level, BlockPos pos) {
