@@ -83,25 +83,114 @@ public class SRPEffectBase extends MobEffect {
             }
         }
     }
+    private void InfectNearby(net.minecraft.world.entity.LivingEntity entity, int range) {
+        if (SRPConfigSystems.cothAura == 0) return;
+        net.minecraft.world.phys.AABB axisalignedbb = new net.minecraft.world.phys.AABB(entity.getX(), entity.getY(), entity.getZ(), entity.getX() + 1.0, entity.getY() + 1.0, entity.getZ() + 1.0).inflate(range);
+        java.util.List<net.minecraft.world.entity.LivingEntity> moblist = entity.level().getEntitiesOfClass(net.minecraft.world.entity.LivingEntity.class, axisalignedbb);
+        for (net.minecraft.world.entity.LivingEntity mob : moblist) {
+            if (mob == entity || mob.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get())) continue;
+            if (mob.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.EPEL_E.get())) {
+                if (entity.level().random.nextDouble() < SRPConfigSystems.epelChanceCOTH) continue;
+                mob.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get(), 4800, 0));
+                continue;
+            }
+            if (!entity.hasLineOfSight(mob)) continue;
+            mob.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get(), 4800, 0));
+        }
+    }
+
     private void effectCOTH(net.minecraft.world.entity.LivingEntity entity, int amplifier) {
         if (entity instanceof net.minecraft.world.entity.player.Player) {
             return;
         }
         boolean flag = !entity.level().isClientSide();
         boolean particle = false;
-        int dur = entity.getEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get()).getDuration();
-        int amp = entity.getEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get()).getAmplifier();
-        // simplified: keep structure, delegate complex parts to TODO
-        if (amp == 0) {
-            net.minecraft.nbt.CompoundTag tags = entity.getPersistentData();
-            if (dur >= 200 || !flag || !tags.contains("srpcothimmunity")) return;
-            if (tags.getInt("srpcothimmunity") != 0) {
-                entity.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get(), 3600, 1));
-            } else {
-                entity.removeEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get());
+        net.minecraft.world.effect.MobEffectInstance eff = entity.getEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get());
+        if (eff == null) return;
+        int dur = eff.getDuration();
+        int amp = eff.getAmplifier();
+        switch (amp) {
+            case 0: {
+                net.minecraft.nbt.CompoundTag tags;
+                if (dur >= 200 || !flag || (tags = entity.getPersistentData()) == null || !tags.contains("srpcothimmunity")) break;
+                if (tags.getInt("srpcothimmunity") != 0) {
+                    entity.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get(), 3600, 1));
+                } else {
+                    entity.removeEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get());
+                }
+                break;
+            }
+            case 1: {
+                net.minecraft.nbt.CompoundTag tags;
+                if (!flag) break;
+                boolean tickFlag = entity.tickCount % 20 == 0;
+                if (tickFlag) {
+                    InfectNearby(entity, SRPConfigSystems.cothAura);
+                }
+                if (entity.getMaxHealth() * SRPConfigSystems.cothUnhide > entity.getHealth() && entity.getHealth() > 0.0f) {
+                    tags = entity.getPersistentData();
+                    if (tags.contains("srpcothimmunity")) {
+                        if (tags.getInt("srpcothimmunity") != 0 && tickFlag) {
+                            ParasiteEventEntity.spawnInsider(entity, entity.level(), tags);
+                        }
+                        if (tags.getInt("srpcothimmunity") > 1) {
+                            particle = true;
+                        }
+                    } else {
+                        entity.removeEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get());
+                    }
+                }
+                if (dur >= 200 || (tags = entity.getPersistentData()) == null || !tags.contains("srpcothimmunity")) break;
+                if (tags.getInt("srpcothimmunity") != 0) {
+                    entity.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get(), 3600, 2));
+                    if (!entity.level().isClientSide() && SRPConfigSystems.useEvolution) {
+                        SRPSaveData data = SRPSaveData.get(entity.level());
+                        data.setTotalKills(SRPSaveData.dimensionId(entity.level()), SRPConfigSystems.valueCOTH, true, entity.level(), true);
+                        if (data.getEvolutionPhase(SRPSaveData.dimensionId(entity.level())) >= SRPConfigSystems.evolutionAssimilatedDehiding) {
+                            int key = tags.getInt("srpcothimmunity");
+                            tags.putInt("srpcothimmunity", ++key);
+                        }
+                    }
+                } else {
+                    entity.removeEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get());
+                }
+                break;
+            }
+            default: {
+                if (!flag) break;
+                boolean tickFlag = entity.tickCount % 20 == 0;
+                net.minecraft.nbt.CompoundTag tags = entity.getPersistentData();
+                if (tags.contains("srpcothimmunity")) {
+                    if (tags.getInt("srpcothimmunity") > 1) {
+                        if (tickFlag) {
+                            ParasiteEventEntity.convertEntity(entity, tags, false, SRPConfigSystems.COTHVictimParasite);
+                        }
+                        particle = true;
+                        break;
+                    }
+                    if (tickFlag) {
+                        InfectNearby(entity, SRPConfigSystems.cothAura);
+                    }
+                    if (entity.getMaxHealth() * SRPConfigSystems.cothUnhide > entity.getHealth() && entity.getHealth() > 0.0f && tickFlag) {
+                        if (tags.getInt("srpcothimmunity") != 0) {
+                            ParasiteEventEntity.convertEntity(entity, tags, false, SRPConfigSystems.COTHVictimParasite);
+                        }
+                        if (tags.getInt("srpcothimmunity") > 1) {
+                            particle = true;
+                        }
+                    }
+                    if (dur >= 200) break;
+                    entity.addEffect(new net.minecraft.world.effect.MobEffectInstance(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get(), 3600, 2));
+                    if (SRPConfigSystems.useEvolution && SRPSaveData.get(entity.level()).getEvolutionPhase(SRPSaveData.dimensionId(entity.level())) >= SRPConfigSystems.evolutionAssimilatedDehiding) {
+                        int key = tags.getInt("srpcothimmunity");
+                        tags.putInt("srpcothimmunity", ++key);
+                    }
+                } else {
+                    entity.removeEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get());
+                }
+                break;
             }
         }
-        // TODO: port full COTH amplifiers 1/default logic (infection, SRPSaveData, ParasiteEventEntity.convertEntity, etc.)
         if (particle) {
             // SRPMain.network.sendToAll(new SRPPacketParticle(...)) - stub
         }
