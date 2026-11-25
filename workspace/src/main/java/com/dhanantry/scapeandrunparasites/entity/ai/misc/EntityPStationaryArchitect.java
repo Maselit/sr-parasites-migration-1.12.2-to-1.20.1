@@ -22,20 +22,24 @@ public class EntityPStationaryArchitect extends EntityParasiteBase {
         return 0;
     }
 
-    // Stubs for methods referenced by AI classes and EntityDod
-    public int getActualParasites() { return 0; }
-    public int getTotalParasites() { return 0; }
+    // Stubs for methods referenced by AI classes
+    public boolean canChangeVariant = false;
+    public int neededTime = 100;
     public int getActualT() { return 0; }
     public void setActualT(int v) { }
+    public void setConvert(boolean in) { }
+    public void setParasiteStatus(int v) { }
+    public int countNeraby(int id) { return 0; }
+    public void setNearbyNonConted(int id) { }
+    public void setNerabyLocked(int id) { }
+    public void setNearbyFree(int id) { }
     public void checkID() { }
+    public int getActualParasites() { return 0; }
+    public int getTotalParasites() { return 0; }
     public Object summonV = null;
     public boolean getLocker() { return false; }
     public void setlocker(boolean in) { }
     public void setCooldownZero(int in) { }
-    public int countNeraby(int id) { return 0; }
-    public void setNerabyLocked(int id) { }
-    public void setNearbyFree(int id) { }
-    public void setNearbyNonConted(int id) { }
     public void setCounted(boolean in) { }
     public boolean getCounted() { return false; }
     public boolean storeParasite(EntityParasiteBase in) { return false; }
@@ -46,4 +50,5 @@ public class EntityPStationaryArchitect extends EntityParasiteBase {
     public boolean storeMangler(EntityParasiteBase in, boolean b) { return false; }
     public void storeAll(EntityParasiteBase in) { }
     public int setGT(int min, int max) { return min; }
+    public net.minecraft.world.entity.LivingEntity getAttackTarget() { return this.getTarget(); }
 }
