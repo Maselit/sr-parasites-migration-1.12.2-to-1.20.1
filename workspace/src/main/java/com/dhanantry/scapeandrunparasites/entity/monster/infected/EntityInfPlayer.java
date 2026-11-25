@@ -25,4 +25,6 @@ public class EntityInfPlayer extends EntityParasiteBase {
     @Override protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource d) { return SRPSounds.INFECTEDHUMAN_HURT.get(); }
     @Override protected net.minecraft.sounds.SoundEvent getDeathSound() { return SRPSounds.INFECTEDHUMAN_DEATH.get(); }
     public float getEyeHeight(net.minecraft.world.entity.Pose p) { return 0.8f; }
+
+    public boolean helmetSlot() { return false; }
 }

@@ -25,4 +25,10 @@ public class EntityInfDragonE extends EntityParasiteBase {
     @Override protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource d) { return SRPSounds.MOBSILENCE.get(); }
     @Override protected net.minecraft.sounds.SoundEvent getDeathSound() { return SRPSounds.MOBSILENCE.get(); }
     public float getEyeHeight(net.minecraft.world.entity.Pose p) { return 0.8f; }
+
+    public float getLeft() { return 0.0f; }
+    public float getRight() { return 0.0f; }
+    public float getHead() { return 0.0f; }
+    public boolean getFlyingState() { return false; }
+    public float getaaa() { return 0.0f; }
 }
