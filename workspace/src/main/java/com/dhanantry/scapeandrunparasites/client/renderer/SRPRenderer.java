@@ -15,6 +15,8 @@ public class SRPRenderer<T extends LivingEntity> extends EntityRenderer<T> {
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return new ResourceLocation("srparasites", "textures/entity/placeholder.png");
+        String name = this.getClass().getSimpleName();
+        if (name.startsWith("Render")) name = name.substring(6);
+        return new ResourceLocation("srparasites", "textures/entity/" + name.toLowerCase() + ".png");
     }
 }
