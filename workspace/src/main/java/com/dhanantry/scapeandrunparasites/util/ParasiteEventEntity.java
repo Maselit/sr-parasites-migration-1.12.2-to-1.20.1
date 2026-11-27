@@ -18,7 +18,17 @@ public class ParasiteEventEntity {
     public static boolean convertEntity(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, Object parasite) { return false; }
     public static boolean convertEntityFeral(LivingEntity entity, net.minecraft.nbt.CompoundTag tags, boolean flag, Object parasite) { return false; }
     public static boolean hijackEntity(LivingEntity entity, String parasite) { return false; }
-    public static net.minecraft.core.BlockPos getFloor(net.minecraft.world.level.LevelAccessor world, net.minecraft.core.BlockPos pos, int max) { return pos; }
+    public static net.minecraft.core.BlockPos getFloor(net.minecraft.world.level.LevelAccessor world, net.minecraft.core.BlockPos pos, int max) {
+        if (max <= 0) return null;
+        --max;
+        if (world.getBlockState(pos).isAir()) {
+            if (!world.getBlockState(pos.below()).isAir()) {
+                return pos;
+            }
+            return getFloor(world, pos.below(), max);
+        }
+        return getFloor(world, pos.above(), max);
+    }
     public static int entityChunkCount(net.minecraft.world.level.Level world, net.minecraft.core.BlockPos pos, Class<?> cls) { return 0; }
     public static int getScentReactionBonus(byte phase) { return 0; }
     public static boolean SummonM(EntityParasiteBase self, String[] mobs, int count, double x, double y, double z, net.minecraft.world.entity.LivingEntity target, boolean flag) { return false; }

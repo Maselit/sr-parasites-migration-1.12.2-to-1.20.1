@@ -23,6 +23,14 @@ import java.util.ArrayList;
  */
 public abstract class EntityParasiteBase extends Monster {
     protected double killcount = 0.0;
+    public Object summonV = null;
+    public int countNeraby(int id) { return 1; }
+    public void setNearbyNonConted(int id) { }
+    public void setNerabyLocked(int id) { }
+    public void setNearbyFree(int id) { }
+    public boolean onlyPeek = false;
+    public double buried = 0.0;
+    public double buriedT = 0.0;
     protected boolean canD = true;
     private int waitInt;
     private boolean canWorkTask;
@@ -33,21 +41,7 @@ public abstract class EntityParasiteBase extends Monster {
     private static final EntityDataAccessor<Integer> SELFE = SynchedEntityData.defineId(EntityParasiteBase.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Byte> SKIN = SynchedEntityData.defineId(EntityParasiteBase.class, EntityDataSerializers.BYTE);
     private static final EntityDataAccessor<Boolean> COLD_L = SynchedEntityData.defineId(EntityParasiteBase.class, EntityDataSerializers.BOOLEAN);
-    public float getLeft() { return 0.0f; }
-    public float getRight() { return 0.0f; }
-    public float getHead() { return 0.0f; }
-    public boolean getBack() { return false; }
-    public float getBODY() { return 0.0f; }
-    public boolean getFlyingState() { return false; }
-    public float getAttackTimer() { return 0.0f; }
-    public float getAttackTimerM() { return 0.0f; }
-    public float getAttackTimerR() { return 0.0f; }
-    public boolean getBurrowed() { return false; }
-    public float getBurrowTimer() { return 0.0f; }
-    public boolean getOpen() { return false; }
-    public Object getTargetedEntity() { return null; }
-    public float getaaa() { return 0.0f; }
-    public int shakingC() { return 0; }    protected int srpTicks;
+    protected int srpTicks;
     protected int lastActiveTime;
     protected int timeSinceIgnited;
     protected int fuseTime = 40;
@@ -131,6 +125,9 @@ public abstract class EntityParasiteBase extends Monster {
     public void setSkin(int texture) { this.entityData.set(SKIN, (byte) texture); }
     public boolean getColdL() { return this.entityData.get(COLD_L); }
     public byte getParasiteStatus() { return this.entityData.get(SPECIAL); }
+    public void setPeek(boolean in) { this.onlyPeek = in; }
+    public void setBuried() { this.setParasiteStatus(3); this.buried = this.buriedT; }
+    public void particleStatus(byte id) { try { this.level().broadcastEntityEvent(this, id); } catch (Exception e) {} }
     public boolean getStillAni() { return this.still; }
     public void setParasiteStatus(int state) { this.entityData.set(SPECIAL, (byte) state); }
     public int getSelfeState() { return this.entityData.get(SELFE); }
@@ -718,3 +715,5 @@ public abstract class EntityParasiteBase extends Monster {
     }
     // fall, getMountedYOffset, getEyeHeight already defined above (Lote 5)
 }
+
+

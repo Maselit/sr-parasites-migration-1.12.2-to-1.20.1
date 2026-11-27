@@ -187,15 +187,129 @@ public class EntityAIDodAttack extends net.minecraft.world.entity.ai.goal.Goal {
         }
     }
 
-    private boolean checkNak() {
-        return this.cooldownNak <= 0;
+    private void unhide(AABB axisalignedbb) {
+        List<LivingEntity> moblist = this.parent.level().getEntitiesOfClass(LivingEntity.class, axisalignedbb);
+        for (LivingEntity mob : moblist) {
+            if (mob == this.parent || mob instanceof EntityParasiteBase || !mob.onGround() || mob.isInWater() || mob instanceof Player) continue;
+            if (!(mob instanceof net.minecraft.world.entity.animal.WaterAnimal) && this.parent.level().random.nextInt(1) == 0 && moblist.size() < this.parent.getMobList().size()) {
+                this.summonTentacles(mob, 0.0, axisalignedbb, true);
+            }
+            if (!mob.hasEffect(com.dhanantry.scapeandrunparasites.init.SRPPotions.COTH_E.get())) continue;
+            // potion refresh omitted (SRPPotions may be stub)
+        }
     }
 
-    private void unhide(AABB axisalignedbb) { }
-    private void storePara(AABB axisalignedbb) { }
+    private void storePara(AABB axisalignedbb) {
+        List<EntityParasiteBase> moblist = this.parent.level().getEntitiesOfClass(EntityParasiteBase.class, axisalignedbb);
+        for (EntityParasiteBase mob : moblist) {
+            if (!mob.isAlive() || mob instanceof EntityPStationaryArchitect || mob instanceof com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPPreeminent || mob instanceof com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPCosmical || mob.getTarget() != null || !mob.onGround() || mob.tickCount <= 100 || mob.canBeStored() != 0) continue;
+            this.parent.storeParasite(mob);
+        }
+    }
 
     private boolean spawnDet(LivingEntity in, EntityParasiteBase entityout, int max, int mini, boolean addId) {
-        // Simplified stub: underlying entity methods are stubs; full spawn logic deferred.
+        boolean flagN = (entityout.getParasiteIDRegister() == 72);
+        if (flagN && this.cooldownNak > 0) {
+            entityout.discard();
+            return false;
+        }
+        boolean tele = (entityout.getParasiteIDRegister() == 74);
+        if (this.parent.getMobList().size() <= 0 && tele) {
+            entityout.discard();
+            return false;
+        }
+        java.util.Random rand = new java.util.Random();
+        double x = in.getX();
+        double y = in.getY();
+        double z = in.getZ();
+        double randomx = rand.nextInt(max) + mini;
+        double randomz = rand.nextInt(max) + mini;
+        double negative = rand.nextInt(2);
+        if (negative == 0.0) randomx *= -1.0;
+        negative = rand.nextInt(2);
+        if (negative == 0.0) randomz *= -1.0;
+        int limit = 0;
+        boolean flag = true;
+        net.minecraft.world.level.Level level = this.parent.level();
+        while (flag) {
+            if (limit >= 5) {
+                entityout.discard();
+                return false;
+            }
+            net.minecraft.core.BlockPos pos = new net.minecraft.core.BlockPos((int)(x + randomx), (int)y, (int)(z + randomz));
+            pos = ParasiteEventEntity.getFloor(level, pos, 5);
+            if (pos != null) {
+                net.minecraft.world.level.block.state.BlockState state = level.getBlockState(pos);
+                if (level.getBlockState(pos.below()).isSolidRender(level, pos.below())) {
+                    float bHard = 0.0f;
+                    net.minecraft.world.level.block.state.BlockState state2 = level.getBlockState(pos.below());
+                    float atm = state2.getDestroySpeed(level, pos.below());
+                    if (atm <= 0.0f) { randomx = rand.nextInt(max)+mini; randomz = rand.nextInt(max)+mini; negative = rand.nextInt(2); if (negative==0.0) randomx*=-1.0; negative = rand.nextInt(2); if (negative==0.0) randomz*=-1.0; ++limit; continue; }
+                    bHard += atm;
+                    state2 = level.getBlockState(pos.below(2));
+                    atm = state2.getDestroySpeed(level, pos.below(2));
+                    if (atm <= 0.0f) { randomx = rand.nextInt(max)+mini; randomz = rand.nextInt(max)+mini; negative = rand.nextInt(2); if (negative==0.0) randomx*=-1.0; negative = rand.nextInt(2); if (negative==0.0) randomz*=-1.0; ++limit; continue; }
+                    bHard += atm;
+                    state2 = level.getBlockState(pos.below(3));
+                    atm = state2.getDestroySpeed(level, pos.below(3));
+                    if (atm <= 0.0f) { randomx = rand.nextInt(max)+mini; randomz = rand.nextInt(max)+mini; negative = rand.nextInt(2); if (negative==0.0) randomx*=-1.0; negative = rand.nextInt(2); if (negative==0.0) randomz*=-1.0; ++limit; continue; }
+                    if ((bHard += atm) >= this.maxHardness) { randomx = rand.nextInt(max)+mini; randomz = rand.nextInt(max)+mini; negative = rand.nextInt(2); if (negative==0.0) randomx*=-1.0; negative = rand.nextInt(2); if (negative==0.0) randomz*=-1.0; ++limit; continue; }
+                    AABB axisalignedbb = new AABB(pos.getX(), pos.getY(), pos.getZ(), pos.getX() + 1, pos.getY() + 1, pos.getZ() + 1).inflate(2.0);
+                    List<LivingEntity> moblist = level.getEntitiesOfClass(LivingEntity.class, axisalignedbb);
+                    if (moblist.isEmpty()) {
+                        entityout.setPos(x + randomx, y, z + randomz);
+                        if (!level.noCollision(entityout, entityout.getBoundingBox())) {
+                            randomx = rand.nextInt(max)+mini; randomz = rand.nextInt(max)+mini; negative = rand.nextInt(2); if (negative==0.0) randomx*=-1.0; negative = rand.nextInt(2); if (negative==0.0) randomz*=-1.0; ++limit; continue;
+                        }
+                        try {
+                            if (level instanceof net.minecraft.server.level.ServerLevel) {
+                                entityout.finalizeSpawn((net.minecraft.server.level.ServerLevel) level, level.getCurrentDifficultyAt(pos), net.minecraft.world.entity.MobSpawnType.NATURAL, null, null);
+                            }
+                        } catch (Exception e) {}
+                        entityout.setTarget(in);
+                        if (tele) {
+                            this.resistanceI.add(entityout.getId());
+                            String name = this.parent.getParasiteStored();
+                            if (name == null) {
+                                entityout.discard();
+                                return false;
+                            }
+                            if (entityout instanceof EntityDodT) {
+                                ((EntityDodT) entityout).setTele(name, this.stage);
+                            }
+                        } else {
+                            this.parent.setActualParasites(1);
+                            this.parent.addID(entityout.getId(), 1);
+                        }
+                        entityout.setPeek(true);
+                        entityout.setBuried();
+                        if (this.parent.isOnFire()) {
+                            entityout.setSecondsOnFire(8);
+                        }
+                        level.addFreshEntity(entityout);
+                        this.tickss = 10.0;
+                        level.broadcastEntityEvent(entityout, (byte) 50);
+                        if (entityout.getParasiteIDRegister() == 74) {
+                            if (entityout instanceof EntityDodT) ((EntityDodT) entityout).setFather(this.parent);
+                        } else if (flagN) {
+                            if (entityout instanceof EntityNak) ((EntityNak) entityout).setFather(this.parent);
+                            this.cooldownNak = 40;
+                        }
+                        flag = false;
+                        return true;
+                    }
+                }
+            }
+            randomx = rand.nextInt(max)+mini; randomz = rand.nextInt(max)+mini; negative = rand.nextInt(2); if (negative==0.0) randomx*=-1.0; negative = rand.nextInt(2); if (negative==0.0) randomz*=-1.0; ++limit;
+        }
+        entityout.discard();
         return false;
     }
+
+    private boolean checkNak() {
+        AABB axisalignedbb = new AABB(this.parent.getX(), this.parent.getY(), this.parent.getZ(), this.parent.getX() + 1.0, this.parent.getY() + 1.0, this.parent.getZ() + 1.0).inflate(7.0, 5.0, 7.0);
+        List<EntityNak> moblist = this.parent.level().getEntitiesOfClass(EntityNak.class, axisalignedbb);
+        return moblist.isEmpty();
+    }
 }
+

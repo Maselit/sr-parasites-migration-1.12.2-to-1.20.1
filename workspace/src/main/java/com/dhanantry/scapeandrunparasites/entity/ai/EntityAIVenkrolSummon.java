@@ -145,8 +145,11 @@ public class EntityAIVenkrolSummon extends Goal {
         }
     }
 
-    private int countNeraby(int id) { return this.parentEntity.countNeraby(id); }
-    private void setNerabyNonConted(int id) { this.parentEntity.setNearbyNonConted(id); }
-    private void setNerabyLocked(int id) { this.parentEntity.setNerabyLocked(id); }
-    private void setNearbyFree(int id) { this.parentEntity.setNearbyFree(id); }
+    public int countNeraby(int id) { return this.parentEntity.countNeraby(id); }
+    public void setCounted(boolean in) { this.counted = in; }
+    public boolean getCounted() { return this.counted; }
+    public void setlocker(boolean in) { if (in) this.attackTimer = -1; this.locked = in; }
+    public boolean getLocker() { return this.locked; }
+    public void setCooldownZero(int in) { this.attackTimer = in; }
+    public int getSCooldown() { return this.sCooldown; }
 }

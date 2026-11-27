@@ -71,6 +71,21 @@ public class EntityDod extends EntityPDispatcher {
     }
 
     @Override
+    public float getBombDamage() {
+        return (float) SRPAttributes.DOD_ATTACK_DAMAGE;
+    }
+
+    @Override
+    public void onLivingUpdate() {
+        super.onLivingUpdate();
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return super.getCanSpawnHere();
+    }
+
+    @Override
     public boolean storeParasite(EntityParasiteBase in) {
         if (super.storeParasite(in)) {
             return true;
