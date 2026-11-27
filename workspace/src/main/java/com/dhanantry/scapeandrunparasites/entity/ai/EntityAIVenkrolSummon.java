@@ -1,6 +1,7 @@
 package com.dhanantry.scapeandrunparasites.entity.ai;
 
 import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPDispatcher;
 import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPStationaryArchitect;
 import com.dhanantry.scapeandrunparasites.util.ParasiteEventEntity;
 import com.dhanantry.scapeandrunparasites.util.SRPAttributes;
@@ -13,7 +14,7 @@ import net.minecraft.world.entity.ai.goal.Goal;
  * Migracion de EntityAIVenkrolSummon a 1.20.1 (Goal). Logica de control portada; convocacion delegada a stubs.
  */
 public class EntityAIVenkrolSummon extends Goal {
-    private final EntityPStationaryArchitect parentEntity;
+    private final EntityPDispatcher parentEntity;
     private int attackTimer = 0;
     private int limit = 0;
     private int sLimit;
@@ -27,7 +28,7 @@ public class EntityAIVenkrolSummon extends Goal {
     private int totalV;
     private double totalM;
 
-    public EntityAIVenkrolSummon(EntityPStationaryArchitect venkrol, int limit, int cooldown, int stage, int CAV, double CAM) {
+    public EntityAIVenkrolSummon(EntityPDispatcher venkrol, int limit, int cooldown, int stage, int CAV, double CAM) {
         this.parentEntity = venkrol;
         this.sCooldown = cooldown;
         this.sLimit = limit;

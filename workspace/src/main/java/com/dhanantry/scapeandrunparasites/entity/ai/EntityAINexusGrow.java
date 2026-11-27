@@ -1,6 +1,6 @@
 package com.dhanantry.scapeandrunparasites.entity.ai;
 
-import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPDispatcher;
 import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPStationaryArchitect;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfigSystems;
 import com.dhanantry.scapeandrunparasites.world.SRPSaveData;
@@ -11,14 +11,14 @@ import net.minecraft.world.entity.ai.goal.Goal;
  * Migracion de EntityAINexusGrow a 1.20.1 (Goal). Logica de fase portada; upgrades simplificados.
  */
 public class EntityAINexusGrow extends Goal {
-    private final EntityPStationaryArchitect parent;
+    private final EntityPDispatcher parent;
     private byte venkrolCurrentStage;
     private double tickss;
     private byte type;
     private boolean canGrow;
     private int dimLock;
 
-    public EntityAINexusGrow(EntityPStationaryArchitect venkrol, int CURRENTstage) {
+    public EntityAINexusGrow(EntityPDispatcher venkrol, int CURRENTstage) {
         this.parent = venkrol;
         this.tickss = 20.0;
         this.type = 1;
@@ -37,7 +37,7 @@ public class EntityAINexusGrow extends Goal {
         this.setFlags(java.util.EnumSet.of(Flag.TARGET));
     }
 
-    public EntityAINexusGrow(EntityPStationaryArchitect venkrol, int CURRENTstage, byte in) {
+    public EntityAINexusGrow(EntityPDispatcher venkrol, int CURRENTstage, byte in) {
         this(venkrol, CURRENTstage);
         this.type = in;
     }

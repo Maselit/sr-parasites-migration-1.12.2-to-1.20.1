@@ -1,7 +1,9 @@
 package com.dhanantry.scapeandrunparasites.entity.monster.deterrent.nexus;
 
+import com.dhanantry.scapeandrunparasites.entity.ai.EntityAIDodAttack;
+import com.dhanantry.scapeandrunparasites.entity.ai.EntityAINexusGrow;
 import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityParasiteBase;
-import com.dhanantry.scapeandrunparasites.init.SRPSounds;
+import com.dhanantry.scapeandrunparasites.entity.ai.misc.EntityPDispatcher;
 import com.dhanantry.scapeandrunparasites.util.SRPAttributes;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfig;
 import com.dhanantry.scapeandrunparasites.util.config.SRPConfigMobs;
@@ -11,46 +13,39 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 
-/**
- * Migracion de EntityDod a 1.20.1 (extiende EntityParasiteBase).
- * STUB parcial: estructura + atributos. La logica real (storeParasite, initEntityAI) pendiente.
- */
-public class EntityDod extends EntityParasiteBase {
-    public int pointCap;
-    public float pointReduction;
-    public float chanceLearn;
-    public float chanceLearnFire;
-    public int DamageTypeCap;
+public class EntityDod extends EntityPDispatcher {
     public int totalP;
     public int[] mobID;
     public int[] mobPT;
-    public int stage;
-    public int neededTime;
-    public int valueEvDeath;
-    public double buried;
-    public int attackCooldown;
+    public byte stage;
+    public int pointCap;
+    public double pointReduction;
+    public double chanceLearn;
+    public double chanceLearnFire;
+    public int DamageTypeCap;
+    public double buried = 0.1;
 
     public EntityDod(EntityType<? extends EntityDod> type, Level level) {
         super(type, level);
-        this.xpReward = (int) (SRPAttributes.XP_INFECTED * 2);
+        this.xpReward = (int)(SRPAttributes.XP_INFECTED * 2);
         this.buried = 0.1;
         this.setParasiteStatus(3);
         this.damageCap = SRPConfig.nexussiCap;
         this.pointCap = SRPConfig.nexussiPointCap;
         this.pointReduction = SRPConfig.nexussiPointRed;
-        this.chanceLearn = (float) SRPConfig.nexussiChanceLe;
-        this.chanceLearnFire = (float) SRPConfig.nexussiChanceLeFire;
+        this.chanceLearn = SRPConfig.nexussiChanceLe;
+        this.chanceLearnFire = SRPConfig.nexussiChanceLeFire;
         this.DamageTypeCap = SRPConfig.nexussiPointDamCap;
         this.totalP = SRPConfigMobs.dodsiTotalActiveMobs;
         this.mobID = new int[3];
         this.mobPT = new int[3];
         this.stage = 1;
+        this.xpReward = (int)(SRPAttributes.XP_INFECTED * 2);
         for (int i = 0; i < this.mobID.length; ++i) {
             this.mobID[i] = -777;
         }
-        this.neededTime = 100;
+        this.neededTime = this.setGT(SRPConfig.nexusMinGrowTime, SRPConfig.nexusMaxGrowTime);
         this.valueEvDeath = SRPConfig.nexussiLoosingEPValue;
-        this.type = (byte) 11;
     }
 
     @Override
@@ -61,7 +56,8 @@ public class EntityDod extends EntityParasiteBase {
     @Override
     protected void registerGoals() {
         this.targetSelector.addGoal(1, new net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal(this));
-        // EntityAINexusGrow, EntityAIDodAttack (stubs) - TODO
+        this.goalSelector.addGoal(4, new EntityAINexusGrow(this, 1, (byte) 2));
+        this.goalSelector.addGoal(2, new EntityAIDodAttack(this, 1, (byte) 16, 10.0f));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -71,19 +67,30 @@ public class EntityDod extends EntityParasiteBase {
             .add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED, 0.0)
             .add(net.minecraft.world.entity.ai.attributes.Attributes.ATTACK_DAMAGE, SRPAttributes.DOD_ATTACK_DAMAGE)
             .add(net.minecraft.world.entity.ai.attributes.Attributes.KNOCKBACK_RESISTANCE, 1.0)
-            .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, SRPConfig.nexussiFollow * (double) SRPConfigMobs.dodsiFollowRangeMult);
+            .add(net.minecraft.world.entity.ai.attributes.Attributes.FOLLOW_RANGE, SRPConfig.nexussiFollow * SRPConfigMobs.dodsiFollowRangeMult);
     }
 
-    public float getBombDamage() {
-        return (float) SRPAttributes.DOD_ATTACK_DAMAGE;
+    @Override
+    public boolean storeParasite(EntityParasiteBase in) {
+        if (super.storeParasite(in)) {
+            return true;
+        }
+        if (this.storeLodo(in, true)) {
+            return true;
+        }
+        if (this.storeInf(in, false)) {
+            return true;
+        }
+        if (this.storeCrude(in, false)) {
+            return true;
+        }
+        if (this.storeMudo(in, false)) {
+            return true;
+        }
+        if (this.storeMangler(in, false)) {
+            return true;
+        }
+        this.storeAll(in);
+        return false;
     }
-
-    public float getEyeHeight(net.minecraft.world.entity.Pose p) { return 2.3f; }
-
-    @Override
-    protected net.minecraft.sounds.SoundEvent getAmbientSound() { return SRPSounds.MOBSILENCE.get(); }
-    @Override
-    protected net.minecraft.sounds.SoundEvent getHurtSound(net.minecraft.world.damagesource.DamageSource d) { return SRPSounds.MOBSILENCE.get(); }
-    @Override
-    protected net.minecraft.sounds.SoundEvent getDeathSound() { return SRPSounds.MOBSILENCE.get(); }
 }

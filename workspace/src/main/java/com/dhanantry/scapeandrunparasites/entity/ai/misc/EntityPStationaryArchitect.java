@@ -8,7 +8,7 @@ import net.minecraft.world.level.Level;
  * Migracion de EntityPStationaryArchitect a 1.20.1.
  * STUB con metodos referenciados por EntityDod / EntityAIVenkrolSummon / EntityAIDodAttack / EntityAINexusGrow.
  */
-public class EntityPStationaryArchitect extends EntityParasiteBase {
+public class EntityPStationaryArchitect extends EntityPDispatcher {
     public EntityPStationaryArchitect(EntityType<? extends EntityPStationaryArchitect> type, Level level) {
         super(type, level);
     }
